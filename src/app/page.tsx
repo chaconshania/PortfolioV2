@@ -25,7 +25,7 @@ export default function Home() {
               <Link href="/blueberry">
                 <div className="flex flex-col gap-1  transition-colors duration-300 ease-in-out group relative rounded-lg overflow-hidden">
                   <Image
-                    src="/blueberry/inbox.png"
+                    src="/blueberry/Inbox.png"
                     className="rounded-lg w-full h-auto"
                     alt="Blueberry dashboard"
                     width={800}
