@@ -125,7 +125,7 @@ export default function Page() {
             <section className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">
-                  So what's the problem now?
+                  So what&apos;s the problem now?
                 </h2>
                 <h3 className="text-xl">Understanding the ICP</h3>
               </div>

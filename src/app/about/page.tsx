@@ -11,20 +11,20 @@ function page() {
               <span className="italic font-thin"></span>{" "}
             </h1>
             <p className="max-w-[800px] text-base">
-              I’m a product designer who loves building things that people
+              I&apos;m a product designer who loves building things that people
               actually enjoy using. I studied digital media & design at the
               University of Connecticut, focusing on web interactive design, and
               along the way picked up skills in front-end development, UX/UI,
-              and motion design. I’m at my best when I’m prototyping and
-              problem-solving—whether that means untangling a messy user flow,
-              creating something interactive from scratch, or working side by
-              side with engineers and founders. <br />
+              and motion design. I&apos;m at my best when I&apos;m prototyping
+              and problem-solving—whether that means untangling a messy user
+              flow, creating something interactive from scratch, or working side
+              by side with engineers and founders. <br />
               <br />
               At UXGO CoCreate (Cohort 20), I got to do exactly that and sharpen
-              my product design skills through real collaboration. I don’t back
-              down from challenges. My next one: earning a master’s in computer
-              science to push myself further and, eventually, launch a product
-              of my own.
+              my product design skills through real collaboration. I don&apos;t
+              back down from challenges. My next one: earning a master&apos;s in
+              computer science to push myself further and, eventually, launch a
+              product of my own.
             </p>
             <hr />
           </div>
@@ -72,20 +72,21 @@ function page() {
           <div className="flex flex-col w-full gap-6">
             <p className=" ">
               <span className="">
-                I’m a product designer who loves building things that people
-                actually enjoy using. I studied digital media & design at the
-                University of Connecticut, focusing on web interactive design,
-                and along the way picked up skills in front-end development,
-                UX/UI, and motion design. I’m at my best when I’m prototyping
-                and problem-solving—whether that means untangling a messy user
-                flow, creating something interactive from scratch, or working
-                side by side with engineers and founders. <br />
+                I&apos;m a product designer who loves building things that
+                people actually enjoy using. I studied digital media & design at
+                the University of Connecticut, focusing on web interactive
+                design, and along the way picked up skills in front-end
+                development, UX/UI, and motion design. I&apos;m at my best when
+                I&apos;m prototyping and problem-solving—whether that means
+                untangling a messy user flow, creating something interactive
+                from scratch, or working side by side with engineers and
+                founders. <br />
                 <br />
                 At UXGO CoCreate (Cohort 20), I got to do exactly that and
                 sharpen my product design skills through real collaboration. I
-                don’t back down from challenges. My next one: earning a master’s
-                in computer science to push myself further and, eventually,
-                launch a product of my own.
+                don&apos;t back down from challenges. My next one: earning a
+                masters in computer science to push myself further and,
+                eventually, launch a product of my own.
               </span>
             </p>
           </div>
