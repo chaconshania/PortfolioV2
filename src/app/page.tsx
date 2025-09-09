@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 export default function Home() {
   return (
@@ -23,10 +24,10 @@ export default function Home() {
               {/*Projects*/}
               <Link href="/blueberry">
                 <div className="flex flex-col gap-1  transition-colors duration-300 ease-in-out group relative rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src="blueberry/inbox.png"
                     className="rounded-lg"
-                    alt=""
+                    alt="Blueberry dashboard"
                   />
                   <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-black text-white text-sm px-4 py-2 rounded">
@@ -45,9 +46,9 @@ export default function Home() {
               {/*Projects*/}
               <Link href="/artoftheroll">
                 <div className="flex flex-col gap-1  transition-colors duration-300 ease-in-out group relative rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src="artoftheroll/cover.png"
-                    alt=""
+                    alt="Art of the roll"
                     className="rounded-lg"
                   />
                   <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">

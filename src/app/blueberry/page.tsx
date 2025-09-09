@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function Page() {
@@ -5,7 +6,11 @@ export default function Page() {
     <div className="min-h-screen bg-background">
       <div className="p-6">
         <section>
-          <img className="rounded-xl w-full" src="/blueberry/pivot.png"></img>
+          <Image
+            className="rounded-xl w-full"
+            src="/blueberry/pivot.png"
+            alt="blueberry dashboard"
+          />
         </section>
         <div className="grid grid-cols-1 lg:grid-cols-[15%_1fr] min-h-screen">
           {/* Left Column  */}
@@ -52,10 +57,11 @@ export default function Page() {
               </div>
             </section>
             <section className="space-y-6">
-              <img
+              <Image
                 className="rounded-xl w-full"
                 src="/blueberry/pivot.png"
-              ></img>
+                alt="blueberry inbox"
+              />
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Overview</h2>
                 <h3 className="text-xl">
@@ -79,10 +85,11 @@ export default function Page() {
               </p>
             </section>
             <section className="space-y-6">
-              <img
+              <Image
                 className="rounded-xl w-full"
                 src="/blueberry/pivot.png"
-              ></img>
+                alt="Pivot from Socialite to Blueberry"
+              />
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
                 <h3 className="text-xl">The Pivot that Changed Everything</h3>
@@ -101,10 +108,11 @@ export default function Page() {
               </p>
             </section>
             <section className="space-y-6">
-              <img
+              <Image
                 className="rounded-xl w-full"
                 src="/blueberry/pivot.png"
-              ></img>
+                alt=""
+              />
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
                 <h3 className="text-xl">The Pivot that Changed Everything</h3>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function page() {
@@ -33,7 +34,7 @@ function page() {
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
             {/* Project 1 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <img src="/me/focus.jpeg" alt="Dreamscape GIF" />
+              <Image src="/me/focus.jpeg" alt="Dreamscape GIF" />
               <div className="absolute bottom-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Web design, Three.Js
@@ -43,7 +44,7 @@ function page() {
 
             {/* Project 2 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <img src="/me/graduated.jpeg" alt="FitMix GIF" />
+              <Image src="/me/graduated.jpeg" alt="FitMix GIF" />
               <div className="absolute bottom-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Mobile App design
@@ -53,7 +54,7 @@ function page() {
 
             {/* Project 3 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <img src="/me/smile.jpeg" alt="Project 3 GIF" />
+              <Image src="/me/smile.jpeg" alt="Project 3 GIF" />
               <div className="absolute bottom-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Web design
