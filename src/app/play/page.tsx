@@ -18,7 +18,13 @@ function Playground() {
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
             {/* Project 1 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <Image src="/play/Dreamscape.gif" alt="Dreamscape GIF" />
+              <Image
+                src="/play/Dreamscape.gif"
+                alt="Dreamscape GIF"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
               <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Web design, Three.Js
@@ -28,7 +34,13 @@ function Playground() {
 
             {/* Project 2 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <Image src="/play/FitMix.gif" alt="FitMix GIF" />
+              <Image
+                src="/play/FitMix.gif"
+                alt="FitMix GIF"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
               <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Mobile App design
@@ -38,7 +50,13 @@ function Playground() {
 
             {/* Project 3 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <Image src="/play/Lifedes.gif" alt="Project 3 GIF" />
+              <Image
+                src="/play/Lifedes.gif"
+                alt="Project 3 GIF"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
               <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Web design
@@ -48,7 +66,13 @@ function Playground() {
 
             {/* Project 4 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <Image src="/play/OasisXR.gif" alt="Project 4 GIF" />
+              <Image
+                src="/play/OasisXR.gif"
+                alt="Project 4 GIF"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
               <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 4
@@ -61,7 +85,13 @@ function Playground() {
 
             {/* Project 5 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <Image src="/play/Lifedes.gif" alt="Project 5 GIF" />
+              <Image
+                src="/play/Lifedes.gif"
+                alt="Project 5 GIF"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
               <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 5
@@ -74,7 +104,13 @@ function Playground() {
 
             {/* Project 6 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
-              <Image src="/play/OasisXR.gif" alt="Project 6 GIF" />
+              <Image
+                src="/play/OasisXR.gif"
+                alt="Project 6 GIF"
+                width={800}
+                height={600}
+                className="w-full h-auto"
+              />
               <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 6

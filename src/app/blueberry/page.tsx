@@ -7,9 +7,11 @@ export default function Page() {
       <div className="p-6">
         <section>
           <Image
-            className="rounded-xl w-full"
+            className="rounded-xl w-full h-auto"
             src="/blueberry/pivot.png"
             alt="blueberry dashboard"
+            width={800}
+            height={600}
           />
         </section>
         <div className="grid grid-cols-1 lg:grid-cols-[15%_1fr] min-h-screen">
@@ -58,9 +60,11 @@ export default function Page() {
             </section>
             <section className="space-y-6">
               <Image
-                className="rounded-xl w-full"
+                className="rounded-xl w-full h-auto"
                 src="/blueberry/pivot.png"
                 alt="blueberry inbox"
+                width={800}
+                height={600}
               />
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Overview</h2>
@@ -86,9 +90,11 @@ export default function Page() {
             </section>
             <section className="space-y-6">
               <Image
-                className="rounded-xl w-full"
+                className="rounded-xl w-full h-auto"
                 src="/blueberry/pivot.png"
                 alt="Pivot from Socialite to Blueberry"
+                width={800}
+                height={600}
               />
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
@@ -109,9 +115,11 @@ export default function Page() {
             </section>
             <section className="space-y-6">
               <Image
-                className="rounded-xl w-full"
+                className="rounded-xl w-full h-auto"
                 src="/blueberry/pivot.png"
                 alt=""
+                width={800}
+                height={600}
               />
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
