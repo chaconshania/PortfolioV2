@@ -7,26 +7,12 @@ function page() {
       <main className="flex flex-col p-6 w-full items-center gap-6">
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6  w-full">
           <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[600px] text-3xl lg:text-5xl ">
-              Shaped by Challenge, Focused on Creation
+            <h1 className="max-w-[900px] text-3xl lg:text-7xl ">
+              Shaped by challenge, focused on{" "}
+              <span className="font-bold">creation</span>.
               <span className="italic font-thin"></span>{" "}
             </h1>
-            <p className="max-w-[800px] text-base">
-              I&apos;m a product designer who loves building things that people
-              actually enjoy using. I studied digital media & design at the
-              University of Connecticut, focusing on web interactive design, and
-              along the way picked up skills in front-end development, UX/UI,
-              and motion design. I&apos;m at my best when I&apos;m prototyping
-              and problem-solving—whether that means untangling a messy user
-              flow, creating something interactive from scratch, or working side
-              by side with engineers and founders. <br />
-              <br />
-              At UXGO CoCreate (Cohort 20), I got to do exactly that and sharpen
-              my product design skills through real collaboration. I don&apos;t
-              back down from challenges. My next one: earning a master&apos;s in
-              computer science to push myself further and, eventually, launch a
-              product of my own.
-            </p>
+
             <hr />
           </div>
         </section>
@@ -85,7 +71,7 @@ function page() {
         <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6  w-full">
           <div className="flex flex-col w-full gap-6">
             <h1 className="max-w-[600px] text-4xl">
-              <span className="">Shaped by Challenge, Focused on Creation</span>
+              <span className="">My background</span>
             </h1>
           </div>
           <div className="flex flex-col w-full gap-6">

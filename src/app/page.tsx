@@ -6,8 +6,8 @@ export default function Home() {
       <main className="flex flex-col p-6 w-full items-center gap-6">
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6  w-full">
           <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[600px] text-3xl lg:text-5xl ">
-              <span className="font-bold">Shania</span> is a product designer
+            <h1 className="max-w-[900px] text-3xl lg:text-7xl ">
+              Shania is a <span className="font-bold">product designer </span>
               who codes, turning sketches into shipped products.
               <span className="italic font-thin"></span>{" "}
             </h1>

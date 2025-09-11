@@ -7,8 +7,10 @@ function Playground() {
       <main className="flex flex-col p-6 w-full items-center gap-12">
         <section className="flex flex-col lg:flex-row lg:gap-6 w-full">
           <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[600px] text-3xl lg:text-5xl">
-              A collection of small experiments I&apos;ve built over the years.
+            <h1 className="max-w-[900px] text-3xl lg:text-7xl">
+              A collection of{" "}
+              <span className="font-bold">small experiments</span> I&apos;ve
+              built over the years.
             </h1>
             <hr />
           </div>
