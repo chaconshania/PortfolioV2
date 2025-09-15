@@ -4,7 +4,7 @@ import React from "react";
 function Playground() {
   return (
     <div>
-      <main className="flex flex-col p-6 w-full items-center gap-12">
+      <main className="flex flex-col p-6 w-full items-center gap-6">
         <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10">
           <div className="flex flex-col w-full gap-6">
             <h1 className="max-w-[900px] text-3xl lg:text-6xl">
