@@ -5,17 +5,16 @@ function Playground() {
   return (
     <div>
       <main className="flex flex-col p-6 w-full items-center gap-12">
-        <section className="flex flex-col lg:flex-row lg:gap-6 w-full">
+        <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10">
           <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[900px] text-3xl lg:text-7xl">
+            <h1 className="max-w-[900px] text-3xl lg:text-6xl">
               A collection of{" "}
-              <span className="font-bold">small experiments</span> I&apos;ve
+              <span className="font-bold text-[#333333]">small experiments</span> I&apos;ve
               built over the years.
             </h1>
-            <hr />
+          
           </div>
         </section>
-
         <section className="w-full">
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
             {/* Project 1 */}

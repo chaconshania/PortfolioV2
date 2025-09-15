@@ -3,19 +3,26 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      <main className="flex flex-col p-6 w-full items-center gap-6">
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6  w-full">
+      <main className="flex flex-col p-6 w-full gap-6 ">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 w-full">
           <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[900px] text-3xl lg:text-7xl ">
-              Shania is a <span className="font-bold">product designer </span>
+            <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#999999] ">
+              Shania is a <span className="font-bold text-[#333333]">product designer </span>
               who codes, turning sketches into shipped products.
               <span className="italic font-thin"></span>{" "}
             </h1>
-            <p className="max-w-[600px] text-base">
-              Currently designing @ Blueberry Social
+            <p className="max-w-[600px] text-base ">
+              Previously designed @ Blueberry Social
             </p>
-            <hr />
+        {/*   Linkedin and Github logos
+          <div className="flex flex-col  justify-end ">
+            <ul className="flex flex-row gap-4 ">
+              <li><Image src="/me/linkedin.svg" alt="linkedin logo" width={24} height={24}></Image></li>
+              <li><Image src="/me/github.svg" alt="github logo" width={24} height={24}></Image></li>
+            </ul>
           </div>
+          */}
+        </div>
         </section>
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full">
