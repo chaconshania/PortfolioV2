@@ -4,8 +4,8 @@ import React from "react";
 function Playground() {
   return (
     <div>
-      <main className="flex flex-col p-6 w-full items-center gap-6">
-        <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10">
+      <main className="flex flex-col p-6 w-full items-center gap-2">
+        <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10 pb-4">
           <div className="flex flex-col w-full gap-6">
             <h1 className="max-w-[900px] text-3xl lg:text-6xl">
               A collection of{" "}
@@ -16,7 +16,7 @@ function Playground() {
           </div>
         </section>
         <section className="w-full">
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-2 space-y-2">
             {/* Project 1 */}
             <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
               <Image

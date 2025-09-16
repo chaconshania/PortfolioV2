@@ -26,12 +26,12 @@ export default function Home() {
         </section>
         
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
             {/* Columns */}
             <div className="flex flex-col gap-6">
               {/*Projects*/}
               <Link href="/blueberry">
-                <div className="flex flex-col gap-1  transition-colors duration-300 ease-in-out group relative rounded-lg overflow-hidden">
+                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/blueberry/Inbox.png"
                     className="rounded-lg w-full h-auto"
@@ -39,12 +39,12 @@ export default function Home() {
                     width={800}
                     height={600}
                   />
-                  <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-black text-white text-sm px-4 py-2 rounded">
                       Product Design, Case Study
                     </span>
                   </div>
-                  <h3 className="max-w-[600px] text-md">
+                  <h3 className="max-w-[600px] text-md ">
                     Turning chaotic social chatter into warm, on-brand
                     conversations automatically
                   </h3>
@@ -55,7 +55,7 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               {/*Projects*/}
               <Link href="/artoftheroll">
-                <div className="flex flex-col gap-1  transition-colors duration-300 ease-in-out group relative rounded-lg overflow-hidden">
+                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/artoftheroll/cover.png"
                     alt="Art of the roll"
@@ -63,7 +63,7 @@ export default function Home() {
                     width={800}
                     height={600}
                   />
-                  <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-black text-white text-sm px-4 py-2 rounded">
                       Product Design, Case Study
                     </span>
@@ -79,7 +79,7 @@ export default function Home() {
              <div className="flex flex-col gap-6">
               {/*Projects*/}
               <Link href="/artoftheroll">
-                <div className="flex flex-col gap-1  transition-colors duration-300 ease-in-out group relative rounded-lg overflow-hidden">
+                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/artoftheroll/cover.png"
                     alt="Art of the roll"
@@ -87,22 +87,20 @@ export default function Home() {
                     width={800}
                     height={600}
                   />
-                  <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-black text-white text-sm px-4 py-2 rounded">
                       Product Design, Case Study
                     </span>
                   </div>
-                  <h3 className="max-w-[600px] text-md ">
-                    From mural walls to mobile feeds, I design the journeys
-                    people remember.
+                  <h3 className="max-w-[600px] text-md">
+                    Award-winning XR interactive experience designed for mindful engagement
                   </h3>
-                  <h4 className="text-sm">ART OF THE ROLL • PENDING 2025</h4>
+                  <h4 className="text-sm">OASIS XR • CASE STUDY 2025</h4>
                 </div>
               </Link>
             </div>
           </div>
         </section>
-        <footer className="flex flex-col p-6 w-full items-center gap-12"></footer>
       </main>
     </div>
   );
