@@ -50,11 +50,6 @@ function page() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute bottom-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                <span className="bg-black text-white text-sm px-4 py-2 rounded">
-                  Web design, Three.Js
-                </span>
-              </div>
             </div>
 
             {/* Project 2 */}
@@ -66,12 +61,6 @@ function page() {
                 height={600}
                 className="w-full h-auto"
               />
-
-              <div className="absolute bottom-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                <span className="bg-black text-white text-sm px-4 py-2 rounded">
-                  Mobile App design
-                </span>
-              </div>
             </div>
 
             {/* Project 3 */}
@@ -83,11 +72,6 @@ function page() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute bottom-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                <span className="bg-black text-white text-sm px-4 py-2 rounded">
-                  Web design
-                </span>
-              </div>
             </div>
           </div>
         </section>

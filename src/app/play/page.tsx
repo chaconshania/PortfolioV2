@@ -26,7 +26,7 @@ function Playground() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Web design, Three.Js
                 </span>
@@ -42,7 +42,7 @@ function Playground() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Mobile App design
                 </span>
@@ -58,7 +58,7 @@ function Playground() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Web design
                 </span>
@@ -74,7 +74,7 @@ function Playground() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 4
                 </span>
@@ -93,7 +93,7 @@ function Playground() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 5
                 </span>
@@ -112,7 +112,7 @@ function Playground() {
                 height={600}
                 className="w-full h-auto"
               />
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 6
                 </span>
@@ -124,7 +124,7 @@ function Playground() {
 
             {/* Project 7 */}
             <div className="break-inside-avoid group relative bg-neutral-100  h-[400px] rounded-lg overflow-hidden">
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 6
                 </span>
@@ -134,7 +134,7 @@ function Playground() {
               </div>
             </div>
             <div className="break-inside-avoid group relative bg-neutral-100  h-[400px] rounded-lg overflow-hidden">
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 6
                 </span>
@@ -144,7 +144,7 @@ function Playground() {
               </div>
             </div>
             <div className="break-inside-avoid group relative bg-neutral-100  h-[400px] rounded-lg overflow-hidden">
-              <div className="absolute top-2 left-2 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-2 left-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <span className="bg-black text-white text-sm px-4 py-2 rounded">
                   Project 6
                 </span>
