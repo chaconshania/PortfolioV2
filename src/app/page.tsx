@@ -33,7 +33,7 @@ export default function Home() {
               <Link href="/blueberry">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
-                    src="/blueberry/Inbox.png"
+                    src="/homepage/inbox.png"
                     className="rounded-lg w-full h-auto"
                     alt="Blueberry dashboard"
                     width={800}
@@ -57,7 +57,7 @@ export default function Home() {
               <Link href="/artoftheroll">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
-                    src="/artoftheroll/cover.png"
+                    src="/homepage/artoftheroll.png"
                     alt="Art of the roll"
                     className="rounded-lg w-full h-auto"
                     width={800}
@@ -81,8 +81,8 @@ export default function Home() {
               <Link href="/artoftheroll">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
-                    src="/artoftheroll/cover.png"
-                    alt="Art of the roll"
+                    src="/homepage/oasisxr.png"
+                    alt="Oasis XR"
                     className="rounded-lg w-full h-auto"
                     width={800}
                     height={600}
