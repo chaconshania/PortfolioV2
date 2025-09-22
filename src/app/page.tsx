@@ -33,7 +33,7 @@ export default function Home() {
               <Link href="/blueberry">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
-                    src="/homepage/Inbox.png"
+                    src="/homepage/Blueberry.png"
                     className="rounded-lg w-full h-auto"
                     alt="Blueberry dashboard"
                     width={800}
