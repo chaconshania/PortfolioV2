@@ -1,20 +1,31 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
 export default function Home() {
   return (
     <div>
       <main className="flex flex-col p-6 w-full gap-6 ">
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 w-full">
-          <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#999999] ">
-              Shania is a <span className="font-bold text-[#333333]">product designer </span>
-              who codes, turning sketches into shipped products.
-              <span className="italic font-thin"></span>{" "}
-            </h1>
-            <p className="max-w-[600px] text-base ">
-              Previously designed @ Blueberry Social
-            </p>
-        {/*   Linkedin and Github logos
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex flex-col w-full gap-6">
+              <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#999999] ">
+                Shania is a{" "}
+                <span className="font-bold text-[#333333]">
+                  product designer{" "}
+                </span>
+                who codes, turning sketches into shipped products.
+                <span className="italic font-thin"></span>{" "}
+              </h1>
+              <p className="max-w-[600px] text-base ">
+                Previously designed @ Blueberry Social
+              </p>
+              {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
             <ul className="flex flex-row gap-4 ">
               <li><Image src="/me/linkedin.svg" alt="linkedin logo" width={24} height={24}></Image></li>
@@ -22,9 +33,10 @@ export default function Home() {
             </ul>
           </div>
           */}
-        </div>
+            </div>
+          </motion.div>
         </section>
-        
+
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
             {/* Columns */}
@@ -76,7 +88,7 @@ export default function Home() {
                 </div>
               </Link>
             </div>
-             <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
               {/*Projects*/}
               <Link href="/artoftheroll">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
@@ -93,7 +105,8 @@ export default function Home() {
                     </span>
                   </div>
                   <h3 className="max-w-[600px] text-md">
-                    Award-winning XR interactive experience designed for mindful engagement
+                    Award-winning XR interactive experience designed for mindful
+                    engagement
                   </h3>
                   <h4 className="text-sm">OASIS XR • CASE STUDY 2025</h4>
                 </div>
