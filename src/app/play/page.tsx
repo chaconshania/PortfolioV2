@@ -1,7 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-const projects = [
+type Project = {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  tags: string[];
+};
+
+const projects: Project[] = [
   {
     type: "image",
     src: "/play/Design.png",
@@ -30,7 +37,7 @@ const projects = [
     type: "video",
     src: "/play/game.mp4",
     alt: "Project 4 demo",
-    tags: ["Game Concept, Java"],
+    tags: ["Game Concept", "Java"], // fixed: separate tags
   },
   {
     type: "image",
@@ -40,13 +47,13 @@ const projects = [
   },
 ];
 
-function ProjectCard({ type, src, alt, tags }) {
+function ProjectCard({ type, src, alt, tags }: Project) {
   return (
     <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden h-auto">
       {type === "image" && src && (
         <Image
           src={src}
-          alt={alt}
+          alt={alt || ""}
           width={800}
           height={600}
           className="w-full h-auto"
