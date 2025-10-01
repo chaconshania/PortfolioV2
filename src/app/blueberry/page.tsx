@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-20">
       <div className="p-6">
         <section>
           <Image

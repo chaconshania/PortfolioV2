@@ -5,7 +5,7 @@ function page() {
   return (
     <div>
       <main className="flex flex-col p-6 w-full items-center gap-6">
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 w-full">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 w-full ">
           <div className="flex flex-col w-full gap-6">
             <h1 className="max-w-[900px] text-3xl lg:text-6xl ">
               Shaped by challenge, focused on{" "}
@@ -14,9 +14,8 @@ function page() {
             </h1>
           </div>
         </section>
-         <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6  w-full">
-          <div className="flex flex-col w-full gap-6">
-          </div>
+        <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6  w-full">
+          <div className="flex flex-col w-full gap-6"></div>
           <div className="flex flex-col w-full gap-6">
             <p className=" ">
               <span className="">

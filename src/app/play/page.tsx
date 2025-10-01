@@ -49,7 +49,7 @@ const projects: Project[] = [
 
 function ProjectCard({ type, src, alt, tags }: Project) {
   return (
-    <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden h-auto">
+    <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden h-auto ">
       {type === "image" && src && (
         <Image
           src={src}
@@ -85,7 +85,7 @@ function ProjectCard({ type, src, alt, tags }: Project) {
 
 function Playground() {
   return (
-    <main className="flex flex-col p-6 w-full items-center gap-2">
+    <main className="flex flex-col p-6 w-full items-center gap-2  pt-20">
       <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10 pb-4">
         <div className="flex flex-col w-full gap-6">
           <h1 className="max-w-[900px] text-3xl lg:text-6xl">
