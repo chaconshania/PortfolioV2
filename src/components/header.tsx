@@ -12,19 +12,31 @@ export default function Header() {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // disable navbar when scrolling
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setShow(false);
       } else {
         setShow(true);
       }
-      setLastScrollY(window.scrollY);
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // no scrolling
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const navItems = [
     { name: "WORK", href: "/" },
@@ -42,9 +54,9 @@ export default function Header() {
       {/* Navbar */}
       <motion.nav
         initial={{ y: 0 }}
-        animate={{ y: show ? 0 : -80 }}
+        animate={{ y: show ? 0 : "-100%" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="sticky top-0 z-50 w-full bg-white/30 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
+        className="fixed lg:sticky top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
       >
         <div className="relative grid grid-cols-2 lg:grid-cols-3 p-6 w-full gap-12 items-center">
           <Link href="/">
@@ -55,7 +67,6 @@ export default function Header() {
             <h2 className="text-sm">PRODUCT DESIGNER</h2>
           </div>
 
-          {/* Desktop nav */}
           <div className="hidden lg:block text-end">
             <ul className="flex gap-6 justify-end">
               {navItems.map((item, index) => (
@@ -73,7 +84,6 @@ export default function Header() {
             </ul>
           </div>
 
-          {/* Mobile hamburger */}
           <div className="flex justify-end lg:hidden">
             <button onClick={() => setOpen(!open)} className="p-2">
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -82,6 +92,7 @@ export default function Header() {
         </div>
       </motion.nav>
 
+      {/* Overlay for mobile */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -89,7 +100,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="sticky inset-0 z-40 bg-white/95 backdrop-blur-md md:hidden"
+            className="fixed lg:sticky inset-0 z-40 bg-white/95 backdrop-blur-md "
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8">
               {navItems.map((item, index) => (

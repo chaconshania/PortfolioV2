@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <main className="flex flex-col p-6 w-full gap-6 ">
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 w-full">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
