@@ -89,7 +89,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md md:hidden"
+            className="sticky inset-0 z-40 bg-white/95 backdrop-blur-md md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8">
               {navItems.map((item, index) => (
