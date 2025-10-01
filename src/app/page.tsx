@@ -52,9 +52,9 @@ export default function Home() {
                     height={600}
                   />
                   <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-black text-white text-sm px-4 py-2 rounded">
+                    {/* <span className="bg-black text-white text-sm px-4 py-2 rounded">
                       Product Design, Case Study
-                    </span>
+                    </span> */}
                   </div>
                   <h3 className="max-w-[600px] text-md ">
                     Turning chaotic social chatter into warm, on-brand
@@ -76,9 +76,9 @@ export default function Home() {
                     height={600}
                   />
                   <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-black text-white text-sm px-4 py-2 rounded">
+                    {/*<span className="bg-black text-white text-sm px-4 py-2 rounded">
                       Product Design, Case Study
-                    </span>
+                    </span> */}
                   </div>
                   <h3 className="max-w-[600px] text-md ">
                     From mural walls to mobile feeds, I design the journeys
@@ -100,9 +100,9 @@ export default function Home() {
                     height={600}
                   />
                   <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-black text-white text-sm px-4 py-2 rounded">
+                    {/*<span className="bg-black text-white text-sm px-4 py-2 rounded">
                       Product Design, Case Study
-                    </span>
+                    </span> */}
                   </div>
                   <h3 className="max-w-[600px] text-md">
                     Award-winning XR interactive experience designed for mindful

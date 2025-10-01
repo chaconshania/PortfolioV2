@@ -37,7 +37,7 @@ const projects: Project[] = [
     type: "video",
     src: "/play/game.mp4",
     alt: "Project 4 demo",
-    tags: ["Game Concept", "Java"], // fixed: separate tags
+    tags: ["Game Concept, Java"],
   },
   {
     type: "image",
@@ -89,9 +89,9 @@ function Playground() {
       <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10 pb-4">
         <div className="flex flex-col w-full gap-6">
           <h1 className="max-w-[900px] text-3xl lg:text-6xl">
-            A collection of{" "}
-            <span className="font-bold text-[#333333]">small experiments</span>{" "}
-            I&apos;ve built over the years.
+            My{" "}
+            <span className="font-bold text-[#333333]">lab of curiosity </span>
+            where I tinker, break, and build anything that sparks an idea.
           </h1>
         </div>
       </section>
