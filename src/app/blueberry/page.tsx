@@ -8,7 +8,7 @@ export default function Page() {
         <section>
           <Image
             className="rounded-xl w-full h-auto"
-            src="/blueberry/pivot.png"
+            src="/blueberry/blueberry.jpg"
             alt="blueberry dashboard"
             width={800}
             height={600}
@@ -103,13 +103,14 @@ export default function Page() {
             </section>
 
             <section className="space-y-6">
+              {/*}
               <Image
                 className="rounded-xl w-full h-auto"
                 src="/blueberry/pivot.png"
                 alt=""
                 width={800}
                 height={600}
-              />
+              /> {*/}
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Solution</h2>
                 <h3 className="text-2xl font-bold">

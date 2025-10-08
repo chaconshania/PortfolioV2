@@ -70,13 +70,14 @@ export default function Page() {
             </section>
 
             <section className="space-y-6">
+              {/*}
               <Image
                 className="rounded-xl w-full h-auto"
                 src="/blueberry/pivot.png"
                 alt="Pivot from Socialite to Blueberry"
                 width={800}
                 height={600}
-              />
+              /> */}
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
                 <h3 className="text-2xl font-bold">
@@ -109,13 +110,14 @@ export default function Page() {
                   solutions ignored personal differences.
                 </p>
               </div>
+              {/*}
               <Image
                 className="rounded-xl w-full h-auto"
                 src="/blueberry/pivot.png"
                 alt="XR Research Visualization"
                 width={800}
                 height={600}
-              />
+              /> */}
             </section>
 
             <section className="space-y-6">
