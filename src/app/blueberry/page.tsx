@@ -118,13 +118,6 @@ export default function Page() {
                   conversations efficiently and turn them into sales
                 </h3>
               </div>
-              <Image
-                className="rounded-xl w-full h-auto"
-                src="/blueberry/pivot.png"
-                alt=""
-                width={800}
-                height={600}
-              />
             </section>
             <section className="space-y-12">
               <div className="space-y-2">
