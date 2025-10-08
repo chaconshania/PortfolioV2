@@ -80,7 +80,7 @@ export default function Page() {
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
                 <h3 className="text-2xl font-bold">
-                  Mental wellness apps weren't cutting through the noise
+                  Mental wellness apps were not cutting through the noise
                 </h3>
               </div>
               <p>
@@ -122,7 +122,7 @@ export default function Page() {
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Discovery</h2>
                 <h3 className="text-2xl font-bold">
-                  Getting inside users' heads (and hearts)
+                  Getting inside users heads (and hearts)
                 </h3>
               </div>
               <p>

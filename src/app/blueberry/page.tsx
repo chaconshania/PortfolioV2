@@ -143,7 +143,7 @@ export default function Page() {
                   <p>
                     We made a critical realization: every question we asked was
                     a barrier between the user and seeing value. So we
-                    ruthlessly cut. What's the absolute minimum information we
+                    ruthlessly cut. What is the absolute minimum information we
                     need to get someone up and running?
                   </p>
                 </div>
@@ -211,14 +211,14 @@ export default function Page() {
               <p>
                 <span className="font-bold">DM Functionality:</span>
                 Multiple users mentioned managing DMs as part of their workflow.
-                We deprioritized this for launch, but it's a clear user need
+                We deprioritized this for launch, but it is a clear user need
                 worth exploring. The inbox-to-DM flow could unlock new
                 engagement opportunities.
               </p>
               <p>
                 <span className="font-bold">Dashboard with real value</span> Our
-                current dashboard is pretty bare. It doesn't give users much
-                reason to return. I'd focus on surfacing actionable
+                current dashboard is pretty bare. It does not give users much
+                reason to return. I would focus on surfacing actionable
                 insights—sentiment trends, engagement spikes, buyer signals—to
                 reduce bounce rate and make the dashboard a true hub.
               </p>
