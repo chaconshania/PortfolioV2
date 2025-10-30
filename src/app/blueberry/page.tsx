@@ -4,19 +4,20 @@ import React from "react";
 export default function Page() {
   return (
     <div className="min-h-screen bg-background pt-0">
-      <div className="p-6">
-        <section>
+      <div className="px-6 mt-[100px] lg:mt-0">
+        <section className="w-full">
           <Image
-            className="rounded-xl w-full h-auto"
+            className="rounded-xl w-full h-auto  object-cover"
             src="/blueberry/blueberry.jpg"
             alt="blueberry dashboard"
-            width={800}
-            height={600}
+            width={1200}
+            height={800}
+           
           />
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen">
-          <aside className="hidden lg:flex col-span-2 sticky top-0 h-screen flex-col justify-end overflow-y-auto">
+          <aside className="hidden lg:flex col-span-2 sticky top-0 justify-end h-screen flex-col  overflow-y-auto">
             <nav className="py-6">
               <ul className="space-y-2 text-sm">
                 <li>Overview</li>

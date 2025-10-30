@@ -14,12 +14,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-col w-full gap-6">
-              <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#999999] ">
-                Shania is a{" "}
-                <span className="font-bold text-[#333333]">
-                  product designer{" "}
-                </span>
-                who codes, turning sketches into shipped products.
+              <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] ">
+                Shania is a <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">product designer</span> who codes, turning sketches into shipped products.
                 <span className="italic font-thin"></span>{" "}
               </h1>
               <p className="max-w-[600px] text-base ">
@@ -114,6 +110,23 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/*
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex flex-col w-full gap-6">
+              <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] ">
+                Web Designs
+              </h1>
+              <p className="max-w-[600px] text-base ">
+                I like to design and code websites as well
+              </p>
+             
+          </motion.div>
+        </section> */}
       </main>
     </div>
   );
