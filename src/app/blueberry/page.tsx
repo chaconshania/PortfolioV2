@@ -1,7 +1,39 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Page() {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background pt-0">
       <div className="px-6 mt-[100px] lg:mt-0">
@@ -19,15 +51,114 @@ export default function Page() {
           <aside className="hidden lg:flex col-span-2 sticky top-0 justify-end h-screen flex-col overflow-y-auto">
             <nav className="py-6">
               <ul className="space-y-2 text-sm">
-                <li>The Problem</li>
-                <li>The Pivot</li>
-                <li>Understanding Users</li>
-                <li>Design Process</li>
-                <li>Brand Identity</li>
-                <li>Key Features</li>
-                <li>Results</li>
-                <li>What I Learned</li>
-                <li>Next Steps</li>
+                <li>
+                  <a
+                    href="#the-problem"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "the-problem"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    The Problem
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#the-pivot"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "the-pivot"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    The Pivot
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#understanding-users"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "understanding-users"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Understanding Users
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#design-process"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "design-process"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Design Process
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#brand-identity"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "brand-identity"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Brand Identity
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#key-features"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "key-features"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Key Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#results"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "results"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Results
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#what-i-learned"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "what-i-learned"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    What I Learned
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#next-steps"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "next-steps"
+                        ? "text-foreground font-medium"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Next Steps
+                  </a>
+                </li>
               </ul>
             </nav>
           </aside>
@@ -75,7 +206,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="the-problem" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">The Problem</h2>
                 <h3 className="text-2xl font-bold">
@@ -89,14 +220,14 @@ export default function Page() {
 
               <Image
                 className="rounded-xl w-full h-auto"
-                src="/blueberry/problem-scenario.jpg"
+                src="/blueberry/group-picture.JPG"
                 alt="Group picture"
                 width={800}
                 height={600}
               />
             </section>
 
-            <section className="space-y-6">
+            <section id="the-pivot" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">The Pivot</h2>
                 <h3 className="text-2xl font-bold">
@@ -139,7 +270,7 @@ export default function Page() {
               />
             </section>
 
-            <section className="space-y-6">
+            <section id="understanding-users" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Understanding Users</h2>
                 <h3 className="text-2xl font-bold">
@@ -191,7 +322,7 @@ export default function Page() {
               />
             </section>
 
-            <section className="space-y-6">
+            <section id="design-process" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Design Process</h2>
                 <h3 className="text-2xl font-bold">
@@ -508,7 +639,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="brand-identity" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Brand Identity</h2>
                 <h3 className="text-2xl font-bold">
@@ -562,7 +693,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="key-features" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Key Features</h2>
                 <h3 className="text-2xl font-bold">What we built</h3>
@@ -624,7 +755,7 @@ export default function Page() {
               />
             </section>
 
-            <section className="space-y-6">
+            <section id="results" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Results</h2>
                 <h3 className="text-2xl font-bold">The impact</h3>
@@ -726,7 +857,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="space-y-6">
+            <section id="what-i-learned" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">What I Learned</h2>
                 <h3 className="text-2xl font-bold">Key takeaways</h3>
@@ -780,7 +911,7 @@ export default function Page() {
               />
             </section>
 
-            <section className="space-y-6">
+            <section id="next-steps" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Next Steps</h2>
                 <h3 className="text-2xl font-bold">Where we go from here</h3>
