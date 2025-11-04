@@ -56,7 +56,7 @@ export default function Page() {
                     href="#the-problem"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "the-problem"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -68,7 +68,7 @@ export default function Page() {
                     href="#the-pivot"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "the-pivot"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -80,7 +80,7 @@ export default function Page() {
                     href="#understanding-users"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "understanding-users"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -92,7 +92,7 @@ export default function Page() {
                     href="#design-process"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "design-process"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -104,7 +104,7 @@ export default function Page() {
                     href="#brand-identity"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "brand-identity"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -116,7 +116,7 @@ export default function Page() {
                     href="#key-features"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "key-features"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -128,7 +128,7 @@ export default function Page() {
                     href="#results"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "results"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -140,7 +140,7 @@ export default function Page() {
                     href="#what-i-learned"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "what-i-learned"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
@@ -152,7 +152,7 @@ export default function Page() {
                     href="#next-steps"
                     className={`transition-colors cursor-pointer ${
                       activeSection === "next-steps"
-                        ? "text-foreground font-medium"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
                         : "text-[#666666] hover:text-foreground"
                     }`}
                   >
