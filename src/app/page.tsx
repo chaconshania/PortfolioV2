@@ -2,8 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
+  const [isCardHovered, setIsCardHovered] = useState(false);
+
   return (
     <div>
       <main className="flex flex-col p-6 w-full gap-6 ">
@@ -14,7 +17,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-col w-full gap-6">
-              <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] ">
+              <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] relative ">
                 Shania is a <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">product designer</span> who codes, turning sketches into shipped products.
                 <span className="italic font-thin"></span>{" "}
               </h1>
@@ -33,13 +36,30 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full relative">
+          {/* Blueberry SVG - positioned behind container */}
+          <motion.div
+            animate={{ y: isCardHovered ? -160 : 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-[-60] left-10 pointer-events-none"
+          >
+            <Image
+              src="/me/Bloo.svg"
+              alt="Blueberry decoration"
+              width={500}
+              height={500}
+            />
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full relative" style={{ zIndex: 30 }}>
             {/* Columns */}
             <div className="flex flex-col gap-6">
               {/*Projects*/}
               <Link href="/blueberry">
-                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+                <div
+                  className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]"
+                  onMouseEnter={() => setIsCardHovered(true)}
+                  onMouseLeave={() => setIsCardHovered(false)}
+                >
                   <Image
                     src="/homepage/Blueberry.png"
                     className="rounded-lg w-full h-auto"
@@ -60,8 +80,10 @@ export default function Home() {
                 </div>
               </Link>
             </div>
+            
             <div className="flex flex-col gap-6">
               {/*Projects*/}
+
               <Link href="/artoftheroll">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
