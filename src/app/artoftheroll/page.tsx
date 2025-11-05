@@ -1,7 +1,39 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Page() {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background pt-0">
       <div className="px-6 mt-[100px] lg:mt-0">
@@ -19,20 +51,108 @@ export default function Page() {
           <aside className="hidden lg:flex col-span-2 sticky top-0 justify-end h-screen flex-col overflow-y-auto">
             <nav className="py-6">
               <ul className="space-y-2 text-sm">
-                <li>Overview</li>
-                <li>Challenge</li>
-                <li>My Role</li>
-                <li>Strategy</li>
-                <li>Results</li>
-                <li>Plot Twist</li>
-                <li>Learnings</li>
-                <li>What&apos;s Next</li>
+                <li>
+                  <a
+                    href="#overview"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "overview"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#challenge"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "challenge"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Challenge
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#my-role"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "my-role"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    My Role
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#strategy"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "strategy"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Strategy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#results"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "results"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Results
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#plot-twist"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "plot-twist"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Plot Twist
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#learnings"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "learnings"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    Learnings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#next-steps"
+                    className={`transition-colors cursor-pointer ${
+                      activeSection === "next-steps"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground"
+                    }`}
+                  >
+                    What&apos;s Next
+                  </a>
+                </li>
               </ul>
             </nav>
           </aside>
 
           <main className="col-span-8 overflow-y-auto space-y-12 lg:py-6">
-            <section className="space-y-6">
+            <section id="overview" className="space-y-6">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col">
                   <h2 className="text-sm text-[#999999]">ROLE</h2>
@@ -75,7 +195,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="challenge" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Challenge</h2>
                 <h3 className="text-2xl font-bold">
@@ -112,7 +232,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="my-role" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">My Role</h2>
                 <h3 className="text-2xl font-bold">
@@ -189,7 +309,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="space-y-6">
+            <section id="strategy" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Strategy</h2>
                 <h3 className="text-2xl font-bold">
@@ -263,7 +383,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="space-y-6">
+            <section id="results" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Results</h2>
                 <h3 className="text-2xl font-bold">The impact (so far)</h3>
@@ -323,7 +443,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="space-y-6">
+            <section id="plot-twist" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">The Plot Twist</h2>
                 <h3 className="text-2xl font-bold">
@@ -366,7 +486,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="learnings" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">What I Learned</h2>
                 <h3 className="text-2xl font-bold">
@@ -433,7 +553,7 @@ export default function Page() {
               />
             </section>
 
-            <section className="space-y-6">
+            <section id="media-recognition" className="space-y-6">
               <div className="bg-[#f7fafc] p-6 rounded-lg">
                 <h3 className="text-xl font-semibold mb-4">
                   Media Recognition
@@ -465,7 +585,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="space-y-6">
+            <section id="next-steps" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">What&apos;s Next</h2>
                 <h3 className="text-2xl font-bold">

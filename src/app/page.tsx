@@ -41,13 +41,15 @@ export default function Home() {
           <motion.div
             animate={{ y: isCardHovered ? -160 : 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute top-[-60] left-10 pointer-events-none"
+            className="absolute pointer-events-none hidden
+              lg:block lg:-top-[120px] lg:left-10 lg:w-[500px] lg:h-[500px]"
+        
           >
             <Image
               src="/me/Bloo.svg"
               alt="Blueberry decoration"
-              width={500}
-              height={500}
+              fill
+              className="object-contain"
             />
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full relative" style={{ zIndex: 30 }}>
