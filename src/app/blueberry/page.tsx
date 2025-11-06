@@ -280,7 +280,7 @@ export default function Page() {
               <p>
                 We talked to growth leads and social media managers at eCommerce
                 brands. Through testing sessions, we discovered their real pain
-                points.
+                points. Below are some key points we have gathered through interviews, supported with quotes from our participants.
               </p>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -312,14 +312,14 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-
+              {/* 
               <Image
                 className="rounded-xl w-full h-auto"
                 src="/blueberry/user-testing.jpg"
                 alt="User testing session"
                 width={800}
                 height={600}
-              />
+              /> */}
             </section>
 
             <section id="design-process" className="space-y-6">
@@ -330,8 +330,9 @@ export default function Page() {
                 </h3>
               </div>
               <p>
-                How might we deliver immediate value while gathering enough
+                After talking to our participants, we brainstormed on solutions to the problem. This brings us to our first how-might-we statement: How might we deliver immediate value while gathering enough
                 information to make AI responses feel genuinely on-brand?
+                <br /> <br /> From that HMW statement, we branched off into several explorations...
               </p>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
@@ -367,20 +368,15 @@ export default function Page() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Image
-                  className="rounded-xl w-full h-auto"
-                  src="/blueberry/exploration-1.jpg"
-                  alt="Conversational interface mockup"
-                  width={800}
-                  height={600}
-                />
-                <Image
-                  className="rounded-xl w-full h-auto"
-                  src="/blueberry/exploration-2.jpg"
-                  alt="Sequential walkthrough screens"
-                  width={800}
-                  height={600}
+              <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
+               
+                 <video
+                  className="rounded-xl w-full h-auto bg-[#F8F8F8] p-10"
+                  src="/blueberry/second-prototype.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
               </div>
 
@@ -401,11 +397,11 @@ export default function Page() {
                   brand info, and you&apos;re in. The app immediately pulls
                   posts and comments and starts working. No lengthy
                   questionnaires. Users saw their actual Instagram comments with
-                  AI-generated suggested replies within two minutes.
+                  AI-generated suggested replies within two minutes. <br /> <br /> Ultimately, our goal is to make this onboarding process seamless as possible without any friction. 
                 </p>
               </div>
 
-              <div className="w-full lg:max-w-[1200px] mx-auto rounded-xl overflow-hidden">
+              <div className="w-full lg:max-w-[1200px] mx-auto rounded-xl overflow-hidden border-1 border-[#EFF3F8]">
                 <video
                   src="/blueberry/onboarding.mp4"
                   autoPlay
@@ -498,12 +494,13 @@ export default function Page() {
                 </div>
               </div>
 
-              <Image
-                className="rounded-xl w-full h-auto"
-                src="/blueberry/inbox-interface.jpg"
-                alt="Inbox interface"
-                width={800}
-                height={600}
+              <video
+                className="rounded-xl w-full h-auto border-1 border-[#EFF3F8]"
+                src="/blueberry/inbox.mp4"
+               autoPlay
+                muted
+                loop
+                playsInline
               />
 
               <p>
@@ -599,10 +596,13 @@ export default function Page() {
                 </div>
               </div>
 
-              <Image
-                className="rounded-xl w-full h-auto"
-                src="/blueberry/brand-voice-sandbox.jpg"
-                alt="Brand voice sandbox"
+              <video
+                className="rounded-xl w-full h-auto border-1 border-[#EFF3F8]"
+                src="/blueberry/automation.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
                 width={800}
                 height={600}
               />
@@ -838,6 +838,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
+              {/* 
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Image
@@ -855,6 +856,7 @@ export default function Page() {
                   height={600}
                 />
               </div>
+              */}
             </section>
 
             <section id="what-i-learned" className="space-y-6">
@@ -901,7 +903,7 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-
+              {/*
               <Image
                 className="rounded-xl w-full h-auto"
                 src="/blueberry/final-interface.jpg"
@@ -909,6 +911,7 @@ export default function Page() {
                 width={800}
                 height={600}
               />
+               */}
             </section>
 
             <section id="next-steps" className="space-y-6">
@@ -941,10 +944,26 @@ export default function Page() {
                   Make the dashboard a strategic tool, not just a landing page.
                 </p>
               </div>
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <Image
+                  className="rounded-xl w-full h-auto"
+                  src="/blueberry/next-steps.png"
+                  alt="Brand inspiration moodboard"
+                  width={800}
+                  height={600}
+                />
+                <Image
+                  className="rounded-xl w-full h-auto"
+                  src="/blueberry/dm.png"
+                  alt="Final Blueberry branding"
+                  width={800}
+                  height={600}
+                />
+              </div>
 
               <Image
-                className="rounded-xl w-full h-auto"
-                src="/blueberry/roadmap.jpg"
+                className="rounded-xl w-full h-auto border-1 border-[#BBBBBB]"
+                src="/blueberry/dashboard.png"
                 alt="Future roadmap"
                 width={800}
                 height={600}

@@ -132,6 +132,32 @@ export default function Home() {
                 </div>
               </Link>
             </div>
+            { /* 
+            <div className="flex flex-col gap-6">
+              
+              <Link href="/works/artsw">
+                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+                  <Image
+                    src="/homepage/oasisxr.png"
+                    alt="Oasis XR"
+                    className="rounded-lg w-full h-auto"
+                    width={800}
+                    height={600}
+                  />
+                  <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-black text-white text-sm px-4 py-2 rounded">
+                      Product Design, Case Study
+                    </span> 
+                  </div>
+                  <h3 className="max-w-[600px] text-md">
+                    Award-winning XR interactive experience designed for mindful
+                    engagement
+                  </h3>
+                  <h4 className="text-sm">OASIS XR • CASE STUDY 2025</h4>
+                </div>
+              </Link>
+            </div>
+            */}
           </div>
         </section>
         {/*
