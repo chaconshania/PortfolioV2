@@ -664,15 +664,15 @@ export default function Page() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Image
-                  className="rounded-xl w-full h-auto"
-                  src="/blueberry/moodboard.jpg"
+                  className="rounded-xl w-full h-auto border-1 border-[#EEF3F8]"
+                  src="/blueberry/Branding/brand-discovery.png"
                   alt="Brand inspiration moodboard"
                   width={800}
                   height={600}
                 />
                 <Image
-                  className="rounded-xl w-full h-auto"
-                  src="/blueberry/branding.jpg"
+                  className="rounded-xl w-full h-auto border-1 border-[#EEF3F8]"
+                  src="/blueberry/Branding/style-guide.png"
                   alt="Final Blueberry branding"
                   width={800}
                   height={600}
@@ -684,13 +684,6 @@ export default function Page() {
                 feel warm. Rounded edges everywhere to soften the experience.
                 And most importantly, our mascot Bloo and blueberry iconography
                 threaded throughout to reinforce personality.
-              </p>
-
-              <p>
-                This wasn&apos;t just aesthetic polish. Brand identity informed
-                trust. A tool that feels human and approachable is easier to
-                trust with your brand voice than one that feels cold and
-                algorithmic.
               </p>
             </section>
 
