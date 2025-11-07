@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import Carousel from "@/components/Carousel";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("");
@@ -746,12 +747,11 @@ export default function Page() {
                 </div>
               </div>
 
-              <Image
-                className="rounded-xl w-full h-auto"
-                src="/blueberry/features-showcase.jpg"
-                alt="Feature showcase"
-                width={800}
-                height={600}
+              <Carousel
+                totalPages={16}
+                imageBasePath="/blueberry/SlideDeck"
+                imagePrefix="Demo Day Slide Deck"
+                imageExtension="png"
               />
             </section>
 
