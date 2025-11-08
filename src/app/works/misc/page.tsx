@@ -10,14 +10,14 @@ export default function MiscPage() {
       alt: "Lifedes cover",
       title: "Lifedes",
       description: "Cover image of project",
-      backgroundColor: "#F3F0E6", 
+      backgroundColor: "#F3F0E6",
       unoptimized: true,
-    
+
     },
     {
       src: "/lifedes/STYLE.jpg",
       alt: "Style",
-       backgroundColor: "#F3F0E6", 
+       backgroundColor: "#F3F0E6",
       unoptimized: true,
     },
     {
@@ -40,9 +40,64 @@ export default function MiscPage() {
       alt: "Categories",
       quality: 90,
     },
-    
+        {
+      src: "/UCONN DMD/Academics.png",
+      alt: "UCONN DMD Academics",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Campuses.png",
+      alt: "UCONN DMD Campuses",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Concentration Template Page.png",
+      alt: "UCONN DMD Concentration Template",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Concentrations Landing Page.png",
+      alt: "UCONN DMD Concentrations Landing",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Course Catalog.png",
+      alt: "UCONN DMD Course Catalog",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Course Catalog - Alternate Option.png",
+      alt: "UCONN DMD Course Catalog Alternate",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Graduate Programs.png",
+      alt: "UCONN DMD Graduate Programs",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Storrs.png",
+      alt: "UCONN DMD Storrs",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+    {
+      src: "/UCONN DMD/Undergraduate Programs.png",
+      alt: "UCONN DMD Undergraduate Programs",
+      backgroundColor: "#F8F8F8",
+      unoptimized: true,
+    },
+
   ];
 
+  
   return (
     <div className="min-h-screen bg-background">
       <div className="px-6 mt-[100px] lg:mt-20">
@@ -52,7 +107,7 @@ export default function MiscPage() {
             Miscellaneous Projects
           </h1>
           <p className="text-lg text-gray-600">
-            A collection of creative explorations, experimental designs, and side projects that showcase different aspects of my design journey.
+            A collection of creative explorations, experimental designs, work, and side projects that showcase different aspects of my design journey.
           </p>
         </section>
 
@@ -67,8 +122,9 @@ export default function MiscPage() {
           </div>
 
           <AnimatedGrid items={gridItems} />
-         
         </section>
+
+      
       </div>
     </div>
   );
