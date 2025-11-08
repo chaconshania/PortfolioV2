@@ -22,7 +22,8 @@ export default function Home() {
                 <span className="italic font-thin"></span>{" "}
               </h1>
               <p className="max-w-[600px] text-base ">
-                Previously designed @ Blueberry Social
+                Previously designed @ Blueberry Social <br />
+                <Link href="/works/misc" className="underline">Want to see more design work?</Link>
               </p>
               {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
