@@ -8,9 +8,21 @@ export default function Footer() {
         <h2 className="text-sm">CODED + DESIGNED BY ME</h2>
       </div>
       <div className="text-end lg:text-end">
-        <ul className="">
+        <ul className="flex flex-row gap-4 justify-end">
           <li>
-            <Link href="/">2025</Link>
+            <a href="mailto:chacon1shania@gmail.com" className="hover:underline">
+              Email
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/shania-chacon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              LinkedIn
+            </a>
           </li>
         </ul>
       </div>
