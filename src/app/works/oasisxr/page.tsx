@@ -5,6 +5,18 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-background pt-0">
       <div className="p-6">
+        {/* Header Section */}
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 lg:pt-10 pb-10 w-full">
+          <div className="flex flex-col w-full gap-6">
+            <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
+              <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">Award-winning</span> XR interactive experience designed for mindful engagement
+            </h1>
+            <p className="max-w-[600px] text-base">
+              OASIS XR • CASE STUDY 2025
+            </p>
+          </div>
+        </section>
+
         <section className="aspect-video rounded-xl overflow-hidden">
           <iframe
             src="https://player.vimeo.com/video/1073426256?h=pl&title=0&byline=0&portrait=0"

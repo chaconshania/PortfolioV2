@@ -37,6 +37,18 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-background pt-0">
       <div className="px-6 mt-[100px] lg:mt-0">
+        {/* Header Section */}
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 lg:pt-10 pb-10 w-full">
+          <div className="flex flex-col w-full gap-6">
+            <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
+              From mural walls to mobile feeds, I design the <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">journeys people remember</span>
+            </h1>
+            <p className="max-w-[600px] text-base">
+              ART OF THE ROLL • PENDING 2025
+            </p>
+          </div>
+        </section>
+
         <section className="w-full">
           <Image
             className="rounded-xl w-full h-auto object-cover"
