@@ -147,7 +147,7 @@ export default function Home() {
                   />
                 
                   <h3 className="max-w-[600px] text-md">
-                    Redesigning ArtsWestchester's digital presence through strategic web design
+                    Redesigning ArtsWestchester&apos;s digital presence through strategic web design
                   </h3>
                   <h4 className="text-sm">ARTSWESTCHESTER • WEB DESIGN 2025</h4>
                 </div>
