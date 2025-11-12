@@ -39,7 +39,7 @@ function page() {
           </div>
         </section>
         <section className="w-full overflow-hidden">
-          <div className="flex flex-row gap-2 overflow-x-auto w-[110%] -mx-6 px-6">
+          <div className="flex flex-row gap-2 w-full">
             {/* Image 1 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
@@ -67,7 +67,7 @@ function page() {
             {/* Image 3 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
-                src="/me/smile.jpg"
+                src="/me/smile.jpeg"
                 alt="Smile"
                 width={800}
                 height={850}
