@@ -67,7 +67,7 @@ function page() {
             {/* Image 3 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
-                src="/me/smile.jpeg"
+                src="/me/smile.jpg"
                 alt="Smile"
                 width={800}
                 height={850}
@@ -89,7 +89,7 @@ function page() {
              {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
-                src="/me/me-friends.jpg"
+                src="/me/me-friends.JPG"
                 alt="Renfaire"
                 width={800}
                 height={850}
@@ -100,7 +100,7 @@ function page() {
              {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
-                src="/me/dmd-frens.jpg"
+                src="/me/dmd-frens.JPG"
                 alt="Renfaire"
                 width={800}
                 height={850}
@@ -111,7 +111,7 @@ function page() {
              {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
-                src="/me/me-standing.jpg"
+                src="/me/me-standing.JPG"
                 alt="Renfaire"
                 width={800}
                 height={850}
