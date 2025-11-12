@@ -38,38 +38,96 @@ function page() {
             </p>
           </div>
         </section>
-        <section className="w-full">
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-            {/* Project 1 */}
-            <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
+        <section className="w-full overflow-hidden">
+          <div className="flex flex-row gap-2 overflow-x-auto w-[110%] -mx-6 px-6">
+            {/* Image 1 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/focus.jpeg"
-                alt="Dreamscape GIF"
+                alt="Focus"
                 width={800}
-                height={600}
-                className="w-full h-auto"
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
               />
             </div>
 
-            {/* Project 2 */}
-            <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
+            {/* Image 2 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/graduated.jpeg"
-                alt="FitMix GIF"
+                alt="Graduated"
                 width={800}
-                height={600}
-                className="w-full h-auto"
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
               />
             </div>
 
-            {/* Project 3 */}
-            <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden">
+            {/* Image 3 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/smile.jpeg"
-                alt="Project 3 GIF"
+                alt="Smile"
                 width={800}
-                height={600}
-                className="w-full h-auto"
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
+              />
+            </div>
+             {/* Image 4 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
+              <Image
+                src="/me/renfaire.jpeg"
+                alt="Renfaire"
+                width={800}
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
+              />
+            </div>
+             {/* Image 4 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
+              <Image
+                src="/me/me-friends.jpg"
+                alt="Renfaire"
+                width={800}
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
+              />
+            </div>
+             {/* Image 4 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
+              <Image
+                src="/me/dmd-frens.jpg"
+                alt="Renfaire"
+                width={800}
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
+              />
+            </div>
+             {/* Image 4 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
+              <Image
+                src="/me/me-standing.jpg"
+                alt="Renfaire"
+                width={800}
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
+              />
+            </div>
+             {/* Image 4 */}
+            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
+              <Image
+                src="/blueberry/group-picture.JPG"
+                alt="Renfaire"
+                width={800}
+                height={850}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                style={{ aspectRatio: '0.945' }}
               />
             </div>
           </div>
