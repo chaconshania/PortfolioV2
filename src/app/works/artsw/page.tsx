@@ -6,10 +6,10 @@ import React from "react";
 export default function ArtswPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="px-6 mt-[100px] lg:mt-0">
+      <div className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 px-6 mt-[100px] lg:mt-0">
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen gap-4 md:col-span-3">
           {/* Fixed Left Column */}
           <aside className="flex col-span-12 lg:col-span-3 lg:sticky top-[100px] lg:h-[80vh] flex-col justify-between overflow-y-auto mb-8 lg:mb-0">
             <div className="pb-6 border-b border-gray-200">

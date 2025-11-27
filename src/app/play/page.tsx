@@ -85,8 +85,8 @@ function ProjectCard({ type, src, alt, tags }: Project) {
 
 function Playground() {
   return (
-    <main className="flex flex-col p-6 w-full items-center gap-2 pt-20 lg:pt-10">
-      <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10 pb-4">
+    <main className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 p-6 w-full items-center pt-20 lg:pt-10">
+      <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10 pb-4 md:col-span-3">
         <div className="flex flex-col w-full gap-6">
           <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
             My{" "}
@@ -95,7 +95,7 @@ function Playground() {
           </h1>
         </div>
       </section>
-      <section className="w-full">
+      <section className="w-full md:col-span-3">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-2 space-y-2">
           {projects.map((project, idx) => (
             <ProjectCard key={idx} {...project} />

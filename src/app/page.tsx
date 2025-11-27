@@ -9,8 +9,8 @@ export default function Home() {
 
   return (
     <div>
-      <main className="flex flex-col p-6 w-full gap-6 ">
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full">
+      <main className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 gap-8 p-6 w-full">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full md:col-span-3">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -23,7 +23,6 @@ export default function Home() {
               </h1>
               <p className="max-w-[600px] text-base ">
                 Previously designed @ Blueberry Social <br />
-                <Link href="/works/misc" className="underline">Want to see more design work?</Link>
               </p>
               {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
@@ -37,7 +36,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full relative">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full relative md:col-span-3">
           {/* Blueberry SVG - positioned behind container */}
           <motion.div
             animate={{ y: isCardHovered ? -160 : 0 }}
@@ -133,6 +132,7 @@ export default function Home() {
                 </div>
               </Link>
             </div>
+            {/* 
             
             <div className="flex flex-col gap-6">
               
@@ -153,7 +153,7 @@ export default function Home() {
                 </div>
               </Link>
             </div>
-          
+          */}
           </div>
         </section>
         {/*

@@ -100,9 +100,9 @@ export default function MiscPage() {
   
   return (
     <div className="min-h-screen bg-background">
-      <div className="px-6 mt-[100px] lg:mt-20">
+      <div className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 px-6 mt-[100px] lg:mt-20">
         {/* Header Section */}
-        <section className="space-y-6 mb-12 max-w-4xl">
+        <section className="space-y-6 mb-12 max-w-4xl md:col-span-3">
           <h1 className="text-4xl lg:text-5xl font-bold">
             Miscellaneous Projects
           </h1>
@@ -113,7 +113,7 @@ export default function MiscPage() {
 
 
         {/* Additional Projects Grid */}
-        <section className="space-y-6 mb-16">
+        <section className="space-y-6 mb-16 md:col-span-3">
           <div className="space-y-2">
             <h2 className="text-sm text-[#999999]">DESIGN EXPLORATIONS</h2>
             <h3 className="text-2xl font-bold">

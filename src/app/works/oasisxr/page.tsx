@@ -4,9 +4,9 @@ import React from "react";
 export default function Page() {
   return (
     <div className="min-h-screen bg-background pt-0">
-      <div className="p-6">
+      <div className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 p-6">
         {/* Header Section */}
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 lg:pt-10 pb-10 w-full">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 lg:pt-10 pb-10 w-full md:col-span-3">
           <div className="flex flex-col w-full gap-6">
             <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
               <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">Award-winning</span> XR interactive experience designed for mindful engagement
@@ -17,7 +17,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="aspect-video rounded-xl overflow-hidden">
+        <section className="aspect-video rounded-xl overflow-hidden md:col-span-3">
           <iframe
             src="https://player.vimeo.com/video/1073426256?h=pl&title=0&byline=0&portrait=0"
             width="100%"
@@ -28,7 +28,7 @@ export default function Page() {
           ></iframe>
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen md:col-span-3">
           <aside className="hidden lg:flex col-span-2 sticky top-0 h-screen flex-col justify-end overflow-y-auto">
             <nav className="py-6">
               <ul className="space-y-2 text-sm">

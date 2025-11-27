@@ -4,8 +4,8 @@ import React from "react";
 function page() {
   return (
     <div>
-      <main className="flex flex-col p-6 w-full items-center gap-6">
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full ">
+      <main className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 gap-8 p-6 w-full items-center">
+        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full md:col-span-3">
           <div className="flex flex-col w-full gap-6">
             <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
               Shaped by challenge, focused on{" "}
@@ -14,7 +14,7 @@ function page() {
             </h1>
           </div>
         </section>
-        <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6  w-full">
+        <section className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6 w-full md:col-span-3">
           <div className="flex flex-col w-full gap-6"></div>
           <div className="flex flex-col w-full gap-6">
             <p className=" ">
@@ -38,7 +38,7 @@ function page() {
             </p>
           </div>
         </section>
-        <section className="w-full overflow-hidden">
+        <section className="w-full overflow-hidden md:col-span-3">
           <div className="flex flex-row gap-2 w-full">
             {/* Image 1 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
