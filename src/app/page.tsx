@@ -49,7 +49,7 @@ export default function Home() {
               y: isCardHovered ? -160 : 0
             }}
             transition={{
-              opacity: { delay: 0.7, duration: 0.6 },
+              opacity: { delay: 0.6,  },
               y: { duration: 0.3, ease: "easeOut" }
             }}
             className="absolute pointer-events-none hidden
