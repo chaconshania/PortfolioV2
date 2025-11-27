@@ -12,35 +12,48 @@ export default function ResumePage() {
 
           <main className="col-span-8 overflow-y-auto space-y-12 lg:py-6">
           {/* Introduction Section */}
-          <motion.section
-            className="space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <section className="space-y-8">
             <div className="space-y-2">
-              <h1 className="text-xl font-bold text-[#161515]">
+              <motion.h1
+                className="text-xl font-bold text-[#161515]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 Shania Chacon
-              </h1>
-              <p className="text-lg  text-[#858585] max-w-3xl">
+              </motion.h1>
+              <motion.p
+                className="text-lg text-[#858585] max-w-3xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 Product Designer who codes, turning sketches into shipped products
-              </p>
+              </motion.p>
             </div>
-          </motion.section>
+          </section>
 
           {/* Experience Section */}
-          <motion.section
-            className="space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <section className="space-y-8">
+            <motion.h2
+              className="text-2xl lg:text-3xl font-bold text-[#161515]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              Experience
+            </motion.h2>
 
             <div className="space-y-12">
               {/* Experience Item 1 */}
-              <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+              <motion.div
+                className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 <div className="space-y-1">
                   <p className="text-sm text-[#858585]">2024 - 2025</p>
                 </div>
@@ -57,10 +70,16 @@ export default function ResumePage() {
                     for e-commerce brands managing customer engagement.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Experience Item 2 */}
-              <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+              <motion.div
+                className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="space-y-1">
                   <p className="text-sm text-[#858585]">2024 - Present</p>
                 </div>
@@ -77,10 +96,16 @@ export default function ResumePage() {
                     60 days and increased engagement by 226%.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Experience Item 3 */}
-              <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+              <motion.div
+                className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 <div className="space-y-1">
                   <p className="text-sm text-[#858585]">2024</p>
                 </div>
@@ -96,23 +121,29 @@ export default function ResumePage() {
                     improving user experience and visual consistency across digital platforms.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </motion.section>
+          </section>
 
           {/* Education Section */}
-          <motion.section
-            className="space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#161515]">
+          <section className="space-y-8">
+            <motion.h2
+              className="text-2xl lg:text-3xl font-bold text-[#161515]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               Education
-            </h2>
+            </motion.h2>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+            <motion.div
+              className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <div className="space-y-1">
                 <p className="text-sm text-[#858585]">2021 - 2025</p>
               </div>
@@ -128,24 +159,30 @@ export default function ResumePage() {
                   Participated in UXGO CoCreate (Cohort 20).
                 </p>
               </div>
-            </div>
-          </motion.section>
+            </motion.div>
+          </section>
 
 
           {/* Involvement Section */}
-          <motion.section
-            className="space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#161515]">
+          <section className="space-y-8">
+            <motion.h2
+              className="text-2xl lg:text-3xl font-bold text-[#161515]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               Involvement
-            </h2>
+            </motion.h2>
 
             <div className="space-y-8">
-              <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+              <motion.div
+                className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 <div className="space-y-1">
                   <p className="text-sm text-[#858585]">2024</p>
                 </div>
@@ -157,9 +194,15 @@ export default function ResumePage() {
                     Collaborated with founders and engineers on real product design challenges
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6">
+              <motion.div
+                className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="space-y-1">
                   <p className="text-sm text-[#858585]">2024 - Present</p>
                 </div>
@@ -171,29 +214,41 @@ export default function ResumePage() {
                     Art club member leading design initiatives for campus projects
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </motion.section>
+          </section>
 
           {/* Contact Section */}
-          <motion.section
-            className="space-y-8 pb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#161515]">
+          <section className="space-y-8 pb-16">
+            <motion.h2
+              className="text-2xl lg:text-3xl font-bold text-[#161515]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               Let&apos;s Connect
-            </h2>
+            </motion.h2>
 
             <div className="space-y-4">
-              <p className="text-[#161515] leading-relaxed max-w-2xl">
+              <motion.p
+                className="text-[#161515] leading-relaxed max-w-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 I&apos;m currently exploring opportunities in product design and front-end development.
                 Feel free to reach out if you&apos;d like to collaborate or just chat about design.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-4">
+              <motion.div
+                className="flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <a
                   href="mailto:your.email@example.com"
                   className="inline-flex items-center px-6 py-3 bg-[#313131] text-white rounded-lg hover:bg-[#161515] transition-colors duration-200"
@@ -216,9 +271,9 @@ export default function ResumePage() {
                 >
                   GitHub
                 </a>
-              </div>
+              </motion.div>
             </div>
-          </motion.section>
+          </section>
           </main>
 
           <div className="hidden lg:block col-span-2" />
