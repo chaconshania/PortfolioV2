@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Carousel from "@/components/Carousel";
+import { CornerUpLeft } from "lucide-react";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("");
@@ -37,33 +38,20 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-background pt-0">
-      <div className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 px-6 mt-[100px] lg:mt-0">
-        {/* Header Section */}
-        <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-10 lg:pt-10 pb-10 w-full md:col-span-3">
-          <div className="flex flex-col w-full gap-6">
-            <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
-              Turning chaotic social chatter into <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">warm, on-brand conversations</span> automatically
-            </h1>
-            <p className="max-w-[600px] text-base">
-              BLUEBERRY SOCIAL • SHIPPED 2025
-            </p>
-          </div>
-        </section>
-
-        <section className="w-full md:col-span-3">
-          <Image
-            className="rounded-xl w-full h-auto object-cover"
-            src="/blueberry/blueberry.jpg"
-            alt="blueberry dashboard"
-            width={1200}
-            height={800}
-          />
-        </section>
-
+      <div className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen md:col-span-3">
-          <aside className="hidden lg:flex col-span-2 sticky top-0 justify-end h-screen flex-col overflow-y-auto">
-            <nav className="py-6">
-              <ul className="space-y-2 text-sm">
+          <aside className="hidden lg:flex col-span-2 sticky top-0 h-screen flex-col overflow-y-auto">
+            <div className="py-6">
+              <a
+                href="/"
+                className="text-base text-[#666666] hover:text-foreground transition-colors flex items-center gap-2"
+              >
+                <CornerUpLeft className="h-4 w-4" />
+                RETURN
+              </a>
+            </div>
+            <nav className="py-6 mt-auto">
+              <ul className="space-y-2 text-base">
                 <li>
                   <a
                     href="#the-problem"
@@ -176,7 +164,27 @@ export default function Page() {
             </nav>
           </aside>
 
-          <main className="col-span-8 overflow-y-auto space-y-12 lg:py-6">
+          <main className="col-span-8 overflow-y-auto space-y-12 lg:py-6 [&_p]:text-base">
+            {/* Header Section */}
+            <section className="flex flex-col gap-6 pt-10 lg:pt-10">
+              <h1 className="max-w-[900px] text-2xl lg:text-4xl text-[#333333] leading-[1.12]">
+                Turning chaotic social chatter into <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">warm, on-brand conversations</span> automatically
+              </h1>
+              <p className="max-w-[600px] text-base">
+                BLUEBERRY SOCIAL • SHIPPED 2025
+              </p>
+            </section>
+
+            <section>
+              <Image
+                className="rounded-xl w-full h-auto object-cover"
+                src="/blueberry/blueberry.jpg"
+                alt="blueberry dashboard"
+                width={1200}
+                height={800}
+              />
+            </section>
+
             <section className="space-y-6">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col">

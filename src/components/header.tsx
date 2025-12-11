@@ -9,26 +9,6 @@ import { Menu, X } from "lucide-react";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  // disable navbar when scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setShow(false);
-      } else {
-        setShow(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
 
   // no scrolling
   useEffect(() => {
@@ -52,13 +32,8 @@ export default function Header() {
   return (
     <>
       {/* Navbar */}
-      <motion.nav
-        initial={{ y: 0 }}
-        animate={{ y: show ? 0 : "-100%" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed lg:sticky top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]"
-      >
-        <div className="relative grid grid-cols-2 lg:grid-cols-3 p-6 w-full gap-12 items-center">
+      <nav className="relative bg-white/30 backdrop-blur-[2px] border-b border-gray-200">
+        <div className="relative grid grid-cols-2 lg:grid-cols-3 p-4 w-full gap-12 items-center">
           <Link href="/">
             <h2 className="text-sm">SHANIA CHACON</h2>
           </Link>
@@ -90,7 +65,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Overlay for mobile */}
       <AnimatePresence>
@@ -100,7 +75,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed lg:sticky inset-0 z-40 bg-white/95 backdrop-blur-md "
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md "
           >
             <div className="flex flex-col items-center justify-center h-full space-y-8">
               {navItems.map((item, index) => (
