@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { CornerUpLeft } from "lucide-react";
 
@@ -41,13 +42,13 @@ export default function Page() {
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-screen md:col-span-3">
           <aside className="hidden lg:flex col-span-2 sticky top-0 h-screen flex-col overflow-y-auto">
             <div className="py-6">
-              <a
+              <Link
                 href="/"
                 className="text-base text-[#666666] hover:text-foreground transition-colors flex items-center gap-2"
               >
                 <CornerUpLeft className="h-4 w-4" />
                 RETURN
-              </a>
+              </Link>
             </div>
             <nav className="py-6 mt-auto">
               <ul className="space-y-2 text-base">
