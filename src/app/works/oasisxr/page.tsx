@@ -88,7 +88,7 @@ export default function Page() {
                     Discovery
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a
                     href="#key-features"
                     className={`transition-colors cursor-pointer mono-sidebar-active ${
@@ -112,6 +112,7 @@ export default function Page() {
                     Reflection
                   </a>
                 </li>
+                */}
               </ul>
             </nav>
           </aside>
@@ -122,7 +123,7 @@ export default function Page() {
               <h1 className="max-w-[900px] text-2xl lg:text-4xl text-[#333333] leading-[1.12]">
                 <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">Award-winning</span> XR interactive experience designed for mindful engagement
               </h1>
-              <p className="max-w-[600px] text-base">
+              <p className="max-w-[600px] text-base mono">
                 OASIS XR • CASE STUDY 2025
               </p>
             </section>
@@ -141,28 +142,28 @@ export default function Page() {
             <section id="overview" className="space-y-6">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col pt-[10px] space-y-2">
-                  <h2 className="text-sm text-[#999999]">ROLE</h2>
-                  <h3>Lead UI/UX Designer & Researcher</h3>
+                  <h2 className="text-sm mono">ROLE</h2>
+                  <h3>UI/UX Designer & Researcher</h3>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <h2 className="text-sm text-[#999999]">TOOLS</h2>
+                  <h2 className="text-sm mono">TOOLS</h2>
                   <p>Figma</p>
                   <p>Adobe Illustrator</p>
                   <p>Bezi</p>
                   <p>Blender</p>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <h2 className="text-sm text-[#999999]">TIMELINE</h2>
+                  <h2 className="text-sm mono">TIMELINE</h2>
                   <p>Fall 2024</p>
                 </div>
                 <div className="flex flex-col space-y-2">
-                  <h2 className="text-sm text-[#999999]">TEAM SIZE</h2>
+                  <h2 className="text-sm mono">TEAM SIZE</h2>
                   <p>Solo Project</p>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Overview</h2>
+                <h2 className="text-sm text-[#999999] mono">Overview</h2>
                 <h3 className="text-2xl font-bold">Background</h3>
               </div>
               <p>
@@ -171,10 +172,12 @@ export default function Page() {
                 mental health care. Inspired by VR’s immersive potential and the
                 growing need for accessible wellness tools, I envisioned a
                 platform blending calming environments with interactive
-                mindfulness exercises. Thus, Oasis XR was born—a space where
+                mindfulness exercises. Thus, Oasis XR was born. It serves as a space where
                 users could find solace and clarity amidst the chaos of daily
                 life.
               </p>
+
+              <p>This project has earn </p>
             </section>
 
             <section id="challenge" className="space-y-6">
@@ -187,7 +190,7 @@ export default function Page() {
                 height={600}
               /> */}
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Challenge</h2>
+                <h2 className="text-sm mono">Challenge</h2>
                 <h3 className="text-2xl font-bold">
                   Mental wellness apps were not cutting through the noise
                 </h3>
@@ -230,9 +233,9 @@ export default function Page() {
 
             <section id="discovery" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Discovery</h2>
+                <h2 className="text-sm mono">Discovery</h2>
                 <h3 className="text-2xl font-bold">
-                  Getting inside users heads (and hearts)
+                  Getting inside users heads 
                 </h3>
               </div>
               <p>
@@ -247,16 +250,16 @@ export default function Page() {
             </section>
 
             <section className="space-y-6">
-              <h2 className="text-2xl font-bold">What the numbers revealed</h2>
               <p>
                 My competitive analysis showed that VR meditation experiences
                 were often either too expensive, too sterile, or quickly lost
                 novelty. The gap for an affordable, engaging, personalized XR
                 wellness platform was wide open. Users emotionally connected to
                 mindfulness practices were three times more likely to maintain
-                them. Connection was the key.
+                them.
               </p>
             </section>
+            {/* 
 
             <section className="space-y-6">
               <div className="space-y-2">
@@ -289,7 +292,7 @@ export default function Page() {
                 <h2 className="text-sm text-[#999999]">Key Features</h2>
               </div>
 
-              {/* Feature 1 */}
+           
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center space-y-6 lg:space-y-0">
                 <Image
                   className="rounded-xl w-full h-auto"
@@ -309,7 +312,7 @@ export default function Page() {
                 </div>
               </div>
 
-              {/* Feature 2 */}
+            
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center space-y-6 lg:space-y-0">
                 <Image
                   className="rounded-xl w-full h-auto"
@@ -330,8 +333,8 @@ export default function Page() {
                   </p>
                 </div>
               </div>
-
-              {/* Feature 3 */}
+              
+              
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center space-y-6 lg:space-y-0">
                 <Image
                   className="rounded-xl w-full h-auto"
@@ -352,7 +355,9 @@ export default function Page() {
                 </div>
               </div>
             </section>
+            */ }
 
+            {/* 
             <section id="reflection" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">
@@ -368,6 +373,7 @@ export default function Page() {
                 the way and lets healing happen.
               </p>
             </section>
+            */} 
           </main>
 
           <div className="hidden lg:block col-span-2" />

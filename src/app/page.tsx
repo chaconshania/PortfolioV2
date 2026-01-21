@@ -27,7 +27,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Previously designed @ Blueberry Social <br />
+              Currently building at Jetzy. <br/> Previously designed @ Blueberry Social <br />
             </motion.p>
             {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
