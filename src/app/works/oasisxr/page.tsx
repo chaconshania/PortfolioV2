@@ -1,9 +1,41 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CornerUpLeft } from "lucide-react";
 
 export default function Page() {
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background pt-0">
       <div className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 p-6">
@@ -12,19 +44,74 @@ export default function Page() {
             <div className="py-6">
               <Link
                 href="/"
-                className="text-base text-[#666666] hover:text-foreground transition-colors flex items-center gap-2"
+                className="text-base text-[#666666] hover:text-foreground hover:underline transition-colors flex items-center gap-2 text-sm"
               >
                 <CornerUpLeft className="h-4 w-4" />
                 RETURN
               </Link>
             </div>
-            <nav className="py-6 mt-auto">
-              <ul className="space-y-2 text-base">
-                <li>Overview</li>
-                <li>Initial findings</li>
-                <li>Challenge</li>
-                <li>Iterations</li>
-                <li>Reflection</li>
+            <nav className="border-l-1 pl-2 py-6 my-auto">
+              <ul className="space-y-1 text-base">
+                <li>
+                  <a
+                    href="#overview"
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
+                      activeSection === "overview"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
+                    }`}
+                  >
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#challenge"
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
+                      activeSection === "challenge"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
+                    }`}
+                  >
+                    Challenge
+                  </a>
+                </li>
+                 <li>
+                  <a
+                    href="#discovery"
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
+                      activeSection === "discovery"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
+                    }`}
+                  >
+                    Discovery
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#key-features"
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
+                      activeSection === "key-features"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
+                    }`}
+                  >
+                    Key Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#reflection"
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
+                      activeSection === "reflection"
+                        ? "text-foreground font-medium px-2 bg-[#F7C325]"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
+                    }`}
+                  >
+                    Reflection
+                  </a>
+                </li>
               </ul>
             </nav>
           </aside>
@@ -51,7 +138,7 @@ export default function Page() {
               ></iframe>
             </section>
 
-            <section className="space-y-6">
+            <section id="overview" className="space-y-6">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col pt-[10px] space-y-2">
                   <h2 className="text-sm text-[#999999]">ROLE</h2>
@@ -90,7 +177,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section id="challenge" className="space-y-6">
               {/*}
               <Image
                 className="rounded-xl w-full h-auto"
@@ -141,7 +228,7 @@ export default function Page() {
               /> */}
             </section>
 
-            <section className="space-y-6">
+            <section id="discovery" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Discovery</h2>
                 <h3 className="text-2xl font-bold">
@@ -197,7 +284,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-12">
+            <section id="key-features" className="space-y-12">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Key Features</h2>
               </div>
@@ -266,7 +353,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="space-y-6">
+            <section id="reflection" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">
                   Reflection & Next Steps
