@@ -45,21 +45,21 @@ export default function Page() {
             <div className="py-6">
               <Link
                 href="/"
-                className="text-base text-[#666666] hover:text-foreground transition-colors flex items-center gap-2"
+                className="text-base text-[#666666] hover:text-foreground hover:underline transition-colors flex items-center gap-2 text-sm"
               >
                 <CornerUpLeft className="h-4 w-4" />
                 RETURN
               </Link>
             </div>
-            <nav className="py-6 mt-auto">
-              <ul className="space-y-2 text-base">
+            <nav className="border-l-1 pl-2 py-6 my-auto">
+              <ul className="space-y-1 text-base">
                 <li>
                   <a
                     href="#the-problem"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
                       activeSection === "the-problem"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     The Problem
@@ -68,10 +68,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#the-pivot"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
                       activeSection === "the-pivot"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     The Pivot
@@ -80,10 +80,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#understanding-users"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
                       activeSection === "understanding-users"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     Understanding Users
@@ -92,10 +92,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#design-process"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
                       activeSection === "design-process"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     Design Process
@@ -104,10 +104,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#brand-identity"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
                       activeSection === "brand-identity"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     Brand Identity
@@ -116,10 +116,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#key-features"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active  ${
                       activeSection === "key-features"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     Key Features
@@ -128,10 +128,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#results"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active  ${
                       activeSection === "results"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     Results
@@ -140,10 +140,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#what-i-learned"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active  ${
                       activeSection === "what-i-learned"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     What I Learned
@@ -152,10 +152,10 @@ export default function Page() {
                 <li>
                   <a
                     href="#next-steps"
-                    className={`transition-colors cursor-pointer ${
+                    className={`transition-colors cursor-pointer mono-sidebar-active ${
                       activeSection === "next-steps"
                         ? "text-foreground font-medium px-2 bg-[#F7C325]"
-                        : "text-[#666666] hover:text-foreground"
+                        : "text-[#666666] hover:text-foreground mono-sidebar"
                     }`}
                   >
                     Next Steps

@@ -9,9 +9,9 @@ export default function Footer() {
         <Heart className="h-4 w-4" />
       </div>
       <div className="text-end lg:text-end">
-        <ul className="flex flex-row gap-4 justify-end">
+        <ul className="flex flex-row gap-4 justify-end mono">
           <li>
-            <a href="mailto:chacon1shania@gmail.com" className="hover:underline">
+            <a href="mailto:chacon1shania@gmail.com" className="text-sm hover:underline">
               EMAIL
             </a>
           </li>
@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/shania-chacon/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="text-sm hover:underline"
             >
               LINKEDIN
             </a>

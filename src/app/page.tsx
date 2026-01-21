@@ -91,11 +91,11 @@ export default function Home() {
                       Product Design, Case Study
                     </span> */}
                   </div>
-                  <h3 className="max-w-[600px] text-md ">
+                  <h3 className="max-w-[600px] text-md font-[philoAB] mono">
                     Turning chaotic social chatter into warm, on-brand
                     conversations automatically
                   </h3>
-                  <h4 className="text-sm">BLUEBERRY SOCIAL • SHIPPED 2025</h4>
+                  <h4 className="text-sm mono">BLUEBERRY SOCIAL • SHIPPED 2025</h4>
                 </div>
               </Link>
             </motion.div>
@@ -123,11 +123,11 @@ export default function Home() {
                       Product Design, Case Study
                     </span> */}
                   </div>
-                  <h3 className="max-w-[600px] text-md ">
+                  <h3 className="max-w-[600px] text-md mono">
                     From mural walls to mobile feeds, I design the journeys
                     people remember.
                   </h3>
-                  <h4 className="text-sm">ART OF THE ROLL • PENDING 2025</h4>
+                  <h4 className="text-sm mono">ART OF THE ROLL • PENDING 2025</h4>
                 </div>
               </Link>
             </motion.div>
@@ -153,11 +153,11 @@ export default function Home() {
                       Product Design, Case Study
                     </span> */}
                   </div>
-                  <h3 className="max-w-[600px] text-md">
+                  <h3 className="max-w-[600px] text-md mono">
                     Award-winning XR interactive experience designed for mindful
                     engagement
                   </h3>
-                  <h4 className="text-sm">OASIS XR • CASE STUDY 2025</h4>
+                  <h4 className="text-sm mono">OASIS XR • CASE STUDY 2025</h4>
                 </div>
               </Link>
             </motion.div>
