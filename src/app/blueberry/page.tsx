@@ -2,12 +2,49 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Carousel from "@/components/Carousel";
 import { CornerUpLeft } from "lucide-react";
 
 export default function Page() {
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("header");
+  const [circleStyle, setCircleStyle] = useState({ top: 0, opacity: 0 });
+  const mainRef = useRef<HTMLElement>(null);
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Update circle position when active section changes
+  useEffect(() => {
+    const updateCirclePosition = () => {
+      if (activeSection && sectionRefs.current[activeSection] && mainRef.current) {
+        const section = sectionRefs.current[activeSection];
+        const main = mainRef.current;
+        if (section) {
+          // First look for a specific target element, then fall back to h3/h1
+          const target = section.querySelector(`[data-circle-target="${activeSection}"]`) || section.querySelector('h3, h1');
+          if (target) {
+            const targetRect = target.getBoundingClientRect();
+            const mainRect = main.getBoundingClientRect();
+            // Position circle vertically centered with the target (8 = half of 16px circle)
+            const newTop = targetRect.top - mainRect.top + main.scrollTop + (targetRect.height / 2) - 8;
+            setCircleStyle({ top: newTop, opacity: 1 });
+          }
+        }
+      }
+    };
+
+    // Small delay to ensure refs are populated on initial render
+    const timeout = setTimeout(updateCirclePosition, 100);
+
+    // Also update on scroll for smooth tracking
+    window.addEventListener('scroll', updateCirclePosition);
+    window.addEventListener('resize', updateCirclePosition);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('scroll', updateCirclePosition);
+      window.removeEventListener('resize', updateCirclePosition);
+    };
+  }, [activeSection]);
 
   useEffect(() => {
     const observerOptions = {
@@ -165,11 +202,21 @@ export default function Page() {
             </nav>
           </aside>
 
-          <main className="col-span-8 overflow-y-auto space-y-12 lg:py-6 [&_p]:text-base">
+          <div className="col-span-8 relative">
+            {/* Scroll indicator circle */}
+            <div
+              className="hidden lg:block absolute left-[-28px] w-5 h-5 rounded-full bg-[#F7C325] transition-all duration-300 ease-out z-10"
+              style={{ top: circleStyle.top, opacity: circleStyle.opacity }}
+            />
+            <main ref={mainRef} className="overflow-y-auto space-y-12 lg:py-6 [&_p]:text-base">
             {/* Header Section */}
-            <section className="flex flex-col gap-6 pt-10 lg:pt-10">
+            <section
+              id="header"
+              ref={(el) => { sectionRefs.current["header"] = el; }}
+              className="flex flex-col gap-6 pt-10 lg:pt-10"
+            >
               <h1 className="max-w-[900px] text-2xl lg:text-4xl text-[#333333] leading-[1.12]">
-                Turning chaotic social chatter into <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">warm, on-brand conversations</span> automatically
+                <span data-circle-target="header">Turning</span> chaotic social chatter into <span className="font-medium text-[#333333] px-2 bg-[#F7C325]">warm, on-brand conversations</span> automatically
               </h1>
               <p className="max-w-[600px] text-base">
                 BLUEBERRY SOCIAL • SHIPPED 2025
@@ -207,7 +254,7 @@ export default function Page() {
               </div>
               <div className="space-y-2">
                 <h2 className="text-sm mono">Overview</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   Designing trust in AI-powered social commerce
                 </h3>
               </div>
@@ -228,10 +275,10 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="the-problem" className="space-y-6">
+            <section id="the-problem" ref={(el) => { sectionRefs.current["the-problem"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">The Problem</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   When every missed comment costs money
                 </h3>
               </div>
@@ -249,10 +296,10 @@ export default function Page() {
               />
             </section>
 
-            <section id="the-pivot" className="space-y-6">
+            <section id="the-pivot" ref={(el) => { sectionRefs.current["the-pivot"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">The Pivot</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   When everything changed halfway through
                 </h3>
               </div>
@@ -268,7 +315,7 @@ export default function Page() {
                 doing millions in revenue.
               </p>
 
-              <div className="bg-[#f7fafc] border-l-4 border-[#667eea] p-6 rounded">
+              <div className="bg-[#f7fafc] border-l-4 border-[#000000] p-6 rounded">
                 <p className="font-medium italic">
                   We had a choice: panic and restart from scratch, or adapt
                   quickly and use what we&apos;d learned.
@@ -292,10 +339,10 @@ export default function Page() {
               />
             </section>
 
-            <section id="understanding-users" className="space-y-6">
+            <section id="understanding-users" ref={(el) => { sectionRefs.current["understanding-users"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Understanding Users</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   What growth teams actually needed
                 </h3>
               </div>
@@ -307,7 +354,7 @@ export default function Page() {
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="bg-[#f7fafc] p-6 rounded-lg ">
-                  <h4 className="text-lg font-semibold mb-3">
+                  <h4 className="text-lg font-medium mb-3">
                     Trust takes time
                   </h4>
                   <p className="text-sm text-[#4a5568]">
@@ -316,7 +363,7 @@ export default function Page() {
                   </p>
                 </div>
                 <div className="bg-[#f7fafc] p-6 rounded-lg ">
-                  <h4 className="text-lg font-semibold mb-3">
+                  <h4 className="text-lg font-medium mb-3">
                     Speed without sacrificing brand
                   </h4>
                   <p className="text-sm text-[#4a5568]">
@@ -325,7 +372,7 @@ export default function Page() {
                   </p>
                 </div>
                 <div className="bg-[#f7fafc] p-6 rounded-lg ">
-                  <h4 className="text-lg font-semibold mb-3">
+                  <h4 className="text-lg font-medium mb-3">
                     Clarity over complexity
                   </h4>
                   <p className="text-sm text-[#4a5568]">
@@ -344,10 +391,10 @@ export default function Page() {
               /> */}
             </section>
 
-            <section id="design-process" className="space-y-6">
+            <section id="design-process" ref={(el) => { sectionRefs.current["design-process"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Design Process</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   Onboarding: Earning trust in two minutes
                 </h3>
               </div>
@@ -358,10 +405,10 @@ export default function Page() {
               </p>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
-                <div className="inline-block bg-[#667eea] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="inline-block bg-[#000000] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Exploration 1
                 </div>
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-xl font-medium">
                   The conversational approach
                 </h4>
                 <p>
@@ -374,10 +421,10 @@ export default function Page() {
               </div>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
-                <div className="inline-block bg-[#667eea] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="inline-block bg-[#000000] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Exploration 2
                 </div>
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-xl font-medium">
                   Sequential walkthrough
                 </h4>
                 <p>
@@ -403,10 +450,10 @@ export default function Page() {
               </div>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
-                <div className="inline-block bg-[#667eea] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="inline-block bg-[#000000] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Final Solution
                 </div>
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-xl font-medium">
                   Reduce friction, deliver value instantly
                 </h4>
                 <p>
@@ -434,7 +481,7 @@ export default function Page() {
                 />
               </div>
 
-              <div className="bg-[#f7fafc] border-l-4 border-[#667eea] p-6 rounded">
+              <div className="bg-[#f7fafc] border-l-4 border-[#000000] p-6 rounded">
                 <p className="font-medium italic">
                   &quot;Super easy and it took exactly what you needed.&quot; -
                   Participant 4, rating onboarding 7/7
@@ -444,7 +491,7 @@ export default function Page() {
 
             <section className="space-y-6">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   Inbox: Making efficiency feel intuitive
                 </h3>
               </div>
@@ -474,7 +521,7 @@ export default function Page() {
               </div>
 
               <p>
-                <span className="font-bold">The emoji problem:</span>{" "}
+                <span className="font-medium">The emoji problem:</span>{" "}
                 Participant 6 called out something critical: &quot;Some of these
                 emojis are things that wouldn&apos;t be used likely. Less emojis
                 the better.&quot; The AI responses were clearly AI-generated
@@ -490,23 +537,23 @@ export default function Page() {
               </p>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-xl font-medium">
                   Building trust through transparency
                 </h4>
                 <p>Design decisions we made:</p>
                 <div className="space-y-3">
                   <p>
-                    <span className="font-bold">Show AI reasoning:</span>{" "}
+                    <span className="font-medium">Show AI reasoning:</span>{" "}
                     Suggested responses explained why they were suggesting that
                     reply, based on brand voice guidelines.
                   </p>
                   <p>
-                    <span className="font-bold">Make learning visible:</span>{" "}
+                    <span className="font-medium">Make learning visible:</span>{" "}
                     When users edited suggestions, we showed that the AI was
                     adapting.
                   </p>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Bulk actions with control:
                     </span>{" "}
                     For power users managing hundreds of comments, we added bulk
@@ -526,7 +573,7 @@ export default function Page() {
               />
 
               <p>
-                <span className="font-bold">What we learned about filters:</span>{" "}
+                <span className="font-medium">What we learned about filters:</span>{" "}
                 Participant 1 wanted to &quot;crank through it as fast as
                 possible&quot; and filter by post. Participant 6 reinforced
                 this: &quot;Subsets for data (filters): ADS first. Bring those
@@ -542,16 +589,16 @@ export default function Page() {
 
             <section className="space-y-6">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   Brand Voice & Automation: Earning permission to go hands-free
                 </h3>
               </div>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
-                <div className="inline-block bg-[#667eea] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="inline-block bg-[#000000] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Early Version
                 </div>
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-xl font-medium">
                   When we overcorrected
                 </h4>
                 <p>
@@ -585,10 +632,10 @@ export default function Page() {
               </div>
 
               <div className="bg-[#fafafa] p-8 rounded-xl space-y-4">
-                <div className="inline-block bg-[#667eea] text-white px-4 py-1 rounded-full text-sm font-semibold">
+                <div className="inline-block bg-[#000000] text-white px-4 py-1 rounded-full text-sm font-medium">
                   Revised Approach
                 </div>
-                <h4 className="text-xl font-semibold">
+                <h4 className="text-xl font-medium">
                   Progressive disclosure
                 </h4>
                 <p>
@@ -597,19 +644,19 @@ export default function Page() {
                 </p>
                 <div className="space-y-3">
                   <p>
-                    <span className="font-bold">Start with basics:</span> Upload
+                    <span className="font-medium">Start with basics:</span> Upload
                     brand guidelines or documents, set tone preferences. We made
                     URL upload easy since users mentioned they wouldn&apos;t
                     want to input text manually.
                   </p>
                   <p>
-                    <span className="font-bold">Test in the sandbox:</span>{" "}
+                    <span className="font-medium">Test in the sandbox:</span>{" "}
                     Users could see how AI would respond to real comments from
                     their feed before going live. This was huge for building
                     confidence.
                   </p>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Advanced rules are optional:
                     </span>{" "}
                     For power users who wanted granular control, it was there.
@@ -637,14 +684,14 @@ export default function Page() {
               </p>
 
               <p>
-                <span className="font-bold">The preset insight:</span> Multiple
+                <span className="font-medium">The preset insight:</span> Multiple
                 users mentioned wanting preset brand voices. Not everyone would
                 want to start from scratch. Participant 5 asked, &quot;Can you
                 save multiple brand voices?&quot; She imagined having different
                 tones for different contexts.
               </p>
 
-              <div className="bg-[#f7fafc] border-l-4 border-[#667eea] p-6 rounded">
+              <div className="bg-[#f7fafc] border-l-4 border-[#000000] p-6 rounded">
                 <p className="font-medium italic">
                   &quot;Automation is something I consider first, but I need to
                   trust Blueberry first and see what it does.&quot; -
@@ -661,10 +708,10 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="brand-identity" className="space-y-6">
+            <section id="brand-identity" ref={(el) => { sectionRefs.current["brand-identity"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Brand Identity</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   Making Blueberry feel human
                 </h3>
               </div>
@@ -708,16 +755,16 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="key-features" className="space-y-6">
+            <section id="key-features" ref={(el) => { sectionRefs.current["key-features"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Key Features</h2>
-                <h3 className="text-2xl font-bold">What we built</h3>
+                <h3 className="text-2xl font-medium">What we built</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Unified inbox with AI-assisted replies:
                     </span>{" "}
                     All comments from Instagram, Facebook, and TikTok in one
@@ -729,7 +776,7 @@ export default function Page() {
 
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Brand voice training and sandbox:
                     </span>{" "}
                     Upload brand documents, define tone, test AI responses in a
@@ -740,7 +787,7 @@ export default function Page() {
 
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Automation with human oversight:
                     </span>{" "}
                     Set optional rules for when AI can auto-reply. Confirmation
@@ -751,7 +798,7 @@ export default function Page() {
 
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Real-time moderation and prioritization:
                     </span>{" "}
                     Automatically flag negative comments, hide spam, surface
@@ -769,15 +816,15 @@ export default function Page() {
               />
             </section>
 
-            <section id="results" className="space-y-6">
+            <section id="results" ref={(el) => { sectionRefs.current["results"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Results</h2>
-                <h3 className="text-2xl font-bold">The impact</h3>
+                <h3 className="text-2xl font-medium">The impact</h3>
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#667eea] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
                     6
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -785,7 +832,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#667eea] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
                     72.5
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -793,7 +840,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#667eea] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
                     7/7
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -801,7 +848,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#667eea] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
                     60 → 80
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -812,14 +859,14 @@ export default function Page() {
 
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     What the feedback revealed
                   </h4>
                 </div>
 
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Trust took time, but we earned it:
                     </span>{" "}
                     &quot;Doesn&apos;t fully trust AI yet, but is open to
@@ -831,7 +878,7 @@ export default function Page() {
 
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Clarity won over features:
                     </span>{" "}
                     Every time we simplified, scores improved. When we stripped
@@ -842,7 +889,7 @@ export default function Page() {
 
                 <div>
                   <p>
-                    <span className="font-bold">
+                    <span className="font-medium">
                       Brand voice was the killer feature:
                     </span>{" "}
                     Participant 5 highlighted it as her favorite capability:
@@ -873,14 +920,14 @@ export default function Page() {
               */}
             </section>
 
-            <section id="what-i-learned" className="space-y-6">
+            <section id="what-i-learned" ref={(el) => { sectionRefs.current["what-i-learned"] = el; }} className="space-y-6">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Key takeaways</h3>
+                <h3 className="text-2xl font-medium">Key takeaways</h3>
               </div>
 
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     AI accelerates, humans validate
                   </h4>
                   <p>
@@ -891,7 +938,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Designing for trust is designing for transparency
                   </h4>
                   <p>
@@ -904,7 +951,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Less is genuinely more
                   </h4>
                   <p>
@@ -927,29 +974,29 @@ export default function Page() {
                */}
             </section>
 
-            <section id="next-steps" className="space-y-6">
+            <section id="next-steps" ref={(el) => { sectionRefs.current["next-steps"] = el; }} className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Next Steps</h2>
-                <h3 className="text-2xl font-bold">Where we go from here</h3>
+                <h3 className="text-2xl font-medium">Where we go from here</h3>
               </div>
 
               <div className="space-y-4">
                 <p>
-                  <span className="font-bold">Sequential rules system:</span>{" "}
+                  <span className="font-medium">Sequential rules system:</span>{" "}
                   Create a flow that naturally loops between setting guidelines
                   and testing automation. I&apos;d explore a node-based or
                   step-by-step approach that makes this connection clearer.
                 </p>
 
                 <p>
-                  <span className="font-bold">DM functionality:</span> Multiple
+                  <span className="font-medium">DM functionality:</span> Multiple
                   users mentioned managing DMs as part of their workflow. The
                   inbox-to-DM flow could unlock new engagement and sales
                   opportunities.
                 </p>
 
                 <p>
-                  <span className="font-bold">
+                  <span className="font-medium">
                     Dashboard with real insights:
                   </span>{" "}
                   Surface actionable data like sentiment trends over time,
@@ -986,7 +1033,7 @@ export default function Page() {
             <section className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Final Thoughts</h2>
-                <h3 className="text-2xl font-bold">Designing AI that amplifies humans</h3>
+                <h3 className="text-2xl font-medium">Designing AI that amplifies humans</h3>
               </div>
 
               <p>
@@ -1002,7 +1049,7 @@ export default function Page() {
                 time to focus on strategy.
               </p>
 
-              <div className="bg-[#f7fafc] border-l-4 border-[#667eea] p-6 rounded">
+              <div className="bg-[#f7fafc] border-l-4 border-[#000000] p-6 rounded">
                 <p className="font-medium italic">
                   Users will tell you what they need if you create space to
                   listen. Every time we assumed we knew better, testing proved
@@ -1017,6 +1064,7 @@ export default function Page() {
               </p>
             </section>
           </main>
+          </div>
 
           <div className="hidden lg:block col-span-2" />
         </div>
