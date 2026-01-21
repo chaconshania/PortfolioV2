@@ -189,24 +189,24 @@ export default function Page() {
             <section className="space-y-6">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">ROLE</h2>
+                  <h2 className="text-sm mono">ROLE</h2>
                   <h3>Product Designer</h3>
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">TIMELINE</h2>
+                  <h2 className="text-sm mono">TIMELINE</h2>
                   <p>10 weeks</p>
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">TEAM</h2>
+                  <h2 className="text-sm mono">TEAM</h2>
                   <ul><li>Lauren</li><li>Keiko</li><li>Valerie</li><li>Alex</li></ul>
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">TOOLS</h2>
+                  <h2 className="text-sm mono">TOOLS</h2>
                   <p>Figma, V0, Shadcn</p>
                 </div>
               </div>
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Overview</h2>
+                <h2 className="text-sm mono">Overview</h2>
                 <h3 className="text-2xl font-bold">
                   Designing trust in AI-powered social commerce
                 </h3>
@@ -230,7 +230,7 @@ export default function Page() {
 
             <section id="the-problem" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">The Problem</h2>
+                <h2 className="text-sm mono">The Problem</h2>
                 <h3 className="text-2xl font-bold">
                   When every missed comment costs money
                 </h3>
@@ -251,7 +251,7 @@ export default function Page() {
 
             <section id="the-pivot" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">The Pivot</h2>
+                <h2 className="text-sm mono">The Pivot</h2>
                 <h3 className="text-2xl font-bold">
                   When everything changed halfway through
                 </h3>
@@ -294,7 +294,7 @@ export default function Page() {
 
             <section id="understanding-users" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Understanding Users</h2>
+                <h2 className="text-sm mono">Understanding Users</h2>
                 <h3 className="text-2xl font-bold">
                   What growth teams actually needed
                 </h3>
@@ -346,7 +346,7 @@ export default function Page() {
 
             <section id="design-process" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Design Process</h2>
+                <h2 className="text-sm mono">Design Process</h2>
                 <h3 className="text-2xl font-bold">
                   Onboarding: Earning trust in two minutes
                 </h3>
@@ -663,7 +663,7 @@ export default function Page() {
 
             <section id="brand-identity" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Brand Identity</h2>
+                <h2 className="text-sm mono">Brand Identity</h2>
                 <h3 className="text-2xl font-bold">
                   Making Blueberry feel human
                 </h3>
@@ -710,7 +710,7 @@ export default function Page() {
 
             <section id="key-features" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Key Features</h2>
+                <h2 className="text-sm mono">Key Features</h2>
                 <h3 className="text-2xl font-bold">What we built</h3>
               </div>
 
@@ -771,7 +771,7 @@ export default function Page() {
 
             <section id="results" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Results</h2>
+                <h2 className="text-sm mono">Results</h2>
                 <h3 className="text-2xl font-bold">The impact</h3>
               </div>
 
@@ -875,7 +875,6 @@ export default function Page() {
 
             <section id="what-i-learned" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">What I Learned</h2>
                 <h3 className="text-2xl font-bold">Key takeaways</h3>
               </div>
 
@@ -930,7 +929,7 @@ export default function Page() {
 
             <section id="next-steps" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Next Steps</h2>
+                <h2 className="text-sm mono">Next Steps</h2>
                 <h3 className="text-2xl font-bold">Where we go from here</h3>
               </div>
 
@@ -986,7 +985,7 @@ export default function Page() {
 
             <section className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Final Thoughts</h2>
+                <h2 className="text-sm mono">Final Thoughts</h2>
                 <h3 className="text-2xl font-bold">Designing AI that amplifies humans</h3>
               </div>
 
