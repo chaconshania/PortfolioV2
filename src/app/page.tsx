@@ -18,7 +18,11 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Shania is a <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">product designer</span> who codes, turning sketches into shipped products.
+              Shania is a{" "}
+              <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">
+                product designer
+              </span>{" "}
+              who codes, turning sketches into shipped products.
               <span className="italic font-thin"></span>{" "}
             </motion.h1>
             <motion.p
@@ -27,7 +31,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Currently building @ Jetzy. <br/> Previously designed @ Blueberry Social <br />
+              Currently building @ Jetzy. <br /> Previously designed @ Blueberry
+              Social <br />
             </motion.p>
             {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
@@ -46,15 +51,14 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              y: isCardHovered ? -160 : 0
+              y: isCardHovered ? -160 : 0,
             }}
             transition={{
-              opacity: { delay: 0.6,  },
-              y: { duration: 0.3, ease: "easeOut" }
+              opacity: { delay: 0.6 },
+              y: { duration: 0.3, ease: "easeOut" },
             }}
             className="absolute pointer-events-none hidden
               lg:block lg:-top-[120px] lg:left-10 lg:w-[500px] lg:h-[500px]"
-
           >
             <Image
               src="/me/Bloo.svg"
@@ -63,7 +67,10 @@ export default function Home() {
               className="object-contain"
             />
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full relative" style={{ zIndex: 30 }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 w-full relative"
+            style={{ zIndex: 30 }}
+          >
             {/* Columns */}
             <motion.div
               className="flex flex-col gap-6"
@@ -95,7 +102,9 @@ export default function Home() {
                     Turning chaotic social chatter into warm, on-brand
                     conversations automatically
                   </h3>
-                  <h4 className="text-sm mono">BLUEBERRY SOCIAL • SHIPPED 2025</h4>
+                  <h4 className="text-sm mono">
+                    BLUEBERRY SOCIAL • SHIPPED 2025
+                  </h4>
                 </div>
               </Link>
             </motion.div>
@@ -108,7 +117,35 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {/*Projects*/}
-
+              <Link href="/works/jetzy">
+                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+                  <Image
+                    src="/jetzy/jetzy.png"
+                    alt="Jetzy project"
+                    className="rounded-lg w-full h-auto"
+                    width={800}
+                    height={600}
+                  />
+                  <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/*<span className="bg-black text-white text-sm px-4 py-2 rounded">
+                      Product Design, Case Study
+                    </span> */}
+                  </div>
+                  <h3 className="max-w-[600px] text-md mono">
+                    From mural walls to mobile feeds, I design the journeys
+                    people remember.
+                  </h3>
+                  <h4 className="text-sm mono">JETZY • BUILDING 2026</h4>
+                </div>
+              </Link>
+            </motion.div>
+            <motion.div
+              className="flex flex-col gap-6"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <Link href="/artoftheroll">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
@@ -127,7 +164,9 @@ export default function Home() {
                     From mural walls to mobile feeds, I design the journeys
                     people remember.
                   </h3>
-                  <h4 className="text-sm mono">ART OF THE ROLL • PENDING 2025</h4>
+                  <h4 className="text-sm mono">
+                    ART OF THE ROLL • PENDING 2025
+                  </h4>
                 </div>
               </Link>
             </motion.div>

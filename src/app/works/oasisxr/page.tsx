@@ -163,8 +163,8 @@ export default function Page() {
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999] mono">Overview</h2>
-                <h3 className="text-2xl font-bold">Background</h3>
+                <h2 className="text-sm mono">Overview</h2>
+                <h3 className="text-2xl font-medium">Background</h3>
               </div>
               <p>
                 In the fall of 2024, as part of my senior capstone project at
@@ -191,7 +191,7 @@ export default function Page() {
               /> */}
               <div className="space-y-2">
                 <h2 className="text-sm mono">Challenge</h2>
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   Mental wellness apps were not cutting through the noise
                 </h3>
               </div>
@@ -210,7 +210,7 @@ export default function Page() {
 
             <section className="space-y-6">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">
+                <h3 className="text-2xl font-medium">
                   The gap between promise and experience
                 </h3>
                 <p>
@@ -234,8 +234,8 @@ export default function Page() {
             <section id="discovery" className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Discovery</h2>
-                <h3 className="text-2xl font-bold">
-                  Getting inside users heads 
+                <h3 className="text-2xl font-medium">
+                  Getting inside users heads
                 </h3>
               </div>
               <p>

@@ -176,25 +176,25 @@ export default function Page() {
             <section id="overview" className="space-y-6">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">ROLE</h2>
+                  <h2 className="text-sm mono">ROLE</h2>
                   <h3>Visual & Web Designer</h3>
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">TIMELINE</h2>
+                  <h2 className="text-sm mono">TIMELINE</h2>
                   <p>2024 - Present</p>
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">TEAM</h2>
+                  <h2 className="text-sm mono">TEAM</h2>
                   <p>5 members</p>
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-sm text-[#999999]">STATUS</h2>
+                  <h2 className="text-sm mono">STATUS</h2>
                   <p>Ongoing Project</p>
                 </div>
               </div>
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Overview</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">Overview</h2>
+                <h3 className="text-2xl font-medium">
                   Breaking world records, one die at a time
                 </h3>
               </div>
@@ -218,8 +218,8 @@ export default function Page() {
 
             <section id="challenge" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Challenge</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">Challenge</h2>
+                <h3 className="text-2xl font-medium">
                   Creating the world&apos;s largest dice mosaic from a regional
                   campus with zero fundraising experience
                 </h3>
@@ -255,8 +255,8 @@ export default function Page() {
 
             <section id="my-role" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">My Role</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">My Role</h2>
+                <h3 className="text-2xl font-medium">
                   Bringing the visual identity to life and making people care
                 </h3>
               </div>
@@ -332,8 +332,8 @@ export default function Page() {
 
             <section id="strategy" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Strategy</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">Strategy</h2>
+                <h3 className="text-2xl font-medium">
                   Building the brand and social presence
                 </h3>
               </div>
@@ -357,7 +357,7 @@ export default function Page() {
 
 
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Social Media That Actually Worked
                   </h4>
                   <p>
@@ -406,8 +406,8 @@ export default function Page() {
 
             <section id="results" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">Results</h2>
-                <h3 className="text-2xl font-bold">The impact (so far)</h3>
+                <h2 className="text-sm mono">Results</h2>
+                <h3 className="text-2xl font-medium">The impact (so far)</h3>
               </div>
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -466,8 +466,8 @@ export default function Page() {
 
             <section id="plot-twist" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">The Plot Twist</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">The Plot Twist</h2>
+                <h3 className="text-2xl font-medium">
                   When ambition meets reality
                 </h3>
               </div>
@@ -509,15 +509,15 @@ export default function Page() {
 
             <section id="learnings" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">What I Learned</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">What I Learned</h2>
+                <h3 className="text-2xl font-medium">
                   Lessons from the trenches
                 </h3>
               </div>
 
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Design for the pivot
                   </h4>
                   <p>
@@ -529,7 +529,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Community beats perfection
                   </h4>
                   <p>
@@ -542,7 +542,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Ambition has a price tag
                   </h4>
                   <p>
@@ -553,7 +553,7 @@ export default function Page() {
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold mb-3">
+                  <h4 className="text-xl font-medium mb-3">
                     Regional doesn&apos;t mean small
                   </h4>
                   <p>
@@ -576,7 +576,7 @@ export default function Page() {
 
             <section id="media-recognition" className="space-y-6">
               <div className="bg-[#f7fafc] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-xl font-medium mb-4">
                   Media Recognition
                 </h3>
                 <p className="mb-4">
@@ -608,8 +608,8 @@ export default function Page() {
 
             <section id="next-steps" className="space-y-6">
               <div className="space-y-2">
-                <h2 className="text-sm text-[#999999]">What&apos;s Next</h2>
-                <h3 className="text-2xl font-bold">
+                <h2 className="text-sm mono">What&apos;s Next</h2>
+                <h3 className="text-2xl font-medium">
                   Regrouping and reimagining
                 </h3>
               </div>
