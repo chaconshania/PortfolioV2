@@ -120,7 +120,7 @@ export default function Home() {
               <Link href="/works/jetzy">
                 <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
-                    src="/jetzy/jetzy.png"
+                    src="/jetzy/Jetzy.png"
                     alt="Jetzy project"
                     className="rounded-lg w-full h-auto"
                     width={800}
