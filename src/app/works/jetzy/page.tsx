@@ -218,9 +218,9 @@ export default function Page() {
                 </div>
 
                 <p>
-                  I've signed an NDA, so I can't share more details about this
-                  work publicly. However, if you'd like to learn more about my
-                  work at Jetzy, please reach out!
+                  I&apos;ve signed an NDA, so I can&apos;t share more details
+                  about this work publicly. However, if you&apos;d like to learn
+                  more about my work at Jetzy, please reach out!
                 </p>
               </section>
             </main>
