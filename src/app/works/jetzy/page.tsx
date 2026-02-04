@@ -160,7 +160,7 @@ export default function Page() {
               <section>
                 <Image
                   className="rounded-xl w-full h-auto object-cover"
-                  src="/jetzy/jetzy.png"
+                  src="/jetzy/Jetzy.png"
                   alt="project hero"
                   width={1200}
                   height={800}
