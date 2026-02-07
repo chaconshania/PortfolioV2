@@ -152,7 +152,6 @@ export default function Page() {
                     Designing a more intentional social travel experience with
                     Jetzy
                   </span>{" "}
-                  goes here
                 </h1>
                 <p className="max-w-[600px] text-base">JETZY • BUILDING 2026</p>
               </section>
