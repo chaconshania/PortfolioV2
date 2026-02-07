@@ -132,8 +132,8 @@ export default function Home() {
                     </span> */}
                   </div>
                   <h3 className="max-w-[600px] text-md mono">
-                    From mural walls to mobile feeds, I design the journeys
-                    people remember.
+                    Designing a more intentional social travel experience with
+                    Jetzy
                   </h3>
                   <h4 className="text-sm mono">JETZY • BUILDING 2026</h4>
                 </div>
