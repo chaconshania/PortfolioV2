@@ -44,8 +44,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: "light" }}>
       <head>
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-GTP3RX2NGZ"
@@ -56,16 +58,22 @@ export default function RootLayout({
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-GTP3RX2NGZ'); 
+  gtag('config', 'G-GTP3RX2NGZ');
   `}
         </script>
       </head>
       <body
         className={`${neueMontreal.className} ${ibmPlexMono.variable} antialiased`}
       >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded focus:ring-2 focus:ring-black"
+        >
+          Skip to content
+        </a>
         <div className="flex flex-col min-h-screen">
           <Header />
-          {children}
+          <div id="main-content">{children}</div>
           <Footer />
         </div>
       </body>

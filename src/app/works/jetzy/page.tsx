@@ -11,47 +11,48 @@ export default function Page() {
   const [circleStyle, setCircleStyle] = useState({ top: 0, opacity: 0 });
   const mainRef = useRef<HTMLElement>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+  const rafRef = useRef<number | null>(null);
 
   // Update circle position when active section changes
   useEffect(() => {
     const updateCirclePosition = () => {
-      if (
-        activeSection &&
-        sectionRefs.current[activeSection] &&
-        mainRef.current
-      ) {
-        const section = sectionRefs.current[activeSection];
-        const main = mainRef.current;
-        if (section) {
-          // First look for a specific target element, then fall back to h3/h1
-          const target =
-            section.querySelector(`[data-circle-target="${activeSection}"]`) ||
-            section.querySelector("h3, h1");
-          if (target) {
-            const targetRect = target.getBoundingClientRect();
-            const mainRect = main.getBoundingClientRect();
-            // Position circle vertically centered with the target (8 = half of 16px circle)
-            const newTop =
-              targetRect.top -
-              mainRect.top +
-              main.scrollTop +
-              targetRect.height / 2 -
-              8;
-            setCircleStyle({ top: newTop, opacity: 1 });
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        if (
+          activeSection &&
+          sectionRefs.current[activeSection] &&
+          mainRef.current
+        ) {
+          const section = sectionRefs.current[activeSection];
+          const main = mainRef.current;
+          if (section) {
+            const target =
+              section.querySelector(`[data-circle-target="${activeSection}"]`) ||
+              section.querySelector("h3, h1");
+            if (target) {
+              const targetRect = target.getBoundingClientRect();
+              const mainRect = main.getBoundingClientRect();
+              const newTop =
+                targetRect.top -
+                mainRect.top +
+                main.scrollTop +
+                targetRect.height / 2 -
+                8;
+              setCircleStyle({ top: newTop, opacity: 1 });
+            }
           }
         }
-      }
+      });
     };
 
-    // Small delay to ensure refs are populated on initial render
     const timeout = setTimeout(updateCirclePosition, 100);
 
-    // Also update on scroll for smooth tracking
     window.addEventListener("scroll", updateCirclePosition);
     window.addEventListener("resize", updateCirclePosition);
 
     return () => {
       clearTimeout(timeout);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       window.removeEventListener("scroll", updateCirclePosition);
       window.removeEventListener("resize", updateCirclePosition);
     };
@@ -95,7 +96,7 @@ export default function Page() {
                 href="/"
                 className="text-base text-[#666666] hover:text-foreground hover:underline transition-colors flex items-center gap-2 text-sm"
               >
-                <CornerUpLeft className="h-4 w-4" />
+                <CornerUpLeft className="h-4 w-4" aria-hidden="true" />
                 RETURN
               </Link>
             </div>
@@ -152,6 +153,12 @@ export default function Page() {
                     Designing a more intentional social travel experience with
                     Jetzy
                   </span>{" "}
+
+
+
+
+
+                  
                 </h1>
                 <p className="max-w-[600px] text-base">JETZY • BUILDING 2026</p>
               </section>
@@ -207,7 +214,7 @@ export default function Page() {
                 ref={(el) => {
                   sectionRefs.current["section-1"] = el;
                 }}
-                className="space-y-6"
+                className="space-y-6 scroll-mt-20"
               >
                 <div className="space-y-2">
                   <h2 className="text-sm mono">Under NDA</h2>

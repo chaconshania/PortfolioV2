@@ -75,55 +75,50 @@ function page() {
                 style={{ aspectRatio: '0.945' }}
               />
             </div>
-             {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/renfaire.jpeg"
-                alt="Renfaire"
+                alt="At the Renaissance faire"
                 width={800}
                 height={850}
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                 style={{ aspectRatio: '0.945' }}
               />
             </div>
-             {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/me-friends.JPG"
-                alt="Renfaire"
+                alt="With friends"
                 width={800}
                 height={850}
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                 style={{ aspectRatio: '0.945' }}
               />
             </div>
-             {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/dmd-frens.JPG"
-                alt="Renfaire"
+                alt="With DMD friends"
                 width={800}
                 height={850}
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                 style={{ aspectRatio: '0.945' }}
               />
             </div>
-             {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/me/me-standing.JPG"
-                alt="Renfaire"
+                alt="Standing portrait"
                 width={800}
                 height={850}
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                 style={{ aspectRatio: '0.945' }}
               />
             </div>
-             {/* Image 4 */}
             <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
               <Image
                 src="/blueberry/group-picture.JPG"
-                alt="Renfaire"
+                alt="Blueberry team group photo"
                 width={800}
                 height={850}
                 className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"

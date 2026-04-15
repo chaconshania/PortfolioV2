@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
 interface GridItem {
@@ -23,17 +23,18 @@ interface AnimatedGridProps {
 
 export default function AnimatedGrid({ items }: AnimatedGridProps) {
   const gridRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: gridRef,
     offset: ["start end", "end start"],
   });
 
   // Column 1 (left): moves up
-  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y1 = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [100, -100]);
   // Column 2 (middle): moves down
-  const y2 = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [-100, 100]);
   // Column 3 (right): moves up
-  const y3 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y3 = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [0, 0] : [100, -100]);
 
   // Determine which transform to use based on index
   const getTransform = (index: number) => {

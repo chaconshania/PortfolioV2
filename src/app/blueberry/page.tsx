@@ -11,36 +11,37 @@ export default function Page() {
   const [circleStyle, setCircleStyle] = useState({ top: 0, opacity: 0 });
   const mainRef = useRef<HTMLElement>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+  const rafRef = useRef<number | null>(null);
 
   // Update circle position when active section changes
   useEffect(() => {
     const updateCirclePosition = () => {
-      if (activeSection && sectionRefs.current[activeSection] && mainRef.current) {
-        const section = sectionRefs.current[activeSection];
-        const main = mainRef.current;
-        if (section) {
-          // First look for a specific target element, then fall back to h3/h1
-          const target = section.querySelector(`[data-circle-target="${activeSection}"]`) || section.querySelector('h3, h1');
-          if (target) {
-            const targetRect = target.getBoundingClientRect();
-            const mainRect = main.getBoundingClientRect();
-            // Position circle vertically centered with the target (8 = half of 16px circle)
-            const newTop = targetRect.top - mainRect.top + main.scrollTop + (targetRect.height / 2) - 8;
-            setCircleStyle({ top: newTop, opacity: 1 });
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        if (activeSection && sectionRefs.current[activeSection] && mainRef.current) {
+          const section = sectionRefs.current[activeSection];
+          const main = mainRef.current;
+          if (section) {
+            const target = section.querySelector(`[data-circle-target="${activeSection}"]`) || section.querySelector('h3, h1');
+            if (target) {
+              const targetRect = target.getBoundingClientRect();
+              const mainRect = main.getBoundingClientRect();
+              const newTop = targetRect.top - mainRect.top + main.scrollTop + (targetRect.height / 2) - 8;
+              setCircleStyle({ top: newTop, opacity: 1 });
+            }
           }
         }
-      }
+      });
     };
 
-    // Small delay to ensure refs are populated on initial render
     const timeout = setTimeout(updateCirclePosition, 100);
 
-    // Also update on scroll for smooth tracking
     window.addEventListener('scroll', updateCirclePosition);
     window.addEventListener('resize', updateCirclePosition);
 
     return () => {
       clearTimeout(timeout);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       window.removeEventListener('scroll', updateCirclePosition);
       window.removeEventListener('resize', updateCirclePosition);
     };
@@ -84,7 +85,7 @@ export default function Page() {
                 href="/"
                 className="text-base text-[#666666] hover:text-foreground hover:underline transition-colors flex items-center gap-2 text-sm"
               >
-                <CornerUpLeft className="h-4 w-4" />
+                <CornerUpLeft className="h-4 w-4" aria-hidden="true" />
                 RETURN
               </Link>
             </div>
@@ -275,7 +276,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="the-problem" ref={(el) => { sectionRefs.current["the-problem"] = el; }} className="space-y-6">
+            <section id="the-problem" ref={(el) => { sectionRefs.current["the-problem"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">The Problem</h2>
                 <h3 className="text-2xl font-medium">
@@ -296,7 +297,7 @@ export default function Page() {
               />
             </section>
 
-            <section id="the-pivot" ref={(el) => { sectionRefs.current["the-pivot"] = el; }} className="space-y-6">
+            <section id="the-pivot" ref={(el) => { sectionRefs.current["the-pivot"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">The Pivot</h2>
                 <h3 className="text-2xl font-medium">
@@ -339,7 +340,7 @@ export default function Page() {
               />
             </section>
 
-            <section id="understanding-users" ref={(el) => { sectionRefs.current["understanding-users"] = el; }} className="space-y-6">
+            <section id="understanding-users" ref={(el) => { sectionRefs.current["understanding-users"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Understanding Users</h2>
                 <h3 className="text-2xl font-medium">
@@ -391,7 +392,7 @@ export default function Page() {
               /> */}
             </section>
 
-            <section id="design-process" ref={(el) => { sectionRefs.current["design-process"] = el; }} className="space-y-6">
+            <section id="design-process" ref={(el) => { sectionRefs.current["design-process"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Design Process</h2>
                 <h3 className="text-2xl font-medium">
@@ -708,7 +709,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="brand-identity" ref={(el) => { sectionRefs.current["brand-identity"] = el; }} className="space-y-6">
+            <section id="brand-identity" ref={(el) => { sectionRefs.current["brand-identity"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Brand Identity</h2>
                 <h3 className="text-2xl font-medium">
@@ -755,7 +756,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="key-features" ref={(el) => { sectionRefs.current["key-features"] = el; }} className="space-y-6">
+            <section id="key-features" ref={(el) => { sectionRefs.current["key-features"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Key Features</h2>
                 <h3 className="text-2xl font-medium">What we built</h3>
@@ -816,7 +817,7 @@ export default function Page() {
               />
             </section>
 
-            <section id="results" ref={(el) => { sectionRefs.current["results"] = el; }} className="space-y-6">
+            <section id="results" ref={(el) => { sectionRefs.current["results"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Results</h2>
                 <h3 className="text-2xl font-medium">The impact</h3>
@@ -824,7 +825,7 @@ export default function Page() {
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2 tabular-nums">
                     6
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -832,7 +833,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2 tabular-nums">
                     72.5
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -840,7 +841,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2 tabular-nums">
                     7/7
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -848,7 +849,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2">
+                  <div className="text-3xl lg:text-4xl font-medium text-[#000000] mb-2 tabular-nums">
                     60 → 80
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -920,7 +921,7 @@ export default function Page() {
               */}
             </section>
 
-            <section id="what-i-learned" ref={(el) => { sectionRefs.current["what-i-learned"] = el; }} className="space-y-6">
+            <section id="what-i-learned" ref={(el) => { sectionRefs.current["what-i-learned"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h3 className="text-2xl font-medium">Key takeaways</h3>
               </div>
@@ -974,7 +975,7 @@ export default function Page() {
                */}
             </section>
 
-            <section id="next-steps" ref={(el) => { sectionRefs.current["next-steps"] = el; }} className="space-y-6">
+            <section id="next-steps" ref={(el) => { sectionRefs.current["next-steps"] = el; }} className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Next Steps</h2>
                 <h3 className="text-2xl font-medium">Where we go from here</h3>

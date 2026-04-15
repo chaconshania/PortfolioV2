@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 
 export default function Home() {
   const [isCardHovered, setIsCardHovered] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <div>
@@ -13,23 +14,39 @@ export default function Home() {
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full md:col-span-3">
           <div className="flex flex-col w-full gap-6">
             <motion.h1
-              className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] relative"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] relative text-pretty"
+              initial={
+                prefersReducedMotion
+                  ? {}
+                  : { opacity: 0, y: 20, filter: "blur(4px)" }
+              }
+              animate={
+                prefersReducedMotion
+                  ? {}
+                  : { opacity: 1, y: 0, filter: "blur(0px)" }
+              }
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
               Shania is a{" "}
               <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">
-                product designer
+                designer
               </span>{" "}
               who codes, turning sketches into shipped products.
               <span className="italic font-thin"></span>{" "}
             </motion.h1>
             <motion.p
               className="max-w-[600px] text-base"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={
+                prefersReducedMotion
+                  ? {}
+                  : { opacity: 0, y: 20, filter: "blur(4px)" }
+              }
+              animate={
+                prefersReducedMotion
+                  ? {}
+                  : { opacity: 1, y: 0, filter: "blur(0px)" }
+              }
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
               Currently building @ Jetzy. <br /> Previously designed @ Blueberry
               Social <br />
@@ -48,11 +65,12 @@ export default function Home() {
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 w-full relative md:col-span-3">
           {/* Blueberry SVG - positioned behind container */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              y: isCardHovered ? -160 : 0,
-            }}
+            initial={prefersReducedMotion ? {} : { opacity: 0 }}
+            animate={
+              prefersReducedMotion
+                ? {}
+                : { opacity: 1, y: isCardHovered ? -160 : 0 }
+            }
             transition={{
               opacity: { delay: 0.6 },
               y: { duration: 0.3, ease: "easeOut" },
@@ -65,6 +83,7 @@ export default function Home() {
               alt="Blueberry decoration"
               fill
               className="object-contain"
+              style={{ outline: "none" }}
             />
           </motion.div>
           <div
@@ -74,21 +93,25 @@ export default function Home() {
             {/* Columns */}
             <motion.div
               className="flex flex-col gap-6"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               {/*Projects*/}
-              <Link href="/blueberry">
+              <Link
+                href="/blueberry"
+                className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
+              >
                 <div
-                  className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]"
+                  className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]"
                   onMouseEnter={() => setIsCardHovered(true)}
                   onMouseLeave={() => setIsCardHovered(false)}
                 >
                   <Image
                     src="/homepage/Blueberry.png"
                     className="rounded-lg w-full h-auto"
+                    style={{ outline: "none" }}
                     alt="Blueberry dashboard"
                     width={800}
                     height={600}
@@ -111,18 +134,22 @@ export default function Home() {
 
             <motion.div
               className="flex flex-col gap-6"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {/*Projects*/}
-              <Link href="/works/jetzy">
-                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+              <Link
+                href="/works/jetzy"
+                className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
+              >
+                <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/jetzy/Jetzy.png"
                     alt="Jetzy project"
                     className="rounded-lg w-full h-auto"
+                    style={{ outline: "none" }}
                     width={800}
                     height={600}
                   />
@@ -141,17 +168,21 @@ export default function Home() {
             </motion.div>
             <motion.div
               className="flex flex-col gap-6"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link href="/artoftheroll">
-                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+              <Link
+                href="/artoftheroll"
+                className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
+              >
+                <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/homepage/artoftheroll.png"
                     alt="Art of the roll"
                     className="rounded-lg w-full h-auto"
+                    style={{ outline: "none" }}
                     width={800}
                     height={600}
                   />
@@ -172,18 +203,22 @@ export default function Home() {
             </motion.div>
             <motion.div
               className="flex flex-col gap-6"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               {/*Projects*/}
-              <Link href="/works/oasisxr">
-                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+              <Link
+                href="/works/oasisxr"
+                className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
+              >
+                <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/homepage/oasisxr.png"
                     alt="Oasis XR"
                     className="rounded-lg w-full h-auto"
+                    style={{ outline: "none" }}
                     width={800}
                     height={600}
                   />
@@ -205,11 +240,11 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               
               <Link href="/works/artsw">
-                <div className="flex flex-col gap-2 transition-colors duration-300 ease-in-out group relative rounded-xl overflow-hidden p-4 bg-[#f8f8f8]">
+                <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
                   <Image
                     src="/artsw/Wallflowers.png"
                     alt="Artsw web design"
-                    className="rounded-lg w-full h-auto"
+                    className="rounded-lg w-full h-auto" style={{ outline: "none" }}
                     width={800}
                     height={600}
                   />

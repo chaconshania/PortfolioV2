@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const prefersReducedMotion = useReducedMotion();
 
   // no scrolling
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function Header() {
   ];
 
   const linkClass = (href: string) =>
-    `text-sm transition ${
+    `text-sm transition-opacity ${
       pathname === href ? "text-[#999999]" : "hover:opacity-70"
     }`;
 
@@ -47,8 +48,8 @@ export default function Header() {
               {navItems.map((item, index) => (
                 <motion.li
                   key={item.name}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: -10 }}
+                  animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.2 }}
                 >
                   <Link href={item.href} className={linkClass(item.href)}>
@@ -60,20 +61,25 @@ export default function Header() {
           </div>
 
           <div className="flex justify-end lg:hidden">
-            <button onClick={() => setOpen(!open)} className="p-2">
-              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <button
+              onClick={() => setOpen(!open)}
+              className="p-2 focus-visible:ring-2 focus-visible:ring-black rounded"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+            >
+              {open ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
             </button>
           </div>
         </div>
       </nav>
 
       {/* Overlay for mobile */}
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1 }}
+            exit={prefersReducedMotion ? {} : { opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-white/95 backdrop-blur-md "
           >
@@ -81,8 +87,8 @@ export default function Header() {
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+                  animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.2 }}
                 >
                   <Link

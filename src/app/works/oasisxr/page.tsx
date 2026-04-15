@@ -46,7 +46,7 @@ export default function Page() {
                 href="/"
                 className="text-base text-[#666666] hover:text-foreground hover:underline transition-colors flex items-center gap-2 text-sm"
               >
-                <CornerUpLeft className="h-4 w-4" />
+                <CornerUpLeft className="h-4 w-4" aria-hidden="true" />
                 RETURN
               </Link>
             </div>
@@ -133,13 +133,14 @@ export default function Page() {
                 src="https://player.vimeo.com/video/1073426256?h=pl&title=0&byline=0&portrait=0"
                 width="100%"
                 height="100%"
+                title="Oasis XR project demo video"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full rounded-xl"
               ></iframe>
             </section>
 
-            <section id="overview" className="space-y-6">
+            <section id="overview" className="space-y-6 scroll-mt-20">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col pt-[10px] space-y-2">
                   <h2 className="text-sm mono">ROLE</h2>
@@ -180,7 +181,7 @@ export default function Page() {
               <p>This project has earn </p>
             </section>
 
-            <section id="challenge" className="space-y-6">
+            <section id="challenge" className="space-y-6 scroll-mt-20">
               {/*}
               <Image
                 className="rounded-xl w-full h-auto"
@@ -208,7 +209,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h3 className="text-2xl font-medium">
                   The gap between promise and experience
@@ -231,7 +232,7 @@ export default function Page() {
               /> */}
             </section>
 
-            <section id="discovery" className="space-y-6">
+            <section id="discovery" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Discovery</h2>
                 <h3 className="text-2xl font-medium">
@@ -249,7 +250,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section className="space-y-6">
+            <section className="space-y-6 scroll-mt-20">
               <p>
                 My competitive analysis showed that VR meditation experiences
                 were often either too expensive, too sterile, or quickly lost
@@ -261,7 +262,7 @@ export default function Page() {
             </section>
             {/* 
 
-            <section className="space-y-6">
+            <section className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">Synthesis</h2>
                 <h3 className="text-2xl font-bold">
@@ -358,7 +359,7 @@ export default function Page() {
             */ }
 
             {/* 
-            <section id="reflection" className="space-y-6">
+            <section id="reflection" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm text-[#999999]">
                   Reflection & Next Steps

@@ -46,7 +46,7 @@ export default function Page() {
                 href="/"
                 className="text-base text-[#666666] hover:text-foreground hover:underline transition-colors flex items-center gap-2 text-sm"
               >
-                <CornerUpLeft className="h-4 w-4" />
+                <CornerUpLeft className="h-4 w-4" aria-hidden="true" />
                 RETURN
               </Link>
             </div>
@@ -173,7 +173,7 @@ export default function Page() {
               />
             </section>
 
-            <section id="overview" className="space-y-6">
+            <section id="overview" className="space-y-6 scroll-mt-20">
               <div className="grid space-y-6 grid-cols-1 lg:grid-cols-4">
                 <div className="flex flex-col">
                   <h2 className="text-sm mono">ROLE</h2>
@@ -216,7 +216,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="challenge" className="space-y-6">
+            <section id="challenge" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Challenge</h2>
                 <h3 className="text-2xl font-medium">
@@ -253,7 +253,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="my-role" className="space-y-6">
+            <section id="my-role" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">My Role</h2>
                 <h3 className="text-2xl font-medium">
@@ -330,7 +330,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section id="strategy" className="space-y-6">
+            <section id="strategy" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Strategy</h2>
                 <h3 className="text-2xl font-medium">
@@ -338,7 +338,7 @@ export default function Page() {
                 </h3>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-6 scroll-mt-20">
                 <div>
                   <p>
                     We needed to make people care about dice. Like, really care.
@@ -404,7 +404,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section id="results" className="space-y-6">
+            <section id="results" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">Results</h2>
                 <h3 className="text-2xl font-medium">The impact (so far)</h3>
@@ -412,7 +412,7 @@ export default function Page() {
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2 tabular-nums">
                     $11,000+
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -420,7 +420,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2 tabular-nums">
                     60+
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -428,7 +428,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2 tabular-nums">
                     226.1%
                   </div>
                   <div className="text-sm text-[#718096]">
@@ -436,7 +436,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="bg-white p-6 rounded-lg border border-[#e2e8f0] text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#4299e1] mb-2 tabular-nums">
                     200,000+
                   </div>
                   <div className="text-sm text-[#718096]">Dice planned</div>
@@ -464,7 +464,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section id="plot-twist" className="space-y-6">
+            <section id="plot-twist" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">The Plot Twist</h2>
                 <h3 className="text-2xl font-medium">
@@ -507,7 +507,7 @@ export default function Page() {
               </p>
             </section>
 
-            <section id="learnings" className="space-y-6">
+            <section id="learnings" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">What I Learned</h2>
                 <h3 className="text-2xl font-medium">
@@ -515,7 +515,7 @@ export default function Page() {
                 </h3>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-6 scroll-mt-20">
                 <div>
                   <h4 className="text-xl font-medium mb-3">
                     Design for the pivot
@@ -574,7 +574,7 @@ export default function Page() {
               />
             </section>
 
-            <section id="media-recognition" className="space-y-6">
+            <section id="media-recognition" className="space-y-6 scroll-mt-20">
               <div className="bg-[#f7fafc] p-6 rounded-lg">
                 <h3 className="text-xl font-medium mb-4">
                   Media Recognition
@@ -606,7 +606,7 @@ export default function Page() {
               </div>
             </section>
 
-            <section id="next-steps" className="space-y-6">
+            <section id="next-steps" className="space-y-6 scroll-mt-20">
               <div className="space-y-2">
                 <h2 className="text-sm mono">What&apos;s Next</h2>
                 <h3 className="text-2xl font-medium">
