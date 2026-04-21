@@ -14,7 +14,7 @@ export default function Home() {
         <section className="flex flex-col lg:flex-row gap-12 lg:gap-6 pt-20 lg:pt-10 w-full md:col-span-3">
           <div className="flex flex-col w-full gap-6">
             <motion.h1
-              className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12] relative text-pretty"
+              className="max-w-[900px] text-3xl lg:text-4xl text-[#333333] leading-[1.12] relative text-pretty"
               initial={
                 prefersReducedMotion
                   ? {}
@@ -35,7 +35,7 @@ export default function Home() {
               <span className="italic font-thin"></span>{" "}
             </motion.h1>
             <motion.p
-              className="max-w-[600px] text-base"
+              className="max-w-[400px] text-base wrap"
               initial={
                 prefersReducedMotion
                   ? {}
@@ -48,8 +48,27 @@ export default function Home() {
               }
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Currently building @ Jetzy. <br /> Previously designed @ Blueberry
-              Social <br />
+              I believe the strongest solutions sit at the intersection of data,
+              design, and human behavior.
+            </motion.p>
+            <motion.p
+              className="max-w-[400px] text-base wrap"
+              initial={
+                prefersReducedMotion
+                  ? {}
+                  : { opacity: 0, y: 20, filter: "blur(4px)" }
+              }
+              animate={
+                prefersReducedMotion
+                  ? {}
+                  : { opacity: 1, y: 0, filter: "blur(0px)" }
+              }
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              When I'm not working, I'm probably watching{" "}
+              <span className="underline">movies</span>, creating{" "}
+              <span className="underline">art</span>, or listening to{" "}
+              <span className="underline">music</span>.
             </motion.p>
             {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
