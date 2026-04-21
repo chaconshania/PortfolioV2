@@ -38,23 +38,7 @@ export default function Home() {
                 </span>{" "}
                 who codes, turning sketches into shipped products.
               </motion.h1>
-              <motion.p
-                className="max-w-[400px] text-base text-pretty"
-                initial={
-                  prefersReducedMotion
-                    ? {}
-                    : { opacity: 0, y: 20, filter: "blur(4px)" }
-                }
-                animate={
-                  prefersReducedMotion
-                    ? {}
-                    : { opacity: 1, y: 0, filter: "blur(0px)" }
-                }
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                I believe the strongest solutions sit at the intersection of
-                data, design, and human behavior.
-              </motion.p>
+
               <motion.p
                 className="max-w-[400px] text-base text-pretty"
                 initial={
@@ -86,7 +70,7 @@ export default function Home() {
           */}
             </div>
           </section>
-
+          <hr />
           <section className="flex flex-col gap-6 w-full relative">
             {/* Blueberry SVG - positioned behind container */}
             <motion.div
