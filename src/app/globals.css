@@ -6,26 +6,29 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  
-  h1 {
 
+  h1 {
   }
   hr {
     color: #e2e8f0;
   }
   h4 {
-    
   }
- 
+
   p {
-    color: #333333; 
+    color: #333333;
   }
 }
 
@@ -38,31 +41,27 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
-.mono{
+.mono {
   font-family: var(--font-ibm-plex-mono);
   letter-spacing: -0.05em;
-  color: #6F6F6F;
-
+  color: #6f6f6f;
 }
 
-.mono-sidebar{
+.mono-sidebar {
   font-family: var(--font-ibm-plex-mono);
   letter-spacing: -0.05em;
-  color: #6F6F6F;
-  font-size: small; 
-
+  color: #6f6f6f;
+  font-size: small;
 }
-.mono-sidebar-active{
+.mono-sidebar-active {
   font-family: var(--font-ibm-plex-mono);
   letter-spacing: -0.05em;
   color: #333333;
   font-size: small;
-
 }
-
 
 img {
   outline: 1px solid rgba(0, 0, 0, 0.08);
@@ -74,7 +73,7 @@ img {
 }
 
 .highlight-sweep {
-  background-image: linear-gradient(#F7C325, #F7C325);
+  background-image: linear-gradient(#f7c325, #f7c325);
   background-size: 0% 85%;
   background-repeat: no-repeat;
   background-position: left center;
@@ -90,8 +89,126 @@ img {
   background-size: 100% 85%;
 }
 
+/* Movie poster hover card */
+.movie-poster-container {
+  z-index: 200;
+  padding-bottom: 8px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  filter: blur(4px);
+  transform-origin: bottom;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+  transition:
+    opacity 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    visibility 0s linear 0.18s;
+  position: fixed;
+  transform: translate(-50%) translateY(-100%) scale(0.95);
+}
+
+.movie-poster-container-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  filter: blur(0);
+  transition:
+    opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    filter 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+    visibility 0s linear 0s;
+  transform: translate(-50%) translateY(-100%) scale(1);
+}
+
+.movie-poster-stack {
+  cursor: pointer;
+  align-items: center;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.movie-poster-card {
+  background: #f8f8f8;
+  opacity: 0;
+  filter: blur(4px);
+  border: #ffffff solid 1px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  width: 4rem;
+  height: 6rem;
+  margin-left: -8px;
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.08),
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 6px 12px rgba(0, 0, 0, 0.12),
+    0 12px 24px rgba(0, 0, 0, 0.08);
+  transition:
+    opacity 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  outline: none;
+}
+
+.movie-poster-card img {
+  outline: none !important;
+}
+
+.movie-poster-card-first {
+  margin-left: 0;
+}
+
+.movie-poster-container-open .movie-poster-card {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1) var(--poster-delay, 0ms),
+    filter 0.4s cubic-bezier(0.19, 1, 0.22, 1) var(--poster-delay, 0ms);
+}
+
+.movie-poster-img {
+  object-fit: cover;
+  width: 4rem !important;
+  height: 6rem !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .movie-poster-container {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  .movie-poster-container {
+    filter: none;
+    transition:
+      opacity 0.18s linear,
+      visibility 0s linear 0.18s;
+    transform: translate(-50%) translateY(-100%);
+  }
+  .movie-poster-container-open {
+    filter: none;
+    transition:
+      opacity 0.18s linear,
+      visibility 0s linear;
+    transform: translate(-50%) translateY(-100%);
+  }
+  .movie-poster-card {
+    opacity: 1;
+    filter: none;
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

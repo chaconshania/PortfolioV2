@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
+import { MoviePosterTrigger } from "@/components/MoviePosterCard";
 
 export default function Home() {
   const [isCardHovered, setIsCardHovered] = useState(false);
@@ -65,10 +66,13 @@ export default function Home() {
               }
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              When I'm not working, I'm probably watching{" "}
-              <span className="highlight-sweep">movies</span>, creating{" "}
-              <span className="highlight-sweep">art</span>, or listening to{" "}
-              <span className="highlight-sweep">music</span>.
+              When I&apos;m not working, I&apos;m probably watching{" "}
+              <MoviePosterTrigger>
+                <span className="highlight-sweep cursor-pointer">movies</span>
+              </MoviePosterTrigger>
+              , creating <span className="highlight-sweep">art</span>, or
+              listening to <span className="highlight-sweep">music</span>. I
+              touch grass!
             </motion.p>
             {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">
