@@ -28,7 +28,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               Shania is a{" "}
-              <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">
+              <span className="font-bold text-[#333333] px-2 bg-[#F7C325] highlight-sweep">
                 designer
               </span>{" "}
               who codes, turning sketches into shipped products.
@@ -66,9 +66,9 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               When I'm not working, I'm probably watching{" "}
-              <span className="underline">movies</span>, creating{" "}
-              <span className="underline">art</span>, or listening to{" "}
-              <span className="underline">music</span>.
+              <span className="highlight-sweep">movies</span>, creating{" "}
+              <span className="highlight-sweep">art</span>, or listening to{" "}
+              <span className="highlight-sweep">music</span>.
             </motion.p>
             {/*   Linkedin and Github logos
           <div className="flex flex-col  justify-end ">

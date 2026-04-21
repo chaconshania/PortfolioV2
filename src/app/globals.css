@@ -73,6 +73,23 @@ img {
   font-variant-numeric: tabular-nums;
 }
 
+.highlight-sweep {
+  background-image: linear-gradient(#F7C325, #F7C325);
+  background-size: 0% 85%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  transition: background-size 0.3s ease;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #999999;
+  text-underline-offset: 3px;
+  cursor: default;
+}
+
+.highlight-sweep:hover {
+  background-size: 100% 85%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
