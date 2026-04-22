@@ -40,7 +40,7 @@ export default function Header() {
           </Link>
 
           <div className="sr-only lg:not-sr-only lg:text-center">
-            <h2 className="text-sm">PRODUCT DESIGNER</h2>
+            <h2 className="text-sm"></h2>
           </div>
 
           <div className="hidden lg:block text-end">
@@ -67,7 +67,11 @@ export default function Header() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
-              {open ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
+              {open ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
