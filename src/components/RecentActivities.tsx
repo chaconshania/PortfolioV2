@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,6 +10,10 @@ import {
   useSpring,
   useReducedMotion,
 } from "framer-motion";
+import gsap from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+
+gsap.registerPlugin(ScrambleTextPlugin);
 
 const CARD_W = 210;
 const CARD_H = 148;
@@ -74,11 +78,49 @@ export function RecentActivities() {
   const x = useSpring(rawX, { stiffness: 500, damping: 40 });
   const y = useSpring(rawY, { stiffness: 500, damping: 40 });
 
+  // Refs for scramble targets — key: i * 10 + slot (0=name,1=role,2=date,3+=tags)
+  const nameRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const roleRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const dateRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const tagRefs  = useRef<(HTMLSpanElement | null)[][]>([]);
+  const tweens   = useRef<gsap.core.Tween[]>([]);
+
+  const run = (el: HTMLSpanElement | null, text: string, key: number, duration: number, speed: number) => {
+    if (!el) return;
+    tweens.current[key]?.kill();
+    tweens.current[key] = gsap.to(el, {
+      duration,
+      scrambleText: { text, chars: "upperCase", speed },
+      ease: "none",
+    });
+  };
+
   const handleMouseEnter = (e: React.MouseEvent, i: number) => {
-    // Seed position before the card mounts so it doesn't snap from (0,0)
     rawX.set(e.clientX + 20);
     rawY.set(e.clientY - CARD_H / 2);
     setHoveredIndex(i);
+
+    if (!prefersReducedMotion) {
+      run(nameRefs.current[i], activities[i].name, i * 10 + 0, 0.55, 0.5);
+      run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.55, 0.5);
+      run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.55, 0.5);
+      activities[i].tags.forEach((tag, j) =>
+        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.55, 0.5)
+      );
+    }
+  };
+
+  const handleMouseLeave = (i: number) => {
+    setHoveredIndex(null);
+
+    if (!prefersReducedMotion) {
+      run(nameRefs.current[i], activities[i].name, i * 10 + 0, 0.4, 0.8);
+      run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.4, 0.8);
+      run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.4, 0.8);
+      activities[i].tags.forEach((tag, j) =>
+        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.4, 0.8)
+      );
+    }
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -137,7 +179,7 @@ export function RecentActivities() {
               href={activity.href}
               className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
               onMouseEnter={(e) => handleMouseEnter(e, i)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              onMouseLeave={() => handleMouseLeave(i)}
               onMouseMove={handleMouseMove}
             >
               <motion.div
@@ -175,20 +217,30 @@ export function RecentActivities() {
                 </svg>
 
                 {/* Name */}
-                <span className="text-sm text-[#333333] truncate">
+                <span
+                  ref={(el) => { nameRefs.current[i] = el; }}
+                  className="text-sm text-[#333333] truncate"
+                >
                   {activity.name}
                 </span>
 
-                {/* Role — hidden on mobile, occupies col 3 on sm+ */}
-                <span className="hidden sm:block text-sm mono truncate">
+                {/* Role */}
+                <span
+                  ref={(el) => { roleRefs.current[i] = el; }}
+                  className="hidden sm:block text-sm mono truncate"
+                >
                   {activity.role}
                 </span>
 
-                {/* Tags — hidden below md, occupies col 4 on md+ */}
+                {/* Tags */}
                 <div className="hidden md:flex gap-1.5">
-                  {activity.tags.map((tag) => (
+                  {activity.tags.map((tag, j) => (
                     <span
                       key={tag}
+                      ref={(el) => {
+                        if (!tagRefs.current[i]) tagRefs.current[i] = [];
+                        tagRefs.current[i][j] = el;
+                      }}
                       className="text-xs border border-[#ddd] rounded-full px-2.5 py-0.5 text-[#6f6f6f] leading-tight whitespace-nowrap"
                     >
                       {tag}
@@ -196,8 +248,11 @@ export function RecentActivities() {
                   ))}
                 </div>
 
-                {/* Date — hidden on mobile */}
-                <span className="hidden sm:block text-sm mono tabular text-right">
+                {/* Date */}
+                <span
+                  ref={(el) => { dateRefs.current[i] = el; }}
+                  className="hidden sm:block text-sm mono tabular text-right"
+                >
                   {activity.date}
                 </span>
 
