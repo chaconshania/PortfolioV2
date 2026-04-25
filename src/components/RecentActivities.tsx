@@ -105,10 +105,16 @@ export function RecentActivities() {
   const nameRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const roleRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const dateRefs = useRef<(HTMLSpanElement | null)[]>([]);
-  const tagRefs  = useRef<(HTMLSpanElement | null)[][]>([]);
-  const tweens   = useRef<gsap.core.Tween[]>([]);
+  const tagRefs = useRef<(HTMLSpanElement | null)[][]>([]);
+  const tweens = useRef<gsap.core.Tween[]>([]);
 
-  const run = (el: HTMLSpanElement | null, text: string, key: number, duration: number, speed: number) => {
+  const run = (
+    el: HTMLSpanElement | null,
+    text: string,
+    key: number,
+    duration: number,
+    speed: number,
+  ) => {
     if (!el) return;
     tweens.current[key]?.kill();
     tweens.current[key] = gsap.to(el, {
@@ -128,7 +134,7 @@ export function RecentActivities() {
       run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.55, 0.5);
       run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.55, 0.5);
       activities[i].tags.forEach((tag, j) =>
-        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.55, 0.5)
+        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.55, 0.5),
       );
     }
   };
@@ -141,7 +147,7 @@ export function RecentActivities() {
       run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.4, 0.8);
       run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.4, 0.8);
       activities[i].tags.forEach((tag, j) =>
-        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.4, 0.8)
+        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.4, 0.8),
       );
     }
   };
@@ -185,7 +191,7 @@ export function RecentActivities() {
 
       {/* Section label */}
       <h2 className="text-sm font-bold uppercase tracking-widest text-[#333333]">
-        Recent Activities
+        Recent Journeys
       </h2>
 
       {/* List */}
@@ -221,7 +227,9 @@ export function RecentActivities() {
 
                 {/* Name */}
                 <span
-                  ref={(el) => { nameRefs.current[i] = el; }}
+                  ref={(el) => {
+                    nameRefs.current[i] = el;
+                  }}
                   className="text-sm text-[#333333] truncate"
                 >
                   {activity.name}
@@ -229,7 +237,9 @@ export function RecentActivities() {
 
                 {/* Role */}
                 <span
-                  ref={(el) => { roleRefs.current[i] = el; }}
+                  ref={(el) => {
+                    roleRefs.current[i] = el;
+                  }}
                   className="hidden sm:block text-sm mono truncate"
                 >
                   {activity.role}
@@ -253,7 +263,9 @@ export function RecentActivities() {
 
                 {/* Date */}
                 <span
-                  ref={(el) => { dateRefs.current[i] = el; }}
+                  ref={(el) => {
+                    dateRefs.current[i] = el;
+                  }}
                   className="hidden sm:block text-sm mono tabular text-right"
                 >
                   {activity.date}
