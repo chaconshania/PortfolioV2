@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { MoviePosterTrigger } from "@/components/MoviePosterCard";
+import { RecentActivities } from "@/components/RecentActivities";
 
 export default function Home() {
   const [isCardHovered, setIsCardHovered] = useState(false);
@@ -110,6 +111,7 @@ export default function Home() {
                 {/*Projects*/}
                 <Link
                   href="/blueberry"
+                  data-cursor="case-study"
                   className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
                 >
                   <div
@@ -151,6 +153,7 @@ export default function Home() {
                 {/*Projects*/}
                 <Link
                   href="/works/jetzy"
+                  data-cursor="case-study"
                   className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
                 >
                   <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
@@ -184,6 +187,7 @@ export default function Home() {
               >
                 <Link
                   href="/artoftheroll"
+                  data-cursor="case-study"
                   className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
                 >
                   <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
@@ -220,6 +224,7 @@ export default function Home() {
                 {/*Projects*/}
                 <Link
                   href="/works/oasisxr"
+                  data-cursor="case-study"
                   className="rounded-3xl focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none active:scale-[0.96] transition-transform duration-150 ease-out"
                 >
                   <div className="flex flex-col gap-2 group relative rounded-3xl overflow-hidden p-4 bg-[#f8f8f8]">
@@ -268,6 +273,8 @@ export default function Home() {
           */}
             </div>
           </section>
+          <hr />
+          <RecentActivities />
         </div>
         {/* Right margin — reserved for future scribbles */}
         <div className="col-start-3" />

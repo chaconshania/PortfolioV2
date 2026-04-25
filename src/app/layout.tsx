@@ -2,28 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import CustomCursor from "@/components/CustomCursor";
 
-import { IBM_Plex_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { IBM_Plex_Mono, Geist } from "next/font/google";
 
-const neueMontreal = localFont({
-  src: [
-    {
-      path: "../fonts/NeueMontreal-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/NeueMontreal-Medium.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/NeueMontreal-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
+const geist = Geist({
+  subsets: ["latin"],
   display: "swap",
 });
 const ibmPlexMono = IBM_Plex_Mono({
@@ -63,7 +47,7 @@ export default function RootLayout({
         </script>
       </head>
       <body
-        className={`${neueMontreal.className} ${ibmPlexMono.variable} antialiased`}
+        className={`${geist.className} ${ibmPlexMono.variable} antialiased`}
       >
         <a
           href="#main-content"
@@ -71,6 +55,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <CustomCursor />
         <div className="flex flex-col min-h-screen">
           <Header />
           <div id="main-content">{children}</div>
