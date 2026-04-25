@@ -15,6 +15,29 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
+function RowEye({ open }: { open: boolean }) {
+  return (
+    <motion.svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-[#aaaaaa]"
+      style={{ originY: "50%" }}
+      animate={{ scaleY: open ? 1 : 0.1 }}
+      transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+      aria-hidden
+    >
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </motion.svg>
+  );
+}
+
 const CARD_W = 210;
 const CARD_H = 148;
 
@@ -193,28 +216,8 @@ export function RecentActivities() {
                 }}
                 transition={{ duration: 0.15 }}
               >
-                {/* File icon */}
-                <svg
-                  width="13"
-                  height="15"
-                  viewBox="0 0 13 15"
-                  fill="none"
-                  className="text-[#aaaaaa]"
-                  aria-hidden
-                >
-                  <path
-                    d="M1.5 1.5h6l3 3v9h-9v-12z"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M7.5 1.5v3h3"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                {/* Eye icon — closed by default, opens on row hover */}
+                <RowEye open={hoveredIndex === i} />
 
                 {/* Name */}
                 <span
