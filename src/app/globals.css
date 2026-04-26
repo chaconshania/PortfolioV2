@@ -179,6 +179,10 @@ img {
 }
 
 @media (hover: none) and (pointer: coarse) {
+  .activities-preview {
+    display: none !important;
+  }
+
   .movie-poster-container {
     display: none;
   }

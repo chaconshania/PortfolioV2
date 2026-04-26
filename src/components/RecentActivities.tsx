@@ -124,32 +124,32 @@ export function RecentActivities() {
     });
   };
 
+  const startScramble = (i: number) => {
+    setHoveredIndex(i);
+    if (prefersReducedMotion) return;
+    run(nameRefs.current[i], activities[i].name, i * 10 + 0, 0.55, 0.5);
+    run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.55, 0.5);
+    run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.55, 0.5);
+    activities[i].tags.forEach((tag, j) =>
+      run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.55, 0.5),
+    );
+  };
+
+  const stopScramble = (i: number) => {
+    setHoveredIndex(null);
+    if (prefersReducedMotion) return;
+    run(nameRefs.current[i], activities[i].name, i * 10 + 0, 0.4, 0.8);
+    run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.4, 0.8);
+    run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.4, 0.8);
+    activities[i].tags.forEach((tag, j) =>
+      run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.4, 0.8),
+    );
+  };
+
   const handleMouseEnter = (e: React.MouseEvent, i: number) => {
     rawX.set(e.clientX + 20);
     rawY.set(e.clientY - CARD_H / 2);
-    setHoveredIndex(i);
-
-    if (!prefersReducedMotion) {
-      run(nameRefs.current[i], activities[i].name, i * 10 + 0, 0.55, 0.5);
-      run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.55, 0.5);
-      run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.55, 0.5);
-      activities[i].tags.forEach((tag, j) =>
-        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.55, 0.5),
-      );
-    }
-  };
-
-  const handleMouseLeave = (i: number) => {
-    setHoveredIndex(null);
-
-    if (!prefersReducedMotion) {
-      run(nameRefs.current[i], activities[i].name, i * 10 + 0, 0.4, 0.8);
-      run(roleRefs.current[i], activities[i].role, i * 10 + 1, 0.4, 0.8);
-      run(dateRefs.current[i], activities[i].date, i * 10 + 2, 0.4, 0.8);
-      activities[i].tags.forEach((tag, j) =>
-        run(tagRefs.current[i]?.[j], tag, i * 10 + 3 + j, 0.4, 0.8),
-      );
-    }
+    startScramble(i);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -163,7 +163,7 @@ export function RecentActivities() {
       <AnimatePresence>
         {hoveredIndex !== null && !prefersReducedMotion && (
           <motion.div
-            className="fixed top-0 left-0 pointer-events-none z-[200] rounded-xl overflow-hidden"
+            className="activities-preview fixed top-0 left-0 pointer-events-none z-[200] rounded-xl overflow-hidden"
             style={{
               x,
               y,
@@ -208,8 +208,10 @@ export function RecentActivities() {
               href={activity.href}
               className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-sm"
               onMouseEnter={(e) => handleMouseEnter(e, i)}
-              onMouseLeave={() => handleMouseLeave(i)}
+              onMouseLeave={() => stopScramble(i)}
               onMouseMove={handleMouseMove}
+              onTouchStart={() => startScramble(i)}
+              onTouchEnd={() => stopScramble(i)}
             >
               <motion.div
                 className="grid items-center py-3 gap-x-6 mono
