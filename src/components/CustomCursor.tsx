@@ -12,6 +12,11 @@ export default function CustomCursor() {
   const variantRef = useRef<CursorVariant>("default");
   const textTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isOnCard, setIsOnCard] = useState(false);
+  const [isPointerDevice, setIsPointerDevice] = useState(false);
+
+  useEffect(() => {
+    setIsPointerDevice(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+  }, []);
 
   // Snappy cursor position — overdamped so no bounce
   const cursorX = useSpring(mouseX, { damping: 40, stiffness: 500, mass: 0.4 });
@@ -67,6 +72,8 @@ export default function CustomCursor() {
       if (textTimerRef.current) clearTimeout(textTimerRef.current);
     };
   }, [mouseX, mouseY, opacity, width, height, textOpacity]);
+
+  if (!isPointerDevice) return null;
 
   return (
     <motion.div
