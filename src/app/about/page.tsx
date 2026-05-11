@@ -38,93 +38,29 @@ function page() {
             </p>
           </div>
         </section>
-        <section className="w-full overflow-hidden md:col-span-3">
+        <section className="w-full md:col-span-3">
           <div className="flex flex-row gap-2 w-full">
-            {/* Image 1 */}
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/focus.jpeg"
-                alt="Focus"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-
-            {/* Image 2 */}
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/graduated.jpeg"
-                alt="Graduated"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-
-            {/* Image 3 */}
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/smile.jpeg"
-                alt="Smile"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/renfaire.jpeg"
-                alt="At the Renaissance faire"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/me-friends.JPG"
-                alt="With friends"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/dmd-frens.JPG"
-                alt="With DMD friends"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/me/me-standing.JPG"
-                alt="Standing portrait"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
-            <div className="flex-shrink-0 w-[108px] sm:w-[167px] md:w-[110px] lg:w-[167px] rounded-[4px] overflow-hidden cursor-pointer group">
-              <Image
-                src="/blueberry/group-picture.JPG"
-                alt="Blueberry team group photo"
-                width={800}
-                height={850}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
-                style={{ aspectRatio: '0.945' }}
-              />
-            </div>
+            {[
+              { src: "/me/focus.jpeg", alt: "Focus" },
+              { src: "/me/graduated.jpeg", alt: "Graduated" },
+              { src: "/me/smile.jpeg", alt: "Smile" },
+              { src: "/me/renfaire.jpeg", alt: "At the Renaissance faire" },
+              { src: "/me/me-friends.JPG", alt: "With friends" },
+              { src: "/me/dmd-frens.JPG", alt: "With DMD friends" },
+              { src: "/me/me-standing.JPG", alt: "Standing portrait" },
+              { src: "/blueberry/group-picture.JPG", alt: "Blueberry team group photo" },
+            ].map(({ src, alt }) => (
+              <div key={src} className="flex-1 min-w-0 rounded-[4px] overflow-hidden cursor-pointer group">
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={800}
+                  height={850}
+                  className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                  style={{ aspectRatio: '0.945' }}
+                />
+              </div>
+            ))}
           </div>
         </section>
       </main>
