@@ -6,12 +6,17 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+const navItems = [
+  { name: "WORK", href: "/" },
+  { name: "PLAY", href: "/play" },
+  { name: "ABOUT", href: "/about" },
+];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const prefersReducedMotion = useReducedMotion();
 
-  // no scrolling
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -19,11 +24,13 @@ export default function Header() {
     };
   }, [open]);
 
-  const navItems = [
-    { name: "WORK", href: "/" },
-    { name: "PLAY", href: "/play" },
-    { name: "ABOUT", href: "/about" },
-  ];
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const linkClass = (href: string) =>
     `text-sm transition-opacity ${
@@ -33,15 +40,13 @@ export default function Header() {
   return (
     <>
       {/* Navbar */}
-      <nav className="relative bg-white/30 backdrop-blur-[2px] border-b border-gray-200">
+      <nav className="relative z-50 bg-white/30 backdrop-blur-[2px] border-b border-gray-200">
         <div className="relative grid grid-cols-2 lg:grid-cols-3 p-4 w-full gap-12 items-center">
           <Link href="/">
             <h2 className="text-sm">SHANIA CHACON</h2>
           </Link>
 
-          <div className="sr-only lg:not-sr-only lg:text-center">
-            <h2 className="text-sm"></h2>
-          </div>
+          <div className="sr-only lg:not-sr-only lg:text-center" />
 
           <div className="hidden lg:block text-end">
             <ul className="flex gap-6 justify-end">

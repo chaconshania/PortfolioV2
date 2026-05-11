@@ -18,9 +18,6 @@ export default function CustomCursor() {
     setIsPointerDevice(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
   }, []);
 
-  // Snappy cursor position — overdamped so no bounce
-  const cursorX = useSpring(mouseX, { damping: 40, stiffness: 500, mass: 0.4 });
-  const cursorY = useSpring(mouseY, { damping: 40, stiffness: 500, mass: 0.4 });
 
   // Pill expansion — overdamped (damping > 2√stiffness ≈ 34) so no oscillation
   const width = useSpring(12, { damping: 45, stiffness: 280 });
@@ -61,9 +58,9 @@ export default function CustomCursor() {
 
     const onLeave = () => opacity.set(0);
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseover", onOver);
-    document.documentElement.addEventListener("mouseleave", onLeave);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mouseover", onOver, { passive: true });
+    document.documentElement.addEventListener("mouseleave", onLeave, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", onMove);
@@ -79,11 +76,12 @@ export default function CustomCursor() {
     <motion.div
       className="fixed top-0 left-0 pointer-events-none z-[9999]"
       style={{
-        x: cursorX,
-        y: cursorY,
+        x: mouseX,
+        y: mouseY,
         translateX: "-50%",
         translateY: "-50%",
         opacity,
+        willChange: "transform",
       }}
     >
       <motion.div
