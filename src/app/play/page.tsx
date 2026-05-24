@@ -6,56 +6,64 @@ type Project = {
   src: string;
   alt: string;
   tags: string[];
+  width?: number;
+  height?: number;
 };
 
 const projects: Project[] = [
   {
     type: "image",
     src: "/play/Design.png",
-    alt: "Project 4 demo",
+    alt: "Design project",
     tags: ["Design"],
+    width: 964,
+    height: 1120,
   },
   {
     type: "video",
     src: "/play/Scene-1 (4).mp4",
-    alt: "Dreamscape GIF",
+    alt: "Dreamscape Three.js",
     tags: ["Three.Js"],
   },
   {
     type: "video",
     src: "/play/Lifedes_mockup.mp4",
-    alt: "Project 3 GIF",
+    alt: "Lifedes mockup",
     tags: ["Web design"],
   },
   {
     type: "image",
     src: "/play/FitMix.gif",
-    alt: "FitMix demo video",
+    alt: "FitMix app demo",
     tags: ["Mobile App design"],
+    width: 1600,
+    height: 1200,
   },
   {
     type: "video",
     src: "/play/game.mp4",
-    alt: "Project 4 demo",
+    alt: "Game concept demo",
     tags: ["Game Concept, Java"],
   },
   {
     type: "image",
     src: "/play/UnmuteCT.png",
-    alt: "Project 4 demo",
+    alt: "UnmuteCT campaign",
     tags: ["Campaign for Connecticut Secretary of State"],
+    width: 1024,
+    height: 1018,
   },
 ];
 
-function ProjectCard({ type, src, alt, tags }: Project) {
+function ProjectCard({ type, src, alt, tags, width = 800, height = 600 }: Project) {
   return (
     <div className="break-inside-avoid group relative bg-neutral-100 rounded-lg overflow-hidden h-auto ">
       {type === "image" && src && (
         <Image
           src={src}
           alt={alt || ""}
-          width={800}
-          height={600}
+          width={width}
+          height={height}
           className="w-full h-auto"
         />
       )}
