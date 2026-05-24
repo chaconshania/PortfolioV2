@@ -58,7 +58,7 @@ export default function RootLayout({
         <CustomCursor />
         <div className="flex flex-col min-h-screen">
           <Header />
-          <div id="main-content" className="flex-1">{children}</div>
+          <div id="main-content" className="flex-1 pb-24">{children}</div>
           <Footer />
         </div>
       </body>

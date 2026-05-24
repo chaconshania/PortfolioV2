@@ -43,23 +43,23 @@ const CARD_H = 148;
 
 const activities = [
   {
-    name: "Blueberry Social",
+    name: "Figma x Contra Hackaton",
     role: "Design Engineer",
     tags: ["Product", "Shipped"],
-    date: "Mar 2025",
-    href: "/blueberry",
+    date: "Mar 2026",
+    href: "https://contra.com/shania_chacon_9n4labo8/work?r=shania_chacon_9n4labo8",
     image: "/homepage/Blueberry.png",
   },
   {
-    name: "Jetzy",
-    role: "Product Designer",
-    tags: ["Travel", "UX"],
+    name: "MIT Reality Hack",
+    role: "Hacker",
+    tags: ["Hackathon", "UX"],
     date: "Jan 2026",
     href: "/works/jetzy",
     image: "/jetzy/Jetzy.png",
   },
   {
-    name: "Art of the Roll",
+    name: "AWE Volunteer 2026",
     role: "Brand Designer",
     tags: ["Branding", "Art"],
     date: "Oct 2025",
@@ -67,7 +67,7 @@ const activities = [
     image: "/homepage/artoftheroll.png",
   },
   {
-    name: "Oasis XR",
+    name: "Poker Winner 2025",
     role: "UX Designer",
     tags: ["XR", "Award"],
     date: "Apr 2025",
