@@ -4,7 +4,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import CustomCursor from "@/components/CustomCursor";
 
-import { IBM_Plex_Mono, Geist } from "next/font/google";
+import { IBM_Plex_Mono, Geist, Caveat } from "next/font/google";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -14,6 +14,10 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-ibm-plex-mono",
+});
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -47,7 +51,7 @@ export default function RootLayout({
         </script>
       </head>
       <body
-        className={`${geist.className} ${ibmPlexMono.variable} antialiased`}
+        className={`${geist.className} ${ibmPlexMono.variable} ${caveat.variable} antialiased`}
       >
         <a
           href="#main-content"

@@ -16,6 +16,8 @@ interface CollageItem {
   iy: number; // initial y as fraction of container height
   rotation: number;
   polaroid?: boolean;
+  rounded?: boolean;
+  caption?: string;
   textStyle?: "sticker" | "quote";
 }
 
@@ -32,10 +34,11 @@ const ITEMS: CollageItem[] = [
     alt: "Smiling",
     width: 220,
     height: 260,
-    ix: 0.03,
-    iy: 0.08,
+    ix: 0.02,
+    iy: 0.06,
     rotation: -6,
     polaroid: true,
+    caption: "always smiling :)",
   },
   {
     id: "2",
@@ -43,11 +46,12 @@ const ITEMS: CollageItem[] = [
     src: "/me/focus.jpeg",
     alt: "Focused",
     width: 210,
-    height: 270,
-    ix: 0.18,
-    iy: 0.3,
+    height: 185,
+    ix: 0.16,
+    iy: 0.5,
     rotation: 4,
     polaroid: true,
+    caption: "in my element",
   },
   {
     id: "3",
@@ -55,11 +59,12 @@ const ITEMS: CollageItem[] = [
     src: "/me/graduated.jpeg",
     alt: "Graduation",
     width: 240,
-    height: 280,
-    ix: 0.35,
-    iy: 0.05,
+    height: 260,
+    ix: 0.34,
+    iy: 0.04,
     rotation: -3,
     polaroid: true,
+    caption: "we made it!! ✨",
   },
   {
     id: "4",
@@ -67,9 +72,9 @@ const ITEMS: CollageItem[] = [
     src: "/me/renfaire.jpeg",
     alt: "Renaissance Faire",
     width: 210,
-    height: 255,
-    ix: 0.52,
-    iy: 0.25,
+    height: 240,
+    ix: 0.53,
+    iy: 0.3,
     rotation: 7,
     polaroid: false,
   },
@@ -78,24 +83,26 @@ const ITEMS: CollageItem[] = [
     type: "image",
     src: "/me/me-friends.JPG",
     alt: "With friends",
-    width: 270,
-    height: 220,
-    ix: 0.65,
-    iy: 0.05,
+    width: 255,
+    height: 210,
+    ix: 0.72,
+    iy: 0.03,
     rotation: -5,
     polaroid: true,
+    caption: "my people",
   },
   {
     id: "6",
     type: "image",
     src: "/me/dmd-frens.JPG",
     alt: "DMD friends",
-    width: 255,
-    height: 215,
-    ix: 0.68,
-    iy: 0.48,
+    width: 245,
+    height: 200,
+    ix: 0.73,
+    iy: 0.5,
     rotation: 4,
     polaroid: true,
+    caption: "dmd!!",
   },
   {
     id: "7",
@@ -103,9 +110,9 @@ const ITEMS: CollageItem[] = [
     src: "/me/me-standing.JPG",
     alt: "Standing portrait",
     width: 195,
-    height: 265,
+    height: 255,
     ix: 0.44,
-    iy: 0.42,
+    iy: 0.44,
     rotation: -8,
     polaroid: false,
   },
@@ -114,12 +121,52 @@ const ITEMS: CollageItem[] = [
     type: "image",
     src: "/blueberry/group-picture.JPG",
     alt: "Blueberry team",
-    width: 265,
-    height: 205,
-    ix: 0.1,
-    iy: 0.52,
+    width: 255,
+    height: 195,
+    ix: 0.08,
+    iy: 0.54,
     rotation: 5,
     polaroid: true,
+    caption: "Blueberry team",
+  },
+  {
+    id: "claude",
+    type: "image",
+    src: "/me/claude-logo.png",
+    alt: "Claude",
+    width: 72,
+    height: 72,
+    ix: 0.29,
+    iy: 0.72,
+    rotation: -8,
+    polaroid: false,
+    rounded: true,
+  },
+  {
+    id: "figma",
+    type: "image",
+    src: "/me/figma-logo.png",
+    alt: "Figma",
+    width: 64,
+    height: 64,
+    ix: 0.6,
+    iy: 0.68,
+    rotation: 6,
+    polaroid: false,
+    rounded: true,
+  },
+  {
+    id: "illustrator",
+    type: "image",
+    src: "/me/illustrator-logo.jpeg",
+    alt: "Illustrator",
+    width: 68,
+    height: 68,
+    ix: 0.82,
+    iy: 0.62,
+    rotation: -5,
+    polaroid: false,
+    rounded: true,
   },
   {
     id: "9",
@@ -128,8 +175,8 @@ const ITEMS: CollageItem[] = [
     subtext: "and i love it",
     width: 148,
     height: 72,
-    ix: 0.56,
-    iy: 0.62,
+    ix: 0.38,
+    iy: 0.75,
     rotation: -4,
     textStyle: "sticker",
   },
@@ -140,8 +187,8 @@ const ITEMS: CollageItem[] = [
     subtext: "always building.",
     width: 160,
     height: 68,
-    ix: 0.26,
-    iy: 0.08,
+    ix: 0.22,
+    iy: 0.06,
     rotation: 3,
     textStyle: "quote",
   },
@@ -259,9 +306,16 @@ export default function DraggableCollage() {
                   <div
                     className={
                       item.polaroid
-                        ? "bg-white p-2 pb-6 shadow-md"
-                        : "shadow-md rounded-sm overflow-hidden"
+                        ? "bg-white p-2 pb-4"
+                        : item.rounded
+                        ? "rounded-2xl overflow-hidden"
+                        : "rounded-sm overflow-hidden"
                     }
+                    style={{
+                      boxShadow: isHovered && !isDragging
+                        ? "0 16px 48px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.08)"
+                        : "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
+                    }}
                   >
                     <div
                       style={{
@@ -277,14 +331,25 @@ export default function DraggableCollage() {
                         fill
                         className="object-cover"
                         draggable={false}
-                        sizes="200px"
+                        sizes="300px"
                       />
                     </div>
+                    {item.polaroid && item.caption && (
+                      <p
+                        className="mt-2 text-center text-[#444] leading-tight"
+                        style={{
+                          fontFamily: "var(--font-caveat)",
+                          fontSize: 18,
+                        }}
+                      >
+                        {item.caption}
+                      </p>
+                    )}
                   </div>
                 ) : item.textStyle === "sticker" ? (
                   <div
-                    className="bg-[#F7C325] px-4 py-3 shadow-md"
-                    style={{ borderRadius: 6 }}
+                    className="bg-[#F7C325] px-4 py-3"
+                    style={{ borderRadius: 6, boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}
                   >
                     <p className="text-[#333] text-sm font-semibold leading-tight">
                       {item.text}
@@ -297,8 +362,8 @@ export default function DraggableCollage() {
                   </div>
                 ) : (
                   <div
-                    className="bg-white px-4 py-3 shadow-sm border border-[#eee]"
-                    style={{ borderRadius: 4 }}
+                    className="bg-white px-4 py-3 border border-[#eee]"
+                    style={{ boxShadow: "0 8px 28px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.05)", borderRadius: 4 }}
                   >
                     <p className="text-[#333] text-xs font-medium leading-snug italic">
                       {item.text}
