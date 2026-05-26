@@ -134,7 +134,7 @@ export default function Home() {
 
   return (
     <div>
-      <main className="grid grid-cols-[minmax(24px,1fr)_minmax(0,900px)_minmax(24px,1fr)] md:grid-cols-[minmax(60px,1fr)_minmax(0,900px)_minmax(60px,1fr)] w-full">
+      <main className="grid grid-cols-[minmax(24px,1fr)_minmax(0,900px)_minmax(24px,1fr)] md:grid-cols-[minmax(60px,1fr)_minmax(0,900px)_minmax(60px,1fr)] xl:grid-cols-[minmax(120px,1fr)_minmax(0,900px)_minmax(120px,1fr)] w-full">
         <div className="col-start-1" />
         <div className="col-start-2 flex flex-col gap-8 py-6">
           <section className="flex flex-col lg:flex-row gap-2 lg:gap-6 pt-10 lg:pt-10 w-full">
@@ -207,7 +207,7 @@ export default function Home() {
               style={{ zIndex: 30 }}
             >
               <motion.div
-                className="flex flex-col gap-6"
+                className="col-span-1 md:col-span-2 2xl:col-span-3 flex flex-col gap-6"
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -225,14 +225,14 @@ export default function Home() {
                   >
                     <Image
                       src="/homepage/Blueberry.png"
-                      className="rounded-lg w-full h-auto"
-                      style={{ outline: "none" }}
+                      className="rounded-lg w-full object-cover"
+                      style={{ outline: "none", maxHeight: 320 }}
                       alt="Blueberry dashboard"
-                      width={800}
-                      height={600}
+                      width={1600}
+                      height={900}
                     />
                     <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <h3 className="max-w-[600px] text-md font-[philoAB] mono">
+                    <h3 className="text-md font-[philoAB] mono">
                       Turning chaotic social chatter into warm, on-brand
                       conversations automatically
                     </h3>
@@ -244,7 +244,7 @@ export default function Home() {
               </motion.div>
 
               <motion.div
-                className="flex flex-col gap-6"
+                className="col-span-1 md:col-span-2 2xl:col-span-3 flex flex-col gap-6"
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 40 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -259,13 +259,13 @@ export default function Home() {
                     <Image
                       src="/jetzy/Jetzy.png"
                       alt="Jetzy project"
-                      className="rounded-lg w-full h-auto"
-                      style={{ outline: "none" }}
-                      width={800}
-                      height={600}
+                      className="rounded-lg w-full object-cover"
+                      style={{ outline: "none", maxHeight: 320 }}
+                      width={1600}
+                      height={900}
                     />
                     <div className="absolute top-6 left-6 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <h3 className="max-w-[600px] text-md mono">
+                    <h3 className="text-md mono">
                       Designing a more intentional social travel experience with
                       Jetzy
                     </h3>

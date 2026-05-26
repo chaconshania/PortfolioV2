@@ -48,7 +48,7 @@ const activities = [
     tags: ["Product", "Shipped"],
     date: "Mar 2026",
     href: "https://contra.com/shania_chacon_9n4labo8/work?r=shania_chacon_9n4labo8",
-    image: "/homepage/Blueberry.png",
+    image: "/homepage/figma-contra.png",
   },
   {
     name: "MIT Reality Hack",
