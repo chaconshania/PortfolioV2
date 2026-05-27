@@ -93,24 +93,26 @@ function ProjectCard({ type, src, alt, tags, width = 800, height = 600 }: Projec
 
 function Playground() {
   return (
-    <main className="grid max-w-[1800px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8 p-6 w-full items-center pt-20 lg:pt-10">
-      <section className="flex flex-col lg:flex-row lg:gap-6 w-full pt-10 pb-4 md:col-span-3">
-        <div className="flex flex-col w-full gap-6">
-          <h1 className="max-w-[900px] text-3xl lg:text-6xl text-[#333333] leading-[1.12]">
+    <div>
+      <div className="grid grid-cols-[minmax(24px,1fr)_minmax(0,900px)_minmax(24px,1fr)] md:grid-cols-[minmax(60px,1fr)_minmax(0,900px)_minmax(60px,1fr)] xl:grid-cols-[minmax(120px,1fr)_minmax(0,900px)_minmax(120px,1fr)] w-full">
+        <div className="col-start-1" />
+        <section className="col-start-2 pt-20 lg:pt-16 pb-6">
+          <h1 className="text-3xl lg:text-4xl text-[#333333] leading-[1.12]">
             My{" "}
             <span className="font-bold text-[#333333] px-2 bg-[#F7C325]">lab of curiosity</span>{" "}
             where I tinker, break, and build anything that sparks an idea.
           </h1>
-        </div>
-      </section>
-      <section className="w-full md:col-span-3">
+        </section>
+        <div className="col-start-3" />
+      </div>
+      <main className="max-w-[1800px] mx-auto px-6 pb-6">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-2 space-y-2">
           {projects.map((project, idx) => (
             <ProjectCard key={idx} {...project} />
           ))}
         </div>
-      </section>
-    </main>
+      </main>
+    </div>
   );
 }
 
