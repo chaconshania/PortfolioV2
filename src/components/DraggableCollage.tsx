@@ -12,13 +12,17 @@ interface CollageItem {
   subtext?: string;
   width: number;
   height: number;
-  ix: number; // initial x as fraction of container width
-  iy: number; // initial y as fraction of container height
+  ix: number;
+  iy: number;
   rotation: number;
   polaroid?: boolean;
   rounded?: boolean;
+  sticker?: boolean; // small decorative image sticker
   caption?: string;
-  textStyle?: "sticker" | "quote";
+  textStyle?: "sticker" | "label" | "quote";
+  tape?: boolean;
+  tapeColor?: string;
+  tapeRotation?: number;
 }
 
 interface Position {
@@ -39,6 +43,9 @@ const ITEMS: CollageItem[] = [
     rotation: -6,
     polaroid: true,
     caption: "always smiling :)",
+    tape: true,
+    tapeColor: "rgba(255, 220, 220, 0.65)",
+    tapeRotation: -3,
   },
   {
     id: "2",
@@ -52,6 +59,9 @@ const ITEMS: CollageItem[] = [
     rotation: 4,
     polaroid: true,
     caption: "in my element",
+    tape: true,
+    tapeColor: "rgba(200, 225, 255, 0.65)",
+    tapeRotation: 2,
   },
   {
     id: "3",
@@ -65,6 +75,9 @@ const ITEMS: CollageItem[] = [
     rotation: -3,
     polaroid: true,
     caption: "we made it!! ✨",
+    tape: true,
+    tapeColor: "rgba(255, 245, 180, 0.70)",
+    tapeRotation: 1,
   },
   {
     id: "4",
@@ -77,6 +90,9 @@ const ITEMS: CollageItem[] = [
     iy: 0.3,
     rotation: 7,
     polaroid: false,
+    tape: true,
+    tapeColor: "rgba(210, 240, 210, 0.65)",
+    tapeRotation: -2,
   },
   {
     id: "5",
@@ -90,6 +106,9 @@ const ITEMS: CollageItem[] = [
     rotation: -5,
     polaroid: true,
     caption: "my people",
+    tape: true,
+    tapeColor: "rgba(255, 220, 220, 0.65)",
+    tapeRotation: 3,
   },
   {
     id: "6",
@@ -103,6 +122,9 @@ const ITEMS: CollageItem[] = [
     rotation: 4,
     polaroid: true,
     caption: "dmd!!",
+    tape: true,
+    tapeColor: "rgba(200, 225, 255, 0.65)",
+    tapeRotation: -1,
   },
   {
     id: "7",
@@ -115,6 +137,9 @@ const ITEMS: CollageItem[] = [
     iy: 0.44,
     rotation: -8,
     polaroid: false,
+    tape: true,
+    tapeColor: "rgba(255, 245, 180, 0.70)",
+    tapeRotation: 4,
   },
   {
     id: "8",
@@ -128,7 +153,11 @@ const ITEMS: CollageItem[] = [
     rotation: 5,
     polaroid: true,
     caption: "Blueberry team",
+    tape: true,
+    tapeColor: "rgba(210, 240, 210, 0.65)",
+    tapeRotation: -2,
   },
+  // Tool logo stickers
   {
     id: "claude",
     type: "image",
@@ -141,6 +170,7 @@ const ITEMS: CollageItem[] = [
     rotation: -8,
     polaroid: false,
     rounded: true,
+    sticker: true,
   },
   {
     id: "figma",
@@ -154,6 +184,7 @@ const ITEMS: CollageItem[] = [
     rotation: 6,
     polaroid: false,
     rounded: true,
+    sticker: true,
   },
   {
     id: "illustrator",
@@ -167,7 +198,9 @@ const ITEMS: CollageItem[] = [
     rotation: -5,
     polaroid: false,
     rounded: true,
+    sticker: true,
   },
+  // Text stickers
   {
     id: "9",
     type: "text",
@@ -176,7 +209,7 @@ const ITEMS: CollageItem[] = [
     width: 148,
     height: 72,
     ix: 0.38,
-    iy: 0.75,
+    iy: 0.78,
     rotation: -4,
     textStyle: "sticker",
   },
@@ -190,9 +223,54 @@ const ITEMS: CollageItem[] = [
     ix: 0.22,
     iy: 0.06,
     rotation: 3,
-    textStyle: "quote",
+    textStyle: "label",
+  },
+  {
+    id: "11",
+    type: "text",
+    text: "designer",
+    subtext: "who codes ✦",
+    width: 128,
+    height: 60,
+    ix: 0.64,
+    iy: 0.82,
+    rotation: -6,
+    textStyle: "label",
   },
 ];
+
+function TapeStrip({
+  color,
+  rotation,
+}: {
+  color: string;
+  rotation: number;
+}) {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: -10,
+        left: "50%",
+        transform: `translateX(-50%) rotate(${rotation}deg)`,
+        width: 52,
+        height: 18,
+        background: color,
+        borderRadius: 2,
+        zIndex: 10,
+        boxShadow: "0 1px 3px rgba(0,0,0,0.10)",
+        // subtle texture lines via repeating gradient
+        backgroundImage: `repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 6px,
+          rgba(255,255,255,0.18) 6px,
+          rgba(255,255,255,0.18) 7px
+        ), linear-gradient(${color}, ${color})`,
+      }}
+    />
+  );
+}
 
 export default function DraggableCollage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -292,7 +370,7 @@ export default function DraggableCollage() {
                   left: pos.x,
                   top: pos.y,
                   width: item.width,
-                  transform: `rotate(${rotation}deg) scale(${isHovered && !isDragging ? 1.03 : 1})`,
+                  transform: `rotate(${rotation}deg) scale(${isHovered && !isDragging ? 1.05 : 1})`,
                   zIndex: zIndices[item.id],
                   cursor: isDragging ? "grabbing" : "grab",
                   touchAction: "none",
@@ -303,53 +381,73 @@ export default function DraggableCollage() {
                 }}
               >
                 {item.type === "image" ? (
-                  <div
-                    className={
-                      item.polaroid
-                        ? "bg-white p-2 pb-4"
-                        : item.rounded
-                        ? "rounded-2xl overflow-hidden"
-                        : "rounded-sm overflow-hidden"
-                    }
-                    style={{
-                      boxShadow: isHovered && !isDragging
-                        ? "0 16px 48px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.08)"
-                        : "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: item.width - (item.polaroid ? 16 : 0),
-                        height: item.height,
-                        position: "relative",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <Image
-                        src={item.src!}
-                        alt={item.alt!}
-                        fill
-                        className="object-cover"
-                        draggable={false}
-                        sizes="300px"
+                  <div className="relative">
+                    {/* Tape strip */}
+                    {item.tape && (
+                      <TapeStrip
+                        color={item.tapeColor ?? "rgba(255, 245, 180, 0.70)"}
+                        rotation={item.tapeRotation ?? 0}
                       />
-                    </div>
-                    {item.polaroid && item.caption && (
-                      <p
-                        className="mt-2 text-center text-[#444] leading-tight"
+                    )}
+
+                    <div
+                      className={
+                        item.polaroid
+                          ? "bg-white p-2 pb-8"
+                          : item.rounded || item.sticker
+                          ? "rounded-2xl overflow-hidden"
+                          : "rounded-sm overflow-hidden"
+                      }
+                      style={
+                        item.sticker
+                          ? { filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.15))" }
+                          : {
+                              boxShadow:
+                                isHovered && !isDragging
+                                  ? "0 20px 60px rgba(0,0,0,0.16), 0 6px 20px rgba(0,0,0,0.10)"
+                                  : "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
+                            }
+                      }
+                    >
+                      <div
                         style={{
-                          fontFamily: "var(--font-caveat)",
-                          fontSize: 18,
+                          width: item.polaroid ? item.width - 16 : item.width,
+                          height: item.height,
+                          position: "relative",
+                          overflow: item.sticker ? "visible" : "hidden",
                         }}
                       >
-                        {item.caption}
-                      </p>
-                    )}
+                        <Image
+                          src={item.src!}
+                          alt={item.alt!}
+                          fill
+                          className="object-cover"
+                          draggable={false}
+                          sizes="300px"
+                        />
+                      </div>
+                      {item.polaroid && item.caption && (
+                        <p
+                          className="mt-2 text-center text-[#444] leading-tight"
+                          style={{
+                            fontFamily: "var(--font-caveat)",
+                            fontSize: 18,
+                          }}
+                        >
+                          {item.caption}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 ) : item.textStyle === "sticker" ? (
+                  /* Yellow brand sticker */
                   <div
                     className="bg-[#F7C325] px-4 py-3"
-                    style={{ borderRadius: 6, boxShadow: "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)" }}
+                    style={{
+                      borderRadius: 8,
+                      boxShadow:
+                        "0 4px 16px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08)",
+                    }}
                   >
                     <p className="text-[#333] text-sm font-semibold leading-tight">
                       {item.text}
@@ -360,10 +458,38 @@ export default function DraggableCollage() {
                       </p>
                     )}
                   </div>
+                ) : item.textStyle === "label" ? (
+                  /* White label sticker — like a printed label */
+                  <div
+                    className="bg-white px-4 py-3"
+                    style={{
+                      borderRadius: 6,
+                      border: "1.5px solid #e8e8e8",
+                      boxShadow:
+                        "0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.06)",
+                    }}
+                  >
+                    <p
+                      className="text-[#333] text-xs font-semibold leading-snug tracking-wide uppercase"
+                      style={{ letterSpacing: "0.06em" }}
+                    >
+                      {item.text}
+                    </p>
+                    {item.subtext && (
+                      <p className="text-[#888] text-xs font-normal leading-snug">
+                        {item.subtext}
+                      </p>
+                    )}
+                  </div>
                 ) : (
+                  /* Quote style */
                   <div
                     className="bg-white px-4 py-3 border border-[#eee]"
-                    style={{ boxShadow: "0 8px 28px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.05)", borderRadius: 4 }}
+                    style={{
+                      boxShadow:
+                        "0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05)",
+                      borderRadius: 4,
+                    }}
                   >
                     <p className="text-[#333] text-xs font-medium leading-snug italic">
                       {item.text}
