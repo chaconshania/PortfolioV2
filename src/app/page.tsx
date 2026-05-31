@@ -137,8 +137,12 @@ export default function Home() {
       <main className="grid grid-cols-[minmax(24px,1fr)_minmax(0,900px)_minmax(24px,1fr)] md:grid-cols-[minmax(60px,1fr)_minmax(0,900px)_minmax(60px,1fr)] xl:grid-cols-[minmax(120px,1fr)_minmax(0,900px)_minmax(120px,1fr)] w-full">
         <div className="col-start-1" />
         <div className="col-start-2 flex flex-col gap-8 py-6">
-          <section className="flex flex-col lg:flex-row gap-2 lg:gap-6 pt-10 lg:pt-10 w-full">
-            <div className="flex flex-col w-full gap-4">
+          {/* Full-viewport hero */}
+          <section
+            className="flex flex-col w-full"
+            style={{ minHeight: "calc(100dvh - 56px)" }}
+          >
+            <div className="flex-1 flex flex-col gap-4 justify-center items-center text-center">
               <motion.div
                 initial={
                   prefersReducedMotion
@@ -156,7 +160,7 @@ export default function Home() {
               </motion.div>
 
               <motion.p
-                className="max-w-[400px] text-base text-pretty"
+                className="max-w-[400px] text-base text-pretty text-center"
                 initial={
                   prefersReducedMotion
                     ? {}
@@ -177,6 +181,32 @@ export default function Home() {
                 listening to <span className="highlight-sweep">music</span>.
               </motion.p>
             </div>
+
+            {/* Scroll indicator */}
+            <motion.div
+              className="flex flex-row items-center justify-center gap-2 pb-8 text-[#aaaaaa] w-full"
+              initial={prefersReducedMotion ? {} : { opacity: 0 }}
+              animate={prefersReducedMotion ? {} : { opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <span className="text-xs tracking-widest uppercase">scroll</span>
+              <motion.svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                animate={prefersReducedMotion ? {} : { y: [0, 4, 0] }}
+                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <path
+                  d="M7 0 L7 12 M1 6 L7 12 L13 6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
+            </motion.div>
           </section>
           <hr />
           <section className="flex flex-col gap-6 w-full relative">

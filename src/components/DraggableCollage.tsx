@@ -200,43 +200,6 @@ const ITEMS: CollageItem[] = [
     rounded: true,
     sticker: true,
   },
-  // Text stickers
-  {
-    id: "9",
-    type: "text",
-    text: "i design things",
-    subtext: "and i love it",
-    width: 148,
-    height: 72,
-    ix: 0.38,
-    iy: 0.78,
-    rotation: -4,
-    textStyle: "sticker",
-  },
-  {
-    id: "10",
-    type: "text",
-    text: "always curious,",
-    subtext: "always building.",
-    width: 160,
-    height: 68,
-    ix: 0.22,
-    iy: 0.06,
-    rotation: 3,
-    textStyle: "label",
-  },
-  {
-    id: "11",
-    type: "text",
-    text: "designer",
-    subtext: "who codes ✦",
-    width: 128,
-    height: 60,
-    ix: 0.64,
-    iy: 0.82,
-    rotation: -6,
-    textStyle: "label",
-  },
 ];
 
 function TapeStrip({
@@ -392,26 +355,19 @@ export default function DraggableCollage() {
 
                     <div
                       className={
-                        item.polaroid
-                          ? "bg-white p-2 pb-8"
-                          : item.rounded || item.sticker
+                        item.sticker
                           ? "rounded-2xl overflow-hidden"
-                          : "rounded-sm overflow-hidden"
+                          : "rounded-xl overflow-hidden"
                       }
                       style={
                         item.sticker
                           ? { filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.15))" }
-                          : {
-                              boxShadow:
-                                isHovered && !isDragging
-                                  ? "0 20px 60px rgba(0,0,0,0.16), 0 6px 20px rgba(0,0,0,0.10)"
-                                  : "0 8px 28px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)",
-                            }
+                          : undefined
                       }
                     >
                       <div
                         style={{
-                          width: item.polaroid ? item.width - 16 : item.width,
+                          width: item.width,
                           height: item.height,
                           position: "relative",
                           overflow: item.sticker ? "visible" : "hidden",
@@ -426,17 +382,6 @@ export default function DraggableCollage() {
                           sizes="300px"
                         />
                       </div>
-                      {item.polaroid && item.caption && (
-                        <p
-                          className="mt-2 text-center text-[#444] leading-tight"
-                          style={{
-                            fontFamily: "var(--font-caveat)",
-                            fontSize: 18,
-                          }}
-                        >
-                          {item.caption}
-                        </p>
-                      )}
                     </div>
                   </div>
                 ) : item.textStyle === "sticker" ? (
