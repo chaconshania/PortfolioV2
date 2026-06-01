@@ -5,6 +5,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 21px;
+  background-color: var(--background);
 }
 
 h1,
@@ -17,7 +18,7 @@ h6 {
 }
 
 :root {
-  --background: #ffffff;
+  --background: #FAF8F5;
   --foreground: #171717;
 
   h1 {

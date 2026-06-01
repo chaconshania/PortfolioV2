@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <>
       {/* Top navbar */}
-      <nav className="relative bg-white/30 backdrop-blur-[2px] border-b border-gray-200">
+      <nav className="relative backdrop-blur-[2px] border-b border-gray-200" style={{ backgroundColor: "rgba(250, 248, 245, 0.7)" }}>
         <div className="relative grid grid-cols-2 lg:grid-cols-3 p-4 w-full gap-12 items-center">
           <Link href="/">
             <h2 className="text-sm">SHANIA CHACON</h2>
