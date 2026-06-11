@@ -230,6 +230,15 @@ img {
   color: #333333;
 }
 
+/* ASCII scene RGB split */
+.ascii-scene-mount table,
+.ascii-scene-mount td,
+.ascii-scene-mount span {
+  text-shadow:
+    -2px 0 rgba(255, 30, 30, 0.55),
+    2px 0 rgba(30, 30, 255, 0.55);
+}
+
 /* Grain texture overlay */
 body::after {
   content: "";

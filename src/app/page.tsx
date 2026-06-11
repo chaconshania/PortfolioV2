@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useRef, useCallback, useLayoutEffect, memo, Fragment } from "react";
 import { MoviePosterTrigger } from "@/components/MoviePosterCard";
-import AsciiKoi from "@/components/AsciiKoi";
+import AsciiScene from "@/components/AsciiScene";
 import { RotateCcw } from "lucide-react";
 import { RecentActivities } from "@/components/RecentActivities";
 import gsap from "gsap";
@@ -141,7 +141,7 @@ export default function Home() {
             className="relative flex flex-col w-full overflow-hidden"
             style={{ minHeight: "calc(100dvh - 56px)" }}
           >
-            <AsciiKoi />
+            <AsciiScene />
             <div className="relative flex-1 flex flex-col gap-4 justify-center items-center text-center" style={{ zIndex: 1 }}>
               <motion.div
                 initial={
