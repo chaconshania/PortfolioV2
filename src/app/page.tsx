@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useRef, useCallback, useLayoutEffect, memo, Fragment } from "react";
 import { MoviePosterTrigger } from "@/components/MoviePosterCard";
+import AsciiKoi from "@/components/AsciiKoi";
 import { RotateCcw } from "lucide-react";
 import { RecentActivities } from "@/components/RecentActivities";
 import gsap from "gsap";
@@ -137,10 +138,11 @@ export default function Home() {
         <div className="col-start-2 flex flex-col gap-8 py-6">
           {/* Full-viewport hero */}
           <section
-            className="flex flex-col w-full"
+            className="relative flex flex-col w-full overflow-hidden"
             style={{ minHeight: "calc(100dvh - 56px)" }}
           >
-            <div className="flex-1 flex flex-col gap-4 justify-center items-center text-center">
+            <AsciiKoi />
+            <div className="relative flex-1 flex flex-col gap-4 justify-center items-center text-center" style={{ zIndex: 1 }}>
               <motion.div
                 initial={
                   prefersReducedMotion
@@ -182,7 +184,8 @@ export default function Home() {
 
             {/* Scroll indicator */}
             <motion.div
-              className="flex flex-row items-center justify-center gap-2 pb-8 text-[#aaaaaa] w-full"
+              className="relative flex flex-row items-center justify-center gap-2 pb-8 text-[#aaaaaa] w-full"
+              style={{ zIndex: 1 }}
               initial={prefersReducedMotion ? {} : { opacity: 0 }}
               animate={prefersReducedMotion ? {} : { opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
