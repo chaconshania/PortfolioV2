@@ -80,8 +80,6 @@ const PhraseHeading = memo(function PhraseHeading() {
     isAnimating.current = true;
     tlRef.current?.kill();
 
-    segRefs.current.forEach(el => { if (el) el.textContent = ""; });
-
     const totalDuration = segments.reduce((s, seg) => s + seg.duration, 0);
 
     gsap.to(iconRef.current, {
@@ -107,7 +105,7 @@ const PhraseHeading = memo(function PhraseHeading() {
   }, [prefersReducedMotion]);
 
   return (
-    <h1 className="text-3xl lg:text-4xl text-[#333333] leading-[1.12] text-pretty m-0 max-w-[900px]">
+    <h1 className="text-3xl lg:text-4xl text-[#333333] leading-[1.12] m-0 max-w-[900px]">
       {Array.from({ length: SEG_COUNT }, (_, i) => (
         <Fragment key={i}>
           {i > 0 && " "}
